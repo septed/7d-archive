@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+  <meta charset="utf-8" />
+  <!-- v27527 -->
+
+
+  <title>SoundCloud Help Center</title>
+
+  
+
+  <link rel="canonical" href="https://help.soundcloud.com/hc/en-us">
+<link rel="alternate" hreflang="de" href="https://help.soundcloud.com/hc/de">
+<link rel="alternate" hreflang="en-us" href="https://help.soundcloud.com/hc/en-us">
+<link rel="alternate" hreflang="es" href="https://help.soundcloud.com/hc/es">
+<link rel="alternate" hreflang="fr" href="https://help.soundcloud.com/hc/fr">
+<link rel="alternate" hreflang="it" href="https://help.soundcloud.com/hc/it">
+<link rel="alternate" hreflang="nl" href="https://help.soundcloud.com/hc/nl">
+<link rel="alternate" hreflang="pl" href="https://help.soundcloud.com/hc/pl">
+<link rel="alternate" hreflang="pt-br" href="https://help.soundcloud.com/hc/pt-br">
+<link rel="alternate" hreflang="sv" href="https://help.soundcloud.com/hc/sv">
+<link rel="alternate" hreflang="x-default" href="https://help.soundcloud.com/hc/en-us">
+
+  <link rel="stylesheet" href="//static.zdassets.com/hc/assets/application-9728c5319eba0423daea7e82ae8a1641.css" media="all" id="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="/hc/theming_assets/1338226/3399608/style.css?digest=51625214542107">
+
+  <link rel="icon" type="image/x-icon" href="/hc/theming_assets/01KT4NJG8ZDNZRY0V192CXG95Z">
+
+    
+
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<script type="text/javascript">window.Theme = Object.assign(window.Theme || {}, { assets: {}, locale: "en-us", signedIn: false });</script>
+<script type="text/javascript" src="/hc/theming_assets/01J4T01KR58BRR8SBQ15K432TP"></script>
+
+
+<link rel="stylesheet" href="/hc/theming_assets/01J4T01KV3GDKK2EGXNG1G6F1Y">
+<link rel="stylesheet" href="/hc/theming_assets/01J4T01N0K101M0RGNSK1T3K4W">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css"><link rel="stylesheet" href="/hc/theming_assets/01J4T01MX2G97STYBTNJMCDT4Z">
+
+
+<style id="settings-styles">
+  
+  
+    
+      
+      .hero .svg-shape { fill: #f6fbff; }
+      
+      
+  
+</style>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  
+</head>
+<body class="">
+  
+  
+  
+
+  <!-- OT Consent (preload) -->
+<script src="https://consent.sndcdn.com/v1/preload.js"></script>
+<script>
+  const CookieCategory = {
+    StrictlyNecessary: 'C0001',
+    Performance: 'C0002',
+    Functional: 'C0003',
+    Targeting: 'C0004',
+    SocialMedia: 'C0005',
+    Communications: 'C0007',
+  };
+</script>
+
+<script src="https://consent.sndcdn.com/v1/consent.js"></script>
+<!-- End OT Consent -->
+
+<!-- Google Tag Manager -->
+<script>
+  // wait for performance and targeting cookies to be set before loading Google Tag Manager
+  Promise.all([
+    window.SCConsent.waitForCategory(CookieCategory.Performance),
+    window.SCConsent.waitForCategory(CookieCategory.Targeting),
+  ]).then(() => {
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-WPMTH6QD');
+
+    (function () {
+      window.dataLayer.push({
+        event: 'dataLayer-initialized',
+        page_path: window.location.pathname || undefined,
+        page_url: window.location.href || undefined,
+        page_referrer: document.referrer || undefined,
+        page_title: document.title || undefined
+      });
+    })();
+  });
+  
+</script>
+<!-- End Google Tag Manager -->
+
+
+<!-- Skip to main content link -->
+<a class="sr-only sr-only-focusable" tabindex="1" href="#page-container">
+  Skip to main content
+</a>
+
+<!-- Main layout wrapper -->
+<div class="layout flex flex-1 flex-column z-50" x-data="Widgets.mobileMenu">
+
+  <!-- Primary navigation header -->
+  <header class="header relative border-bottom fixed-header z-50"
+    x-data="Widgets.header({ isFixed: true, isSticky: false })"
+    :class="{ 'border-bottom': !isFixed }">
+
+    <nav class="navbar container-fluid h-full flex items-center justify-between" :class="{ 'text-header': isOpen }>
+  
+      <!-- Mobile menu toggle -->
+      <button class="navbar-toggle ml-2 lg:hidden"
+        x-ref="toggle"
+        :aria-expanded="isOpen && 'true'"
+        @click="toggle"
+        @keydown.escape="close">
+        <span></span>
+        <span class="sr-only">Toggle navigation menu</span>
+      </button>
+
+      <!-- Mobile menu backdrop -->
+
+      <!-- Primary navigation menu -->
+      <div class="nav menu menu-standard menu-links-left lg:flex lg:align-items-center lg:font-size-md lg:menu-expanded lg:justify-content-start"
+        x-cloak
+        x-show="isOpen"
+        :class="{ 'text-header': isOpen }"
+        x-transition:enter="transition-fast"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition-fast"
+        x-transition:leave-start="opacity-100 text-header"
+        x-transition:leave-end="opacity-0 text-header">
+
+        <!-- Mobile search bar -->
+
+        <!-- Category dropdown --></div>
+
+    </nav>
+  </header>
+
+ <!-- Secondary header: Logo and user controls -->
+<header class="header relative border-bottom h-auto z-50">
+  <nav class="navbar container-fluid h-full flex flex-wrap items-center justify-content-start" style="gap: 0.5rem">
+  
+    <!-- Logo -->
+    <a href="/hc/en-us" class="navbar-brand flex-shrink-0">
+      <img class="block img-fluid z-100"
+           id="logo"
+           src="/hc/theming_assets/01KG4640FZ2NM8YSW9SKHRNZJZ"
+           alt="SoundCloud Help Center Help Center home page">
+    </a>
+
+    <!-- Status + optional auth controls: single flex group (wrap, gap) -->
+    <div class="flex flex-wrap items-center flex-shrink-0 max-w-full min-w-0 ml-auto" style="gap: 0.5rem">
+
+      <!-- Status Page (always visible; not tied to SoundCloud auth) -->
+      <span class="block">
+        <a href="https://help.soundcloud.com/hc/articles/4413524848667"
+           class="nav-link header-link"
+           target="_blank"
+           rel="noopener noreferrer">
+          <span style="
+            background-color: rgba(240, 240, 240, 0.5);
+            color: #000;
+            padding: 4px 10px;
+            border-radius: 12px;
+            display: inline-block;
+            text-decoration: none;">
+            Status Page
+          </span>
+        </a>
+      </span>
+
+      
+        
+        
+      
+
+    </div>
+
+  </nav>
+</header>
+
+<!-- To display an incident banner:
+
+1. Remove <!- from line 245, just before <div class="Header__Incident__Wrapper"
+2. Remove -> from line 262, just after </div> 
+3. Add <!- to line 224, just before <div class="Header__Annoucement__Wrapper"
+4. Add -> to line 242, just after </div>                                                
+5. Ensure only ONE banner is active at a time (either Announcement OR Incident).
+
+When the incident is resolved:
+- Reverse the steps -->
+                                 
+<!-- Announcement banner -->
+<div class="Header__Announcement__Wrapper" style="
+  width: 100%;
+  border-top: 3px solid #000;
+  background-color: #fff;
+  text-align: center;
+  padding: 10px 0px;
+  font-size: 16px;
+  font-weight: 500;
+  border-bottom: 3px solid #000;
+  position: relative;
+  z-index: 10;
+">
+  We're the first music company to introduce fan-powered royalties, where independent artists can get paid more because of their dedicated fans. More info
+  <a href="https://help.soundcloud.com/hc/en-us/articles/1260801306810"
+     target="_blank"
+     style="color:#ff5500;">
+    here.
+  </a>
+</div> 
+
+<!-- Incident banner (use when needed — same styling as announcement) -->
+  <!--   <div class="Header__Incident__Wrapper" style="
+  width: 100%;
+  border-top: 3px solid #000;
+  border-bottom: 3px solid #000;
+  background-color: #A9A9A9;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 16px;
+  font-weight: 500;
+  position: relative;
+  z-index: 10;">
+  We are currently experiencing an outage with Facebook/Google sign-up and sign-in, our engineers are investigating. 
+  <a href="https://help.soundcloud.com/hc/en-us/articles/4413524848667" target="_blank" style="color:#ff5500;">
+    Check on our Status Blog.
+  </a>
+</div>                                                                         
+</div>                                                                                                               
+                                                                                                              </div> -->
+
+
+  <main role="main">
+    
+<div class="hero relative overflow-visible bg-home bg-cover bg-center">
+
+  
+  <div class="relative container z-30 pt-6 pb-6 lg:pb-8 lg:pt-8"";">
+
+    
+      <h1 class="my-0 text-center font-size-4xl lg:font-size-5xl">
+          How can we help?
+        </h1>
+    
+    <div class="search search-lg text-base max-w-md my-6 md:my-0 mx-auto md:font-size-lg">
+      <h2 class="sr-only">Search</h2>
+        
+          <form role="search" class="form-field mb-0" data-search="" data-instant="true" autocomplete="off" action="/hc/en-us/search" accept-charset="UTF-8" method="get"><input type="hidden" name="utf8" value="&#x2713;" autocomplete="off" /><input type="search" name="query" id="query" placeholder="Search for answers..." autocomplete="off" aria-label="Search for answers..." /></form>
+        
+      <svg class="search-icon fill-current transition" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" aria-hidden="true">
+        <use xlink:href="#icon-search" />
+      </svg>
+    </div>
+
+    
+      <p class="mt-5 text-center font-size-lg">
+          Search our knowledge base or browse the topics below
+        </p>
+    </div>
+
+  
+  <div class="absolute z-10 top-0 left-0 h-full w-full bg-hero"></div>
+
+  
+  0
+
+  
+    <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"class="svg-shape -mt-6" viewBox="0 0 100 100">
+      <use xlink:href="#shape-curve" />
+    </svg>
+  </div> 
+
+<div class="relative flex flex-column z-40" id="page-container">
+
+  
+  
+
+  
+  
+    <div class="content-blocks bg-content-blocks" id="content-blocks">
+      <div class="container py-4 text-center lg:pt-0">
+        
+          
+
+          
+
+          
+          
+            <ul class="list-unstyled row justify-content-center row-sm"
+              x-data="{
+                customBlocksAbove: 'none' !== 'none',
+                promotedArticlesAbove: '3-bordered' !== 'none' && 'after' === 'before',
+                notificationAbove: 'none' === 'home' && !!'notification_content' && !window.sessionStorage.getItem('alpine:notification:dismissed')
+              }"
+              :class="{ '-mt-9': !customBlocksAbove && !promotedArticlesAbove && !notificationAbove }">
+              
+                
+                  <li class="mb-5 col-12 md:mb-6 md:col-6 lg:col-4">
+                    <a class="card py-5 px-6 bg-white h-full shadow transition-fast hover:no-underline hover:float hover:shadow-sm  hover:text-gray-100-inverse hover:bg-gray-100" href="/hc/en-us/categories/115000678928-SoundCloud-Fans-Listeners">
+                      
+                        <div class="inline-flex p-4 m-4 circle mx-auto bg-primary">
+                          <img class="mx-auto" alt="SoundCloud Fans &amp; Listeners" data-asset="image" data-asset-id="category-115000678928" src="/hc/theming_assets/01KFXQGBNKZR6T9ND91SFMR90Z
+                          " style="height: 36px; width: 36px;" />
+                        </div>
+                      
+                      <h2 class="font-size-2xl my-3">
+                        SoundCloud Fans &amp; Listeners
+                      </h2>
+                      
+                    </a>
+                  </li>
+                
+              
+                
+                  <li class="mb-5 col-12 md:mb-6 md:col-6 lg:col-4">
+                    <a class="card py-5 px-6 bg-white h-full shadow transition-fast hover:no-underline hover:float hover:shadow-sm  hover:text-gray-100-inverse hover:bg-gray-100" href="/hc/en-us/categories/31283161425563-Creators-on-SoundCloud">
+                      
+                        <div class="inline-flex p-4 m-4 circle mx-auto bg-secondary">
+                          <img class="mx-auto" alt="Creators on SoundCloud" data-asset="image" data-asset-id="category-31283161425563" src="/hc/theming_assets/01KBGAXGZ93QY28CT48VQ0KK1Y
+                          " style="height: 36px; width: 36px;" />
+                        </div>
+                      
+                      <h2 class="font-size-2xl my-3">
+                        Creators on SoundCloud
+                      </h2>
+                      
+                    </a>
+                  </li>
+                
+              
+                
+                  <li class="mb-5 col-12 md:mb-6 md:col-6 lg:col-4">
+                    <a class="card py-5 px-6 bg-white h-full shadow transition-fast hover:no-underline hover:float hover:shadow-sm  hover:text-gray-100-inverse hover:bg-gray-100" href="/hc/en-us/categories/115000606848-My-Account">
+                      
+                        <div class="inline-flex p-4 m-4 circle mx-auto bg-tertiary">
+                          <img class="mx-auto" alt="My Account" data-asset="image" data-asset-id="category-115000606848" src="/hc/theming_assets/01KBGAX9YW189WBW4ATY8G7Q46
+                          " style="height: 36px; width: 36px;" />
+                        </div>
+                      
+                      <h2 class="font-size-2xl my-3">
+                        My Account
+                      </h2>
+                      
+                    </a>
+                  </li>
+                
+              
+                
+                  <li class="mb-5 col-12 md:mb-6 md:col-6 lg:col-4">
+                    <a class="card py-5 px-6 bg-white h-full shadow transition-fast hover:no-underline hover:float hover:shadow-sm  hover:text-gray-100-inverse hover:bg-gray-100" href="/hc/en-us/categories/39687296217243-Subscriptions-Billing">
+                      
+                        <div class="inline-flex p-4 m-4 circle mx-auto bg-primary">
+                          <img class="mx-auto" alt="Subscriptions &amp; Billing" data-asset="image" data-asset-id="category-39687296217243" src="/hc/theming_assets/01KBGAX9YW189WBW4ATY8G7Q46
+                          " style="height: 36px; width: 36px;" />
+                        </div>
+                      
+                      <h2 class="font-size-2xl my-3">
+                        Subscriptions &amp; Billing
+                      </h2>
+                      
+                    </a>
+                  </li>
+                
+              
+                
+                  <li class="mb-5 col-12 md:mb-6 md:col-6 lg:col-4">
+                    <a class="card py-5 px-6 bg-white h-full shadow transition-fast hover:no-underline hover:float hover:shadow-sm  hover:text-gray-100-inverse hover:bg-gray-100" href="/hc/en-us/categories/37725147889307-Vinyl-Distribution">
+                      
+                        <div class="inline-flex p-4 m-4 circle mx-auto bg-secondary">
+                          <img class="mx-auto" alt="Vinyl Distribution" data-asset="image" data-asset-id="category-37725147889307" src="/hc/theming_assets/01KBGAXGZ93QY28CT48VQ0KK1Y
+                          " style="height: 36px; width: 36px;" />
+                        </div>
+                      
+                      <h2 class="font-size-2xl my-3">
+                        Vinyl Distribution
+                      </h2>
+                      
+                    </a>
+                  </li>
+                
+              
+                
+                  <li class="mb-5 col-12 md:mb-6 md:col-6 lg:col-4">
+                    <a class="card py-5 px-6 bg-white h-full shadow transition-fast hover:no-underline hover:float hover:shadow-sm  hover:text-gray-100-inverse hover:bg-gray-100" href="/hc/en-us/categories/47989347228187-Share-Embed">
+                      
+                        <div class="inline-flex p-4 m-4 circle mx-auto bg-tertiary">
+                          <img class="mx-auto" alt="Share &amp; Embed" data-asset="image" data-asset-id="category-47989347228187" src="/hc/theming_assets/01KFXQGBNKZR6T9ND91SFMR90Z
+                          " style="height: 36px; width: 36px;" />
+                        </div>
+                      
+                      <h2 class="font-size-2xl my-3">
+                        Share &amp; Embed
+                      </h2>
+                      
+                    </a>
+                  </li>
+                
+              
+                
+                  <li class="mb-5 col-12 md:mb-6 md:col-6 lg:col-4">
+                    <a class="card py-5 px-6 bg-white h-full shadow transition-fast hover:no-underline hover:float hover:shadow-sm  hover:text-gray-100-inverse hover:bg-gray-100" href="/hc/en-us/categories/46352081847323-Copyright-for-SoundCloud-Creators">
+                      
+                        <div class="inline-flex p-4 m-4 circle mx-auto bg-primary">
+                          <img class="mx-auto" alt="Copyright for SoundCloud Creators" data-asset="image" data-asset-id="category-46352081847323" src="/hc/theming_assets/01KBGAX4BMK9ZPGV57SS9KYVS7
+                          " style="height: 36px; width: 36px;" />
+                        </div>
+                      
+                      <h2 class="font-size-2xl my-3">
+                        Copyright for SoundCloud Creators
+                      </h2>
+                      
+                    </a>
+                  </li>
+                
+              
+                
+                  <li class="mb-5 col-12 md:mb-6 md:col-6 lg:col-4">
+                    <a class="card py-5 px-6 bg-white h-full shadow transition-fast hover:no-underline hover:float hover:shadow-sm  hover:text-gray-100-inverse hover:bg-gray-100" href="/hc/en-us/categories/115000678968-Legal-Safety-Reporting">
+                      
+                        <div class="inline-flex p-4 m-4 circle mx-auto bg-secondary">
+                          <img class="mx-auto" alt="Legal, Safety &amp; Reporting" data-asset="image" data-asset-id="category-115000678968" src="/hc/theming_assets/01KBGAX4BMK9ZPGV57SS9KYVS7
+                          " style="height: 36px; width: 36px;" />
+                        </div>
+                      
+                      <h2 class="font-size-2xl my-3">
+                        Legal, Safety &amp; Reporting
+                      </h2>
+                      
+                    </a>
+                  </li>
+                
+              
+                
+                  <li class="mb-5 col-12 md:mb-6 md:col-6 lg:col-4">
+                    <a class="card py-5 px-6 bg-white h-full shadow transition-fast hover:no-underline hover:float hover:shadow-sm  hover:text-gray-100-inverse hover:bg-gray-100" href="/hc/en-us/categories/4413517355163-SoundCloud-Status">
+                      
+                        <div class="inline-flex p-4 m-4 circle mx-auto bg-tertiary">
+                          <img class="mx-auto" alt="SoundCloud Status" data-asset="image" data-asset-id="category-4413517355163" src="/hc/theming_assets/01KBGAX4BMK9ZPGV57SS9KYVS7
+                          " style="height: 36px; width: 36px;" />
+                        </div>
+                      
+                      <h2 class="font-size-2xl my-3">
+                        SoundCloud Status
+                      </h2>
+                      
+                    </a>
+                  </li>
+                
+              
+            </ul>
+          
+
+          
+          
+
+        
+
+        
+
+      </div>
+    </div>
+  
+
+  
+  
+    <div class="promoted-articles " id="promoted-articles">
+      <div class="container text-left py-4">
+        
+
+          
+            <h2 class="inline-flex align-items-baseline mt-6" x-data="{ src: Theme.assets['promoted-articles-heading'] }">
+              <template x-if="src">
+                <img class="svg-icon mr-2" src="/hc/theming_assets/01J4T01HEXNZK8CBPAPZ3CGFVG" alt="" aria-hidden="true" :src="src" />
+              </template>
+                Featured Articles
+              </h2>
+          
+            <ul class="row row-sm list-unstyled">
+                <li class="col-12 md:col-6">
+
+                  <div class="relative media align-items-baseline py-2 font-size-lg h-full border-bottom">
+
+                    <div class="flex" x-data="{ src: Theme.assets['article'] }">
+                      <template x-if="src">
+                        <img class="svg-icon mr-3" src="/hc/theming_assets/01J4T01HEXNZK8CBPAPZ3CGFVG" alt="" aria-hidden="true" :src="src" />
+                      </template>
+                    </div>
+
+                    <div class="media-body">
+                      <a class="link-stretched text-inherit" href="/hc/en-us/articles/360051638314-What-happens-when-I-cancel-my-Go-subscription">What happens when I cancel my Go subscription?</a></div>
+                  </div>
+                </li>
+              
+                <li class="col-12 md:col-6">
+
+                  <div class="relative media align-items-baseline py-2 font-size-lg h-full border-bottom">
+
+                    <div class="flex" x-data="{ src: Theme.assets['article'] }">
+                      <template x-if="src">
+                        <img class="svg-icon mr-3" src="/hc/theming_assets/01J4T01HEXNZK8CBPAPZ3CGFVG" alt="" aria-hidden="true" :src="src" />
+                      </template>
+                    </div>
+
+                    <div class="media-body">
+                      <a class="link-stretched text-inherit" href="/hc/en-us/articles/24320060389275-How-to-Distribute-with-SoundCloud">How to Distribute with SoundCloud</a></div>
+                  </div>
+                </li>
+              
+                <li class="col-12 md:col-6">
+
+                  <div class="relative media align-items-baseline py-2 font-size-lg h-full border-bottom">
+
+                    <div class="flex" x-data="{ src: Theme.assets['article'] }">
+                      <template x-if="src">
+                        <img class="svg-icon mr-3" src="/hc/theming_assets/01J4T01HEXNZK8CBPAPZ3CGFVG" alt="" aria-hidden="true" :src="src" />
+                      </template>
+                    </div>
+
+                    <div class="media-body">
+                      <a class="link-stretched text-inherit" href="/hc/en-us/articles/360051803333-Migrating-Catalog-to-SoundCloud-for-Artists">Migrating Catalog to SoundCloud for Artists</a></div>
+                  </div>
+                </li>
+              
+                <li class="col-12 md:col-6">
+
+                  <div class="relative media align-items-baseline py-2 font-size-lg h-full border-bottom">
+
+                    <div class="flex" x-data="{ src: Theme.assets['article'] }">
+                      <template x-if="src">
+                        <img class="svg-icon mr-3" src="/hc/theming_assets/01J4T01HEXNZK8CBPAPZ3CGFVG" alt="" aria-hidden="true" :src="src" />
+                      </template>
+                    </div>
+
+                    <div class="media-body">
+                      <a class="link-stretched text-inherit" href="/hc/en-us/articles/39687296360091-Verify-your-Rights-for-Monetization-Distribution">Verify your Rights for Monetization &amp; Distribution</a></div>
+                  </div>
+                </li>
+              
+                <li class="col-12 md:col-6">
+
+                  <div class="relative media align-items-baseline py-2 font-size-lg h-full border-bottom">
+
+                    <div class="flex" x-data="{ src: Theme.assets['article'] }">
+                      <template x-if="src">
+                        <img class="svg-icon mr-3" src="/hc/theming_assets/01J4T01HEXNZK8CBPAPZ3CGFVG" alt="" aria-hidden="true" :src="src" />
+                      </template>
+                    </div>
+
+                    <div class="media-body">
+                      <a class="link-stretched text-inherit" href="/hc/en-us/articles/115003570488-Introduction-to-SoundCloud">Introduction to SoundCloud</a></div>
+                  </div>
+                </li>
+              
+                <li class="col-12 md:col-6">
+
+                  <div class="relative media align-items-baseline py-2 font-size-lg h-full border-bottom">
+
+                    <div class="flex" x-data="{ src: Theme.assets['article'] }">
+                      <template x-if="src">
+                        <img class="svg-icon mr-3" src="/hc/theming_assets/01J4T01HEXNZK8CBPAPZ3CGFVG" alt="" aria-hidden="true" :src="src" />
+                      </template>
+                    </div>
+
+                    <div class="media-body">
+                      <a class="link-stretched text-inherit" href="/hc/en-us/articles/115003566528-Unable-to-Sign-In-to-Your-Account">Unable to Sign In to Your Account</a></div>
+                  </div>
+                </li>
+              
+                <li class="col-12 md:col-6">
+
+                  <div class="relative media align-items-baseline py-2 font-size-lg h-full border-bottom">
+
+                    <div class="flex" x-data="{ src: Theme.assets['article'] }">
+                      <template x-if="src">
+                        <img class="svg-icon mr-3" src="/hc/theming_assets/01J4T01HEXNZK8CBPAPZ3CGFVG" alt="" aria-hidden="true" :src="src" />
+                      </template>
+                    </div>
+
+                    <div class="media-body">
+                      <a class="link-stretched text-inherit" href="/hc/en-us/articles/115003569608-Creating-an-account-on-SoundCloud">Creating an account on SoundCloud</a></div>
+                  </div>
+                </li>
+              
+                <li class="col-12 md:col-6">
+
+                  <div class="relative media align-items-baseline py-2 font-size-lg h-full border-bottom">
+
+                    <div class="flex" x-data="{ src: Theme.assets['article'] }">
+                      <template x-if="src">
+                        <img class="svg-icon mr-3" src="/hc/theming_assets/01J4T01HEXNZK8CBPAPZ3CGFVG" alt="" aria-hidden="true" :src="src" />
+                      </template>
+                    </div>
+
+                    <div class="media-body">
+                      <a class="link-stretched text-inherit" href="/hc/en-us/articles/360051072534-Choosing-the-Right-Subscription">Choosing the Right Subscription</a></div>
+                  </div>
+                </li>
+              
+                <li class="col-12 md:col-6">
+
+                  <div class="relative media align-items-baseline py-2 font-size-lg h-full border-bottom">
+
+                    <div class="flex" x-data="{ src: Theme.assets['article'] }">
+                      <template x-if="src">
+                        <img class="svg-icon mr-3" src="/hc/theming_assets/01J4T01HEXNZK8CBPAPZ3CGFVG" alt="" aria-hidden="true" :src="src" />
+                      </template>
+                    </div>
+
+                    <div class="media-body">
+                      <a class="link-stretched text-inherit" href="/hc/en-us/articles/360051642434-Subscription-Management">Subscription Management</a></div>
+                  </div>
+                </li>
+              
+                <li class="col-12 md:col-6">
+
+                  <div class="relative media align-items-baseline py-2 font-size-lg h-full border-bottom">
+
+                    <div class="flex" x-data="{ src: Theme.assets['article'] }">
+                      <template x-if="src">
+                        <img class="svg-icon mr-3" src="/hc/theming_assets/01J4T01HEXNZK8CBPAPZ3CGFVG" alt="" aria-hidden="true" :src="src" />
+                      </template>
+                    </div>
+
+                    <div class="media-body">
+                      <a class="link-stretched text-inherit" href="/hc/en-us/articles/4402637287835-Why-was-my-track-taken-down-from-SoundCloud">Why was my track taken down from SoundCloud?</a></div>
+                  </div>
+                </li>
+              
+                <li class="col-12 md:col-6">
+
+                  <div class="relative media align-items-baseline py-2 font-size-lg h-full border-bottom">
+
+                    <div class="flex" x-data="{ src: Theme.assets['article'] }">
+                      <template x-if="src">
+                        <img class="svg-icon mr-3" src="/hc/theming_assets/01J4T01HEXNZK8CBPAPZ3CGFVG" alt="" aria-hidden="true" :src="src" />
+                      </template>
+                    </div>
+
+                    <div class="media-body">
+                      <a class="link-stretched text-inherit" href="/hc/en-us/articles/115003569668-Reporting-on-SoundCloud">Reporting on SoundCloud</a></div>
+                  </div>
+                </li>
+              
+                <li class="col-12 md:col-6">
+
+                  <div class="relative media align-items-baseline py-2 font-size-lg h-full border-bottom">
+
+                    <div class="flex" x-data="{ src: Theme.assets['article'] }">
+                      <template x-if="src">
+                        <img class="svg-icon mr-3" src="/hc/theming_assets/01J4T01HEXNZK8CBPAPZ3CGFVG" alt="" aria-hidden="true" :src="src" />
+                      </template>
+                    </div>
+
+                    <div class="media-body">
+                      <a class="link-stretched text-inherit" href="/hc/en-us/articles/115003566708-Reporting-a-spam-account">Reporting a spam account</a></div>
+                  </div>
+                </li>
+              </ul>
+          
+      </div>
+    </div>
+  
+
+  
+  
+
+  
+  
+
+</div> 
+
+<script type="text/javascript">
+  
+
+  </script>
+
+<script type="text/javascript">document.documentElement.classList.add('home-page')</script>
+
+<link rel="icon" href="/path/to/favicon.ico">
+  </main>
+
+    
+  <footer class="footer mt-6" id="footer">
+
+    
+
+    <div class="container py-7">
+
+      <nav class="nav font-size-md">
+
+        
+          <a class="nav-link" href="https://soundcloud.com/discover" x-data="link">
+              SoundCloud
+            </a>
+        
+          <a class="nav-link" href="https://soundcloud.com/artists" x-data="link">
+            
+              For Artists
+            
+          </a>
+        
+          <a class="nav-link" href="https://soundcloud.com/terms-of-use" x-data="link">
+            
+              Terms of Use
+            
+          </a>
+        
+          <a id="consent-manager" class="nav-link" href="#" x-data="link">
+            
+              Cookie Manager
+            
+          </a>
+        
+          <div class="relative" x-data="Widgets.dropdown" @click.away="close">
+            <button class="nav-link not-a-button h-full w-full" aria-haspopup="true" :aria-expanded="isExpanded" x-ref="toggle">
+              <svg class="svg-icon mr-1 fill-current hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                <use xlink:href="#icon-locales" />
+              </svg>
+              English (United States)
+              <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" aria-hidden="true" :class="{ 'rotate-180': isExpanded }">
+                <use xlink:href="#icon-chevron-down" />
+              </svg>
+            </button>
+            <div class="z-dropdown absolute my-2 bg-white border border-radius shadow-md min-w-dropdown" x-ref="menu" x-cloak x-show="isExpanded">
+              <div class="py-2 font-size-sm text-left">
+                
+                  <a class="dropdown-item" href="/hc/change_language/de?return_to=%2Fhc%2Fde" dir="ltr" rel="nofollow">
+                    Deutsch
+                  </a>
+                
+                  <a class="dropdown-item" href="/hc/change_language/es?return_to=%2Fhc%2Fes" dir="ltr" rel="nofollow">
+                    Español
+                  </a>
+                
+                  <a class="dropdown-item" href="/hc/change_language/fr?return_to=%2Fhc%2Ffr" dir="ltr" rel="nofollow">
+                    Français
+                  </a>
+                
+                  <a class="dropdown-item" href="/hc/change_language/it?return_to=%2Fhc%2Fit" dir="ltr" rel="nofollow">
+                    Italiano
+                  </a>
+                
+                  <a class="dropdown-item" href="/hc/change_language/nl?return_to=%2Fhc%2Fnl" dir="ltr" rel="nofollow">
+                    Nederlands
+                  </a>
+                
+                  <a class="dropdown-item" href="/hc/change_language/pl?return_to=%2Fhc%2Fpl" dir="ltr" rel="nofollow">
+                    Polski
+                  </a>
+                
+                  <a class="dropdown-item" href="/hc/change_language/pt-br?return_to=%2Fhc%2Fpt-br" dir="ltr" rel="nofollow">
+                    Português do Brasil
+                  </a>
+                
+                  <a class="dropdown-item" href="/hc/change_language/sv?return_to=%2Fhc%2Fsv" dir="ltr" rel="nofollow">
+                    Svenska
+                  </a>
+                
+              </div>
+            </div>
+          </div>
+        
+          <a class="nav-link" href="https://www.facebook.com/SoundCloud/" target="_blank">
+            <svg class="svg-icon fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" aria-hidden="true">
+              <path d="M6 0a6 6 0 01.813 11.945V7.63h1.552l.244-1.585H6.812v-.867c0-.658.214-1.242.827-1.242h.985V2.55c-.173-.024-.538-.075-1.23-.075-1.444 0-2.29.767-2.29 2.513v1.055H3.618v1.585h1.484v4.304A6.001 6.001 0 016 0z"></path>
+            </svg>
+          </a>
+        
+          <a class="nav-link" href="https://x.com/SoundCloud" target="_blank">
+            <svg class="svg-icon fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M14.095479,10.316482L22.286354,1h-1.940718l-7.115352,8.087682L7.551414,1H1l8.589488,12.231093L1,23h1.940717  l7.509372-8.542861L16.448587,23H23L14.095479,10.316482z M11.436522,13.338465l-0.871624-1.218704l-6.924311-9.68815h2.981339  l5.58978,7.82155l0.867949,1.218704l7.26506,10.166271h-2.981339L11.436522,13.338465z"/>
+            </svg>
+          </a>
+        
+          <a class="nav-link" href="https://www.linkedin.com/company/soundcloud/" target="_blank">
+            <svg class="svg-icon fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" aria-hidden="true">
+              <path d="M10.8 0A1.2 1.2 0 0112 1.2v9.6a1.2 1.2 0 01-1.2 1.2H1.2A1.2 1.2 0 010 10.8V1.2A1.2 1.2 0 011.2 0h9.6zM8.09 4.356a1.87 1.87 0 00-1.598.792l-.085.133h-.024v-.783H4.676v5.727h1.778V7.392c0-.747.142-1.47 1.068-1.47.913 0 .925.854.925 1.518v2.785h1.778V7.084l-.005-.325c-.05-1.38-.456-2.403-2.13-2.403zm-4.531.142h-1.78v5.727h1.78V4.498zm-.89-2.846a1.032 1.032 0 100 2.064 1.032 1.032 0 000-2.064z"></path>
+            </svg>
+          </a>
+        
+          <a class="nav-link" href="https://www.instagram.com/soundcloud/" target="_blank">
+            <svg class="svg-icon fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true">
+              <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path>
+            </svg>
+          </a>
+        
+          <a class="nav-link" href="https://www.youtube.com/soundcloud" target="_blank">
+            <svg class="svg-icon fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" aria-hidden="true">
+              <path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path>
+            </svg>
+          </a>
+        </nav>
+
+      
+        <div
+          class="fixed bottom-0 left-0"
+          data-element="back-to-top"
+          data-template="back-to-top-link"
+          data-threshold="250px">
+        </div>
+      </div>
+  </footer> 
+
+</div> 
+
+
+<script type="text/javascript" src="/hc/theming_assets/01J4T01N6PH03YJTFK1065VAKZ" defer></script>
+<script type="text/javascript" src="/hc/theming_assets/01K8AV0K1YY1JH0QYDV6E9X6G5" defer></script>
+<script type="text/javascript" src="/hc/theming_assets/01J4T01K9HYZERYF7G3ZBDHYKX" defer></script>
+<script type="text/javascript" src="/hc/theming_assets/01KMQG7ZZK9SKY9GG0P90THEBR" defer></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/combine/npm/alpinejs@3.13.0/dist/cdn.min.js,npm/plyr@~3.6.4/dist/plyr.polyfilled.min.js" defer>
+</script>
+<script type="text/javascript" src="/hc/theming_assets/01J4T01KCN5FN8YCFGJX5CR04T" defer></script><script type="text/javascript" src="/hc/theming_assets/01J4T01MWHFAR2A7C56GFQYRS7" defer></script><script type="text/javascript" src="/hc/theming_assets/01J4T01N2NZV8J7TWB00QSTT8B" defer></script>
+
+
+
+    <script type="text/template" id="tmpl-back-to-top-link">
+      <button class="flex button button-outline button-sm bg-white p-3 m-4">
+        <span class="sr-only">Return to top</span>
+        <svg class="fill-current" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true">
+          <polygon points="12.4,40.1 25.8,53.6 40.5,38.8 40.5,97.5 59.5,97.5 59.5,38.8 74.2,53.6 87.6,40.1 50,2.5" />
+        </svg>
+      </button>
+    </script>
+  
+<svg xmlns="http://www.w3.org/2000/svg" class="hidden">
+  <symbol id="icon-search">
+    <circle cx="4.5" cy="4.5" r="4" fill="none" stroke="currentColor"/>
+    <path stroke="currentColor" stroke-linecap="round" d="M11 11L7.5 7.5"/>
+  </symbol>
+  <symbol id="icon-lock">
+    <rect width="12" height="9" x="2" y="7" fill="currentColor" rx="1" ry="1"/>
+    <path fill="none" stroke="currentColor" d="M4.5 7.5V4a3.5 3.5 0 017 0v3.5"/>
+  </symbol>
+  <symbol id="icon-star">
+    <polygon points="213 325 81 405 116 255 0 154 153 141 213 0 273 141 426 154 310 255 345 405"></polygon>
+  </symbol>
+  <symbol id="icon-chevron-down">
+    <path fill="none" stroke="currentColor" stroke-linecap="round" d="M3 4.5l2.6 2.6c.2.2.5.2.7 0L9 4.5"/>
+  </symbol>
+  <symbol id="icon-agent">
+    <path fill="currentColor" d="M6 0C2.7 0 0 2.7 0 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6zm0 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm2.3 7H3.7c-.3 0-.4-.3-.3-.5C3.9 7.6 4.9 7 6 7s2.1.6 2.6 1.5c.1.2 0 .5-.3.5z"/>
+  </symbol>
+  
+    <symbol id="shape-curve"><path d="M0,0 C16.6666667,66 33.3333333,98 50,98 C66.6666667,98 83.3333333,66 100,0 L100,100 L0,100 L0,0 Z"></path></symbol>
+  
+    <symbol id="shape-none"></symbol>
+  </svg>
+
+<script type="text/javascript">
+  Theme.assets['notification'] = "/hc/theming_assets/01KPXPHXPMVZ9245X3JBBHVSQK";Theme.assets['article'] = "/hc/theming_assets/01KPXPHXQAQRB4D0GW8SS6KBTY";Theme.assets['article-promoted'] = "/hc/theming_assets/01KPXPHXN6WWKEKNRGG4BFSN3X";
+  Theme.alternativeLocales = [{ name: "Deutsch", url: "/hc/change_language/de?return_to=%2Fhc%2Fde", direction: "ltr" },{ name: "Español", url: "/hc/change_language/es?return_to=%2Fhc%2Fes", direction: "ltr" },{ name: "Français", url: "/hc/change_language/fr?return_to=%2Fhc%2Ffr", direction: "ltr" },{ name: "Italiano", url: "/hc/change_language/it?return_to=%2Fhc%2Fit", direction: "ltr" },{ name: "Nederlands", url: "/hc/change_language/nl?return_to=%2Fhc%2Fnl", direction: "ltr" },{ name: "Polski", url: "/hc/change_language/pl?return_to=%2Fhc%2Fpl", direction: "ltr" },{ name: "Português do Brasil", url: "/hc/change_language/pt-br?return_to=%2Fhc%2Fpt-br", direction: "ltr" },{ name: "Svenska", url: "/hc/change_language/sv?return_to=%2Fhc%2Fsv", direction: "ltr" }];
+
+  </script>
+
+
+
+
+
+
+<script type="text/template" id="tmpl-article-list">
+  <div class="border-top border-bottom lg:border-transparent mt-5 lg:my-6" x-data="toggle({ isOpen: false })" @collapse:show.stop="open" @collapse:hide.stop="close">
+
+    
+    <h3 class="flex align-items-center justify-content-between my-4 font-size-lg cursor-pointer lg:hidden" data-toggle="collapse" data-target="#sidebar-navigation" aria-controls="sidebar-navigation" aria-expanded="false">
+      Categories
+      <svg class="fill-current pointer-events-none ml-3" :class="isOpen && 'rotate-180'" width="14px" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20,19.5 C19.4,19.5 18.9,19.3 18.4,18.9 L1.4,4.9 C0.3,4 0.2,2.4 1.1,1.4 C2,0.3 3.6,0.2 4.6,1.1 L20,13.8 L35.5,1.1 C36.6,0.2 38.1,0.4 39,1.4 C39.9,2.5 39.7,4 38.7,4.9 L21.7,18.9 C21.1,19.3 20.5,19.5 20,19.5 Z" fill-rule="nonzero"></path>
+      </svg>
+    </h3>
+
+    <div class="collapse lg:expand lg:flex-column" id="sidebar-navigation">
+      <ul class="list-unstyled font-size-lg w-full">
+        <% categories.forEach(function(category, index) { %>
+          <li class="font-bold" x-data="toggle({ isOpen: <%= !!category.isActive %> })" @collapse:show.stop="open" @collapse:hide.stop="close">
+
+            
+            <div class="flex justify-content-between align-items-center">
+              <a class="flex-1 py-3 text-inherit" :class="{ 'text-inherit': !isOpen }" href="<%= category.html_url %>">
+                <%= category.name %>
+              </a>
+              <button class="p-2 ml-1 not-a-button border-radius transition cursor-pointer hover:bg-gray-200 hidden lg:block" :class="{ 'is-active': isOpen }" :aria-expanded="isOpen" data-toggle="collapse" data-target="#category-<%= category.id %>">
+                <svg class="text-inherit fill-current pointer-events-none" :class="{ 'rotate-180': isOpen }" width="12px" height="12px" viewBox="0 0 324 190" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M162,190 C156,190 150,187 146,183 L7,38 C-2,29 -2,15 7,7 C16,-2 30,-2 39,7 L162,135 L285,7 C293,-2 308,-2 317,7 C326,15 326,29 317,38 L178,183 C174,187 168,190 162,190 Z"></path>
+                </svg>
+              </button>
+            </div>
+
+            <div class="hidden lg:block">
+              
+              <%= partial('partial-article-list-sections', {
+                id: 'category-' + category.id,
+                parentId: '#sidebar-navigation',
+                sections: category.sections,
+                activeCategoryId: activeCategoryId,
+                activeSectionId: activeSectionId,
+                activeArticleId: activeArticleId,
+                partial: partial
+              }) %>
+            </div>
+          </li>
+        <% }); %>
+      </ul>
+    </div>
+  </div>
+</script>
+
+
+<script type="text/template" id="tmpl-section-list">
+  <% var maxSections =  5 %>
+  <div class="border-top border-bottom lg:border-transparent mt-5 lg:my-5" x-data="toggle({ isOpen: false })" @collapse:show.stop="open" @collapse:hide.stop="close">
+
+    
+    <h3 class="flex align-items-center justify-content-between my-4 font-size-lg cursor-pointer lg:hidden" data-toggle="collapse" data-target="#sidebar-navigation" aria-controls="sidebar-navigation" aria-expanded="false">
+      Toggle navigation menu
+      <svg class="fill-current pointer-events-none ml-3" :class="isOpen && 'rotate-180'" width="14px" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20,19.5 C19.4,19.5 18.9,19.3 18.4,18.9 L1.4,4.9 C0.3,4 0.2,2.4 1.1,1.4 C2,0.3 3.6,0.2 4.6,1.1 L20,13.8 L35.5,1.1 C36.6,0.2 38.1,0.4 39,1.4 C39.9,2.5 39.7,4 38.7,4.9 L21.7,18.9 C21.1,19.3 20.5,19.5 20,19.5 Z" fill-rule="nonzero"></path>
+      </svg>
+    </h3>
+
+    <div class="collapse lg:expand lg:flex-column" id="sidebar-navigation">
+      <ul class="list-unstyled m-0 py-2">
+        <% categories.forEach(function(category, index) { %>
+          <li>
+            <h3 class="font-size-lg <% if (index === 0) { %>mt-4<% } else { %>mt-6<% } %>">
+              <a class="text-inherit" href="<%= category.html_url %>">
+                <%= category.name %>
+              </a>
+            </h3>
+            <%= partial('partial-section-list-sections', { parent: category, sections: category.sections, maxSections: maxSections, partial: partial }) %>
+          </li>
+        <% }); %>
+      </ul>
+    </div>
+  </div>
+</script>
+
+
+<script type="text/template" id="tmpl-category-list">
+  <div class="border-top border-bottom lg:border-transparent mt-5 lg:my-5" x-data="toggle({ isOpen: false })" @collapse:show.stop="open" @collapse:hide.stop="close">
+
+    
+    <h3 class="flex align-items-center justify-content-between my-4 font-size-lg cursor-pointer lg:hidden" data-toggle="collapse" data-target="#sidebar-navigation" aria-controls="sidebar-navigation" aria-expanded="false">
+      Categories
+      <svg class="fill-current pointer-events-none ml-3" :class="isOpen && 'rotate-180'" width="14px" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20,19.5 C19.4,19.5 18.9,19.3 18.4,18.9 L1.4,4.9 C0.3,4 0.2,2.4 1.1,1.4 C2,0.3 3.6,0.2 4.6,1.1 L20,13.8 L35.5,1.1 C36.6,0.2 38.1,0.4 39,1.4 C39.9,2.5 39.7,4 38.7,4.9 L21.7,18.9 C21.1,19.3 20.5,19.5 20,19.5 Z" fill-rule="nonzero"></path>
+      </svg>
+    </h3>
+
+    <div class="collapse lg:expand lg:flex-column" id="sidebar-navigation">
+      <h3 class="font-size-lg hidden lg:block">
+        <a class="text-inherit" href="/hc/en-us">
+          Categories
+        </a>
+      </h3>
+      <ul class="list-unstyled lg:font-size-md">
+        <% categories.forEach(function(category) { %>
+          <li>
+            <a class="block py-2 text-inherit<% if (category.isActive) { %> underline<% } %>" href="<%= category.html_url %>">
+              <%= category.name %>
+            </a>
+          </li>
+        <% }); %>
+      </ul>
+    </div>
+  </div>
+</script>
+
+
+
+
+<script type="text/template" id="tmpl-partial-article-list-sections">
+  <% if (sections.length) { %>
+    <ul class="list-none pl-3 mb-0 font-size-base collapse" id="<%= id %>" :class="{ 'is-visible': isOpen }" data-parent="<%= parentId %>">
+      <% sections.forEach(function(section) { %>
+        <li class="font-medium" x-data="toggle({ isOpen: <%= !!section.isActive %> })" @collapse:show.stop="open" @collapse:hide.stop="close">
+
+          
+          <div class="flex justify-content-between align-items-center">
+            <a class="flex-1 py-2 text-inherit font-semibold" :class="{ 'text-inherit': !isOpen }" href="<%= section.html_url %>">
+              <%= section.name %>
+            </a>
+            <button class="p-2 ml-1 not-a-button border-radius transition cursor-pointer hover:bg-gray-200" :class="{ 'is-active': isOpen }" :aria-expanded="isOpen" data-toggle="collapse" data-target="#section-<%= section.id %>">
+              <svg class="text-inherit fill-current pointer-events-none" :class="{ 'rotate-180': isOpen }" width="12px" height="12px" viewBox="0 0 324 190" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M162,190 C156,190 150,187 146,183 L7,38 C-2,29 -2,15 7,7 C16,-2 30,-2 39,7 L162,135 L285,7 C293,-2 308,-2 317,7 C326,15 326,29 317,38 L178,183 C174,187 168,190 162,190 Z"></path>
+              </svg>
+            </button>
+          </div>
+
+          
+          <%= partial('partial-article-list-sections', {
+            id: 'section-' + section.id,
+            parentId: '#' + id,
+            sections: section.sections,
+            activeCategoryId: activeCategoryId,
+            activeSectionId: activeSectionId,
+            activeArticleId: activeArticleId,
+            partial: partial
+          }) %>
+
+          
+          <% if (section.articles.length) { %>
+            <ul class="list-none font-size-md pl-0 mb-0 collapse" :class="{ 'is-visible': isOpen }" id="section-<%= section.id %>" data-parent="#<%= id %>">
+              <% section.articles.forEach(function(article) { %>
+                <li>
+                  <a class="block px-3 py-2 text-inherit border-radius transition<% if (article.isActive) { %> bg-gray-100<% } %>" href="<%= article.html_url %>">
+                    <%= article.title %>
+                  </a>
+                </li>
+              <% }); %>
+            </ul>
+          <% } %>
+
+        </li>
+      <% }); %>
+    </ul>
+  <% } %>
+</script>
+
+
+<script type="text/template" id="tmpl-partial-section-list-sections">
+  <% if (sections.length) { %>
+    <ul class="list-unstyled<% if (parent.hasOwnProperty('parent_section_id')) { %> pl-4 mb-0<% } %> font-size-md">
+      <% sections.slice(0, maxSections).forEach(function(section) { %>
+        <li>
+          <a class="block py-2 text-inherit<% if (section.isActive) { %> underline<% } %>" href="<%= section.html_url %>">
+            <%= section.name %>
+          </a>
+          <%= partial('partial-section-list-sections', { parent: section, sections: section.sections, maxSections: maxSections, partial: partial }) %>
+        </li>
+      <% }); %>
+      <% if (sections.length > maxSections) { %>
+        <li>
+          <a class="block py-2 text-inherit" href="<%= parent.html_url %>">
+            See more
+          </a>
+        </li>
+      <% } %>
+    </ul>
+  <% } %>
+</script>
+
+<script type="text/javascript">
+(function () {
+  var el = document.getElementById('consent-manager');
+  if (!el) return;
+  el.addEventListener('click', function (e) {
+    e.preventDefault();
+    if (typeof window.SCConsent === 'undefined' || typeof window.SCConsent.showConsentDialog !== 'function') return;
+    try {
+      window.SCConsent.showConsentDialog();
+    } catch (err) { /* OneTrust may still be initializing */ }
+  });
+})();
+</script>
+
+
+  <!-- / -->
+
+  
+  <script src="//static.zdassets.com/hc/assets/en-us.02b443b9c55b82e01396.js"></script>
+  
+
+  <script type="text/javascript">
+  /*
+
+    Greetings sourcecode lurker!
+
+    This is for internal Zendesk and legacy usage,
+    we don't support or guarantee any of these values
+    so please don't build stuff on top of them.
+
+  */
+
+  HelpCenter = {};
+  HelpCenter.account = {"subdomain":"soundcloud","environment":"production","name":"SoundCloud"};
+  HelpCenter.user = {"identifier":"da39a3ee5e6b4b0d3255bfef95601890afd80709","email":null,"name":"","role":"anonymous","avatar_url":"https://assets.zendesk.com/hc/assets/default_avatar.png","is_admin":false,"organizations":[],"groups":[]};
+  HelpCenter.internal = {"asset_url":"//static.zdassets.com/hc/assets/","web_widget_asset_composer_url":"https://static.zdassets.com/ekr/snippet.js","current_session":{"locale":"en-us","csrf_token":"hc:hcobject:server:_ZM_QzmXl8c18lr0HW8sn_XpZWdEHZfi5cEJhvekog3Eal5JA3VZi3TFy92tZR2EbnLJb71eZuIGYp73BMSp3w","shared_csrf_token":null},"usage_tracking":{"event":"front_page_viewed","data":"BAh7BjoKX21ldGF7DDoPYWNjb3VudF9pZGkDcmsUOhNoZWxwX2NlbnRlcl9pZGwrCHBkicYaADoNYnJhbmRfaWRpA7jfMzoMdXNlcl9pZDA6E3VzZXJfcm9sZV9uYW1lSSIOQU5PTllNT1VTBjoGRVQ6C2xvY2FsZUkiCmVuLXVzBjsLVDoaYW5vbnltb3VzX3RyYWNraW5nX2lkMA==--a749c30111c6080689b5cf438a7d0f65c0fdbc80","url":"https://help.soundcloud.com/hc/activity"},"current_record_id":null,"current_record_url":null,"current_record_title":null,"current_text_direction":"ltr","current_brand_id":3399608,"current_brand_name":"SoundCloud","current_brand_url":"https://soundcloud.zendesk.com","current_brand_active":true,"current_path":null,"show_autocomplete_breadcrumbs":true,"user_info_changing_enabled":false,"has_user_profiles_enabled":true,"has_end_user_attachments":true,"user_aliases_enabled":false,"has_anonymous_kb_voting":true,"has_multi_language_help_center":true,"show_at_mentions":true,"embeddables_config":{"embeddables_web_widget":true,"embeddables_help_center_auth_enabled":false,"embeddables_connect_ipms":false},"answer_bot_subdomain":"static","gather_plan_state":"subscribed","has_article_verification":true,"has_gather":true,"has_ckeditor":true,"has_community_enabled":false,"has_community_badges":true,"has_community_post_content_tagging":false,"has_gather_content_tags":true,"has_guide_content_tags":true,"has_user_segments":true,"has_answer_bot_web_form_enabled":true,"has_garden_modals":false,"theming_cookie_key":"hc-da39a3ee5e6b4b0d3255bfef95601890afd80709-2-preview","is_preview":false,"has_search_settings_in_plan":true,"theming_api_version":3,"theming_settings":{"color_primary":"rgba(255, 85, 0, 100)","color_primary_inverse":"rgba(18, 18, 18, 100)","color_secondary":"rgba(255, 85, 0, 1)","color_secondary_inverse":"rgba(0, 0, 0, 1)","color_tertiary":"rgba(255, 85, 0, 1)","color_tertiary_inverse":"rgba(0, 0, 0, 1)","color_heading":"rgba(0, 0, 0, 1)","color_text":"rgba(18, 18, 18, 100)","color_link":"rgba(255, 85, 0, 1)","color_border":"#e2e8f0","color_outline":"rgba(62, 91, 149, .25)","bg_color":"#fff","color_gray_100":"#fbfbff","color_gray_200":"#eef3f7","color_gray_600":"#718096","heading_font":"'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif","text_font":"'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif","base_font_size":"16px","favicon":"/hc/theming_assets/01KT4NJG8ZDNZRY0V192CXG95Z","logo":"/hc/theming_assets/01KG4640FZ2NM8YSW9SKHRNZJZ","logo_height":"60px","tagline":"","homepage_background_image":"/hc/theming_assets/01KG1B789MKN9P187H1193R5PG","community_background_image":"/hc/theming_assets/01KG1B789MKN9P187H1193R5PG","content_block_1_image":"/hc/theming_assets/01KFXQGBNKZR6T9ND91SFMR90Z","content_block_2_image":"/hc/theming_assets/01KBGAXGZ93QY28CT48VQ0KK1Y","content_block_3_image":"/hc/theming_assets/01KBGAX9YW189WBW4ATY8G7Q46","content_block_4_image":"/hc/theming_assets/01KBGAX9YW189WBW4ATY8G7Q46","content_block_5_image":"/hc/theming_assets/01KBGAXGZ93QY28CT48VQ0KK1Y","content_block_6_image":"/hc/theming_assets/01KFXQGBNKZR6T9ND91SFMR90Z","content_block_7_image":"/hc/theming_assets/01KBGAX4BMK9ZPGV57SS9KYVS7","content_block_8_image":"/hc/theming_assets/01KBGAX4BMK9ZPGV57SS9KYVS7","custom_block_1_image":"/hc/theming_assets/01KPXPJ2R7RXH31C1XR41CA06Y","custom_block_2_image":"/hc/theming_assets/01KPXPJ338S36Q9V4QZXF1AZSM","custom_block_3_image":"/hc/theming_assets/01KPXPJ3DSMFSQKPY8NQJTHQB8","custom_block_4_image":"/hc/theming_assets/01KPXPJ3QZYWDWDFDZ7PF40WFV","contact_block_1_image":"/hc/theming_assets/01KPXPJ42F8CPAJ524MJ6EDFNX","contact_block_2_image":"/hc/theming_assets/01KPXPJ4C5JH3W2RZPT099NNEY","contact_block_3_image":"/hc/theming_assets/01KPXPJ4P3T95TK3FM0SW154FK","contact_block_4_image":"/hc/theming_assets/01KPXPJ507W8C120DY31WWRQ42","cta_block_image":"/hc/theming_assets/01KPXPJ5C4FHVW5HGBQPA8F3MK","header_search_style":"none","instant_search":true,"scoped_kb_search":false,"scoped_community_search":false,"search_placeholder":"Search for answers...","header_layout":"links-left","fixed_header":true,"sticky_header":false,"nav_style":"standard","nav_breakpoint":"lg","full_width_header":true,"header_height":"80px","color_header_link":"rgba(0, 0, 0, 1)","color_header_link_fixed":"rgba(18, 18, 18, 100)","bg_color_header":"rgba(255, 85, 0, 100)","header_link_1_text":"","header_link_1_url":"","header_link_2_text":"","header_link_2_url":"","header_link_3_text":"","header_link_3_url":"","show_submit_a_request_link":false,"category_dropdown_style":"none","notification_location":"none","notification_content":"notification_content","color_notification":"#fff","bg_color_notification":"#ef526e","back_to_top_link_style":"standard","boxed_layout":false,"bg_color_boxed":"#F7F7F7","hero_heading":"How can we help?","color_hero_heading":"rgba(18, 18, 18, 100)","hero_text":"Search our knowledge base or browse the topics below","color_hero_text":"rgba(18, 18, 18, 100)","hero_image_style":"standard","bg_color_hero":"rgba(255, 85, 0, 100)","bg_color_secondary_hero":"rgba(236, 46, 16, 100)","bg_gradient_hero":"linear","hero_content_alignment":"center","hero_element_shape":"curve","popular_keywords_style":"none","popular_keywords_heading":"Popular searches:","popular_keywords":"invoices, payments, returns","promoted_videos_heading":"","promoted_video_ids":"","recent_activity":"none","custom_block_style":"none","color_custom_blocks":"tertiary","bg_color_custom_blocks":"#f6fbff","custom_blocks_heading":"","number_custom_blocks":"2","number_custom_block_columns":"2","custom_block_alignment":"center","custom_block_image_height":"","custom_block_1_title":"SoundCloud Fans","custom_block_1_description":"","custom_block_1_url":"https://help.soundcloud.com/hc/en-us/categories/115000678928-Fans","custom_block_2_title":"Creators on SoundCloud","custom_block_2_description":"","custom_block_2_url":"https://help.soundcloud.com/hc/en-us/categories/31283161425563-Artists","custom_block_3_title":"My Account","custom_block_3_description":"","custom_block_3_url":"https://help.soundcloud.com/hc/en-us/categories/115000606848-My-Account","custom_block_4_title":"Subscriptions","custom_block_4_description":"","custom_block_4_url":"https://help.soundcloud.com/hc/en-us/categories/39687296217243-Subscriptions-Billing","content_block_style":"1-boxes","color_content_blocks":"gray-100","bg_color_content_blocks":"#f6fbff","content_blocks_heading":"","number_content_block_columns":"3","content_block_alignment":"center","content_block_image_height":"36px","article_list_style":"custom","article_list_columns":"1","article_list_excerpt":0,"promoted_article_style":"bold","promoted_article_list_style":"3-bordered","promoted_article_list_position":"after","promoted_articles_heading":"Featured Articles","promoted_article_list_columns":"2","promoted_articles_alignment":"left","promoted_article_list_excerpt":0,"contact_block_style":"none","color_contact_blocks":"white","contact_blocks_heading":"Get in touch","number_contact_blocks":"3","number_contact_block_columns":"3","contact_block_image_height":"36px","contact_block_1_title":"Message us","contact_block_1_description":"Start a conversation with our team and get the answers you need","contact_block_1_url":"#","contact_block_2_title":"Call us","contact_block_2_description":"Give us a call at 1 (800) 111-2222 8:30am - 5:30pm PST Monday to Friday","contact_block_2_url":"tel:18001112222","contact_block_3_title":"Follow us","contact_block_3_description":"Stay up to date with the latest news and information","contact_block_3_url":"https://www.twitter.com","contact_block_4_title":"Subscribe","contact_block_4_description":"Discover video tutorials covering a variety of topics","contact_block_4_url":"https://www.youtube.com","cta_style":"none","cta_location":"all","cta_element_heading":"Didn't find what you were looking for?","color_heading_cta":"#f4f4f7","cta_element_body":"","color_text_cta":"#f4f4f7","cta_element_link_text":"Get in touch","bg_color_cta":"rgba(48, 60, 139, .88)","subsection_style":"list","category_sidebar":"custom","section_sidebar":"custom","show_follow_section":false,"article_metadata":"none","show_follow_article":false,"table_of_contents_style":"none","table_of_contents_heading":"In this article","article_navigation_style":"none","next_article_title":"Next article","previous_article_title":"Previous article","show_article_voting":true,"show_article_sharing":false,"share_title":"","show_recently_viewed_articles":true,"show_related_articles":true,"show_article_comments":false,"article_sidebar":"articles-in-section","note_title":"Note","color_note":"#4253C6","warning_title":"Warning","color_warning":"#ef526e","enable_lightboxes":false,"enable_video_player":true,"form_list_style":"standard","form_tip":"Providing as much information as possible in your request will allow us to help you faster","community_image_style":"standard","show_recent_activity_community":false,"show_follow_topic":false,"show_follow_post":false,"show_post_sharing":false,"footer_layout":"links-left","footer_shape":"none","color_footer_link":"rgba(0, 0, 0, 1)","bg_color_footer":"rgba(255, 85, 0, 1)","footer_link_1_text":"SoundCloud","footer_link_1_url":"https://soundcloud.com/discover","footer_link_2_text":"For Artists","footer_link_2_url":"https://soundcloud.com/artists","footer_link_3_text":"Terms of Use","footer_link_3_url":"https://soundcloud.com/terms-of-use","footer_link_4_text":"Cookie Manager","footer_link_4_url":"#","facebook_link":"https://www.facebook.com/SoundCloud/","twitter_link":"https://x.com/SoundCloud","linkedin_link":"https://www.linkedin.com/company/soundcloud/","instagram_link":"https://www.instagram.com/soundcloud/","youtube_link":"https://www.youtube.com/soundcloud","show_credit_link":false,"use_translations":false},"has_pci_credit_card_custom_field":true,"help_center_restricted":false,"is_assuming_someone_else":false,"flash_messages":[],"user_photo_editing_enabled":true,"user_preferred_locale":"en-us","base_locale":"en-us","login_url":"https://soundcloud.zendesk.com/access?locale=en-us\u0026brand_id=3399608\u0026return_to=https%3A%2F%2Fhelp.soundcloud.com%2Fhc%2Fen-us","has_alternate_templates":true,"has_custom_statuses_enabled":true,"has_hc_generative_answers_setting_enabled":true,"has_suggested_initial_questions_enabled":false,"has_contentful_eap":false,"has_contentful_eap_eligible":false,"has_pdf_ingestion_eap":true,"has_pdf_ingestion_eap_eligible":true,"has_guide_service_catalog":true,"has_service_catalog_search_poc":true,"has_service_catalog_itam":false,"has_service_catalog_multibranding":false,"has_csat_reverse_2_scale_in_mobile":false,"has_trial_presumptive_setup":true,"has_unified_navigation":true,"has_unified_navigation_eap_access":true,"has_csat_bet365_branding":false,"has_csat_theming_integration_phase_1":false,"has_help_center_gen_search_follow_up_conversation":true,"version":"v27527","dev_mode":false};
+</script>
+
+  
+  
+  <script src="//static.zdassets.com/hc/assets/hc_enduser-51777e251fb3d84937711c2ab27f0a1b.js"></script>
+  <script type="text/javascript" src="/hc/theming_assets/1338226/3399608/script.js?digest=51625214542107"></script>
+  
+</body>
+</html>
