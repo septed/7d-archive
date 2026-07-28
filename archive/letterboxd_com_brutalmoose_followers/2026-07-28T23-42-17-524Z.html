@@ -1,0 +1,2239 @@
+
+
+
+
+<!DOCTYPE html>
+
+<html id="html" lang="en" class="context-client-unknown no-mobile no-js">
+<head>
+	<meta charset="UTF-8">
+	
+	
+			
+		
+	<meta name="viewport" content="width=1024">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="description" content="brutalmoose’s followers">
+	
+	
+	<meta property="og:url" content="https://letterboxd.com/brutalmoose/followers/">
+	<meta property="og:title" content="brutalmoose’s followers">
+	<meta property="og:description" content="brutalmoose’s followers">
+	<meta property="og:image" content="https://s.ltrbxd.com/static/img/default-share-7md9L34t.png">
+	<meta property="fb:app_id" content="173683136069040">
+	
+	<meta name="application-name" content="Letterboxd">
+	<meta name="theme-color" content="#14181C">
+	<meta name="msapplication-TileColor" content="#445566">
+	<meta name="apple-itunes-app" content="app-id=1054271011, affiliate-data=11l5KW, app-argument=https://letterboxd.com/brutalmoose/followers/">
+	<meta name="mobile-web-app-capable" content="yes">
+	
+
+	<title>&lrm;brutalmoose’s followers &bull; Letterboxd</title>
+	<script>
+		
+		((r, n) => {
+			r.dataset.useragent = n.userAgent
+			r.dataset.platform = n.platform
+		})(document.documentElement, navigator)
+
+		var isMobile = false,
+			isMobileOptimised = true,
+			renderMobile = false,
+			useStaticFonts = false,
+			disableFrameProtection = false,
+			baseURL = '',
+			staticAssetBaseURL = 'https://s.ltrbxd.com/'.slice(0, -1),
+			successMessages = [],
+			errorMessages = [],
+			stickyMessages = [],
+			globals = {
+			autoAddFilm: false
+				, spinners: {
+					ajax_242d35: 'https://s.ltrbxd.com/static/img/spinner-dark-2x-BA9SNVrD.gif',
+					spinner_12_2C3641: 'https://s.ltrbxd.com/static/img/spinner-dark-2x-BA9SNVrD.gif',
+					spinner_14_20272f: 'https://s.ltrbxd.com/static/img/spinner-dark-2x-BA9SNVrD.gif',
+					spinner_16_161B21: 'https://s.ltrbxd.com/static/img/spinner-dark-2x-BA9SNVrD.gif'
+				}
+			},
+			supermodelCSRF = "",
+			configuration = {
+				cloudflare: {
+					turnstile: {
+						managedSiteKey: '0x4AAAAAACeEHQVg5SDQxB2s',
+						invisibleSiteKey: '0x4AAAAAACoeo5dsZfnzc50M',
+					}
+				},
+			},
+			geolocation = {
+				country: ""
+			},
+			privacyPolicyDetails = function(privacyPolicy) {
+				
+				const policies = {
+				'Anyone': { 'label': 'Anyone', 'description': 'Anyone (public)', 'tooltip': 'Reactions visible to anyone' },
+				
+				'Friends': { 'label': 'Friends', 'description': 'Close Friends (selected by you)', 'tooltip': 'Reactions visible to owner’s Close Friends' },
+				
+				'You': { 'label': 'Private', 'description': 'You (private)', 'tooltip': 'Reactions only visible to you' },
+				
+				'Draft': { 'label': 'Draft', 'description': 'Draft entry', 'tooltip': 'Draft entry' },
+				}
+				return policies[privacyPolicy]
+			},
+			sharePolicyDetails = function(sharePolicy) {
+				
+				const policies = {
+				'Anyone': { 'label': 'Anyone', 'description': 'Anyone with share link', 'tooltip': 'Visible to anyone (with link)' },
+				
+				'Friends': { 'label': 'Friends', 'description': 'Friends (people you follow) with share link', 'tooltip': 'Visible to the member’s friends (with link)' },
+				
+				'You': { 'label': 'Private', 'description': 'You (private list)', 'tooltip': 'Only visible to you' },
+				}
+				return policies[sharePolicy]
+			},
+			person = {
+				username: ""
+				, loggedIn: false
+				
+				, showAds: true
+				, role: "guest"
+				, hasExtendedServiceFilters: false
+				, canBulkAddToLists: false
+				, canFilterOwned: false
+				, canPublishStories: false
+				, canHaveHqDashboard: false
+				, hasMemberStatistics: false
+				, blockedMembers: []
+				, showAdultContent: false
+				, validated: null
+				, trusted: false
+				, hasBlocked : function(member) { for (var i = 0; i !== person.blockedMembers.length; i++) {if (person.blockedMembers[i] === member) return true;} return false; }
+				, getCustomPoster : function(uid) { return null; }
+				, getCustomBackdrop : function(uid) { return null; }
+			},
+			disableAds = true,
+			analytic_params = {};
+		
+		
+supermodelCSRF = 'e962efeda2becf30bb51'; geolocation.country = 'US'; analytic_params['user_type'] = 'Visitor';
+
+	</script>
+	
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		window.gtag = window.gtag || function () {
+			dataLayer.push(arguments);
+		};
+		function ga() {}
+	</script>
+
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-D3ECBB4D7L"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		window.gtag = window.gtag || function () {
+			dataLayer.push(arguments);
+		};
+		gtag('js', new Date());
+	
+		analytic_params['template'] = '/object/person/followers';
+		
+		
+
+		if (analytic_params.member_type) {
+			gtag('set', 'user_properties', { 
+				member_type: analytic_params.member_type,
+			});
+			delete analytic_params.member_type;
+		}
+		var config = {
+			...analytic_params,
+			'cookie_domain': 'letterboxd.com', 
+			'optimize_id': 'GTM-TB8HSDN', 
+		};
+		gtag('config', 'G-D3ECBB4D7L', config);
+	</script>
+
+
+	
+<script>
+function ASAP(callback) {
+	if (window.__ASAPPED) {
+		callback()
+		return
+	}
+	if (!window.__ASAP) {
+		window.__ASAP = []
+	}
+	window.__ASAP.push(callback)
+}
+</script>
+
+	<script>
+		
+
+		
+			
+		
+
+		
+
+		
+		
+			
+			  function setUseMobileSiteCookie(useMobile) {
+					const value = useMobile ? 'yes' : 'no'
+					const date = new Date()
+					const maxAge = 365 * 24 * 60 * 60
+					date.setTime(date.getTime() + maxAge * 1000)
+					const expires = '; expires=' + date.toUTCString()
+					const cookieValuePair = 'useMobileSite=' + value
+					document.cookie = cookieValuePair + expires + '; path=/; maxAge=' + maxAge
+
+					if (document.cookie.includes(cookieValuePair)) {
+						window.location.reload(true)
+					} else {
+						console.error('Failed to set useMobileSite cookie.')
+					}
+				}
+
+				/*
+				 * If ?fromApp=true, it's possible for user is already in the correct mode, so only try
+				 * reloading if that's the case. In fact, trying to reload the page regardless causes an 
+				 * infinite loop as the ?fromApp=true parameter is always present.
+				 */
+				const isMobileWidth = screen.width < 768
+				if (isMobileWidth && !document.cookie.includes('useMobileSite=yes')) {
+					setUseMobileSiteCookie(true)
+				} else if (!isMobileWidth && !document.cookie.includes('useMobileSite=no')) {
+					setUseMobileSiteCookie(false)
+				}
+			
+		
+	</script>
+	
+
+	<link rel="manifest" href="/manifest.json">
+	<link rel="author" type="text/plain" href="/humans.txt">
+	<link rel="mask-icon" href="https://s.ltrbxd.com/static/img/letterboxd-decal-l-16px-DorUFlWn.svg" color="#445566">
+	<link rel="shortcut icon" sizes="196x196" href="https://s.ltrbxd.com/static/img/touch-icon-192x192-lO1g3Ot4.png">
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="search" type="application/opensearchdescription+xml" title="Letterboxd" href="/static/opensearch.xml">
+	
+	
+	
+
+	
+  <script type="module" crossorigin src="https://s.ltrbxd.com/static/js/es/js/app-detection-D3x_9C1n.js"></script>
+  <link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/B5Qt9EMX.js">
+  <link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/Duz0x7wZ.js">
+  <link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/mSiswM4t.js">
+  <link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/Cs7k2HOf.js">
+
+	
+	
+			
+		<script type="module" crossorigin src="https://s.ltrbxd.com/static/js/es/main-DAxUWs1r.js"></script>
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/B5Qt9EMX.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/BEh0EAda.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/CE1G-McA.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/BlBOTiew.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/BTbw2yZC.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/PPVm8Dsz.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/CkcQsrW7.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/Ga3Gn7V6.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/DDxNe1Vs.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/EpvHjxoY.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/CqyoUr6N.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/CIwTRCSN.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/C3e4t58V.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/Dipz0mOK.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/DMf_iQbA.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/CpLRuFB8.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/Duz0x7wZ.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/DNxDwEBW.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/Bg77F5xC.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/bKpgursT.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/CKq5vs_k.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/Djse-5Ca.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/BzsRfMHQ.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/D-4vhYTb.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/CAboSe2o.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/BQNBSrUU.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/mSiswM4t.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/B30j35gA.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/B-RfpJbM.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/DT2V0ldl.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/nYEoF91a.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/DlzHfbPr.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/ptERNnoK.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/CYu4VQi8.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/Hqts4KCE.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/Dj9SCjiC.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/iD1dFnW8.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/B-eaLfzk.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/y8SHEkMO.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/CUcMfv5U.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/fr4E7Tgy.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/DNnlfZkZ.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/Bp9oiUoX.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/D_59xfmA.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/C0W8MuWa.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/Bf--GJOa.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/CQAJVICL.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/DU871QZC.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/BnVotJz4.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/Bpc0dtVr.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/Dxzbedgu.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/B99H3mUd.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/CF74jhiq.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/D2nGpDRe.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/yadulnUg.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/vCWiOUpe.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/C-GAFnFO.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/DMsf4qI-.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/BQTTvRNJ.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/B8Bgxl5a.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/C5G_qGSQ.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/CKB2xK2v.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/DHFQjEqI.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/DU8z7FYz.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/CFzIlgjb.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/DsBTdQfD.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/VRZCEy3x.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/CGti6Y0s.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/BtfjNNTT.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/DbkyL-rk.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/C9J1s9jt.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/COP6KYvR.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/2wjpxkGD.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/JdY9lcu0.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/_RochNgE.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/DDuZeICe.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/Dyi8Hj0d.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/DxtJGFC4.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/B9ioO-Cz.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/C1mJvgXv.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/AxRaG6ks.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/BriguwlJ.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/7bXZGMzV.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/xOi41wgj.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/SOgt3rgE.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/CYjvHHfV.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/DnPH3YWS.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/Bz_ZAheo.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/BSqsXx25.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/B82QOAy1.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/BlHrUzdB.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/cYXQUpen.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/BNu_qTbF.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/Gyy2hfiG.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/D33tNTCD.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/3K2pPD95.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/BCi0_APx.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/aCtx-NXh.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/DrWfExEm.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/CTBVR8Av.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/BH6S_9FS.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/DBTBPqXq.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/CWA0zIdb.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/BecwoVc6.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/BHTRq8m6.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/DgK0j0Ew.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/DIH7t9Yp.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/DnMqBK5o.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/nzRF9n6r.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/AwIuAiMw.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/T8-QsNvJ.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/DJDxQdEP.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/CDcqnG0E.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/D1oBr_on.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/Cm0BVmkl.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/Dy-E0KiV.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/CM8f4aGX.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/q-DyYw_u.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/Bx3BiLdU.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/DrJu9iqu.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/C8j9hE_h.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/11ZKIAvy.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/D4ejhjG5.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/CpHQ3FI9.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/BD3aGjOu.js">
+		<link rel="modulepreload" crossorigin href="https://s.ltrbxd.com/static/js/es/chunks/CkEEJX_R.js">
+		<link rel="stylesheet" crossorigin href="https://s.ltrbxd.com/static/css/modal-manager-CdexcB-7.css">
+		<link rel="stylesheet" crossorigin href="https://s.ltrbxd.com/static/css/spinner-CVbhaa82.css">
+		<link rel="stylesheet" crossorigin href="https://s.ltrbxd.com/static/css/letterboxd-spinner-C_CJMTy1.css">
+		<link rel="stylesheet" crossorigin href="https://s.ltrbxd.com/static/css/lazy-poster-TNOEgRC-.css">
+		<link rel="stylesheet" crossorigin href="https://s.ltrbxd.com/static/css/production-masthead-DLerQ5sY.css">
+		<link rel="stylesheet" crossorigin href="https://s.ltrbxd.com/static/css/dialog-controls-1Z5kkIph.css">
+		<link rel="stylesheet" crossorigin href="https://s.ltrbxd.com/static/css/private-note-modal-DF2jWKzI.css">
+		<link rel="stylesheet" crossorigin href="https://s.ltrbxd.com/static/css/main-BVxMX0Y6.css">
+	
+
+			
+			
+			
+			
+			
+			
+			
+
+			
+					
+		<link rel="stylesheet" crossorigin href="https://s.ltrbxd.com/static/css/desktop-CSUSdnZV.css">
+	
+				
+		
+
+	
+		
+			
+		<link rel="stylesheet" crossorigin href="https://s.ltrbxd.com/static/css/child-page-DagQGl8X.css">
+	
+		
+	
+		
+	
+
+	
+	
+
+	
+
+
+
+
+
+	<script>
+	ASAP(function() {
+		if ( $.cookie("letterboxd.admin.signed.in") === person.username ) {
+			successMessages.push("You are signed in as " + person.username);
+			$(function(){$("#header, #content, body").css("background","#543");});
+		}
+	})
+	</script>
+	
+</head>
+
+<body class="screen-member-child-page followers" data-owner="brutalmoose">
+	
+
+
+
+
+
+
+
+
+
+
+<template id="share-policy-icon-anyone"><span class="policy-icon -share -anyone -circle inline-symbol" data-policy-type="share" data-policy-code="anyone"><span class="frame tooltip" data-original-title="Visible to anyone (with link)" data-js-trigger="tooltip"> <svg xmlns="http://www.w3.org/2000/svg" role="presentation" class="glyph" width="12" height="12" viewBox="0 0 12 12"><path d="M3.38 4.06a2.5 2.5 0 0 1 3.54 0l.99 1.04-1.06 1.06h-.02l-1-1.06a.96.96 0 0 0-1.36 0l-.43.44q-.15.12-.29.28L1.82 7.75a1 1 0 0 0-.28.7q0 .4.29.68l.4.4c.38.37.98.37 1.36.01l.83-.85q.61.59 1.39.82l-1.13 1.14a2.5 2.5 0 0 1-3.54 0l-.4-.4a2.5 2.5 0 0 1 0-3.54ZM9.1.61c.67 0 1.3.27 1.77.74l.4.4a2.5 2.5 0 0 1 0 3.54L8.63 7.94a2.5 2.5 0 0 1-3.54 0l-1.03-1 .41-.41.13-.15.15-.14.4-.4L6.18 6.9c.35.34.89.37 1.27.08l.09-.08 2.65-2.66a1 1 0 0 0 .27-.56v-.13q0-.4-.28-.69l-.4-.4a1 1 0 0 0-1.36 0l-.84.84q-.62-.59-1.4-.82l1.15-1.13A2.5 2.5 0 0 1 9.09.6"/></svg> </span> <span class="label _sr-only">Visible to anyone (with link)</span> </span></template> <template id="share-policy-icon-friends"><span class="policy-icon -share -friends -circle inline-symbol" data-policy-type="share" data-policy-code="friends"><span class="frame tooltip" data-original-title="Visible to the member’s friends (with link)" data-js-trigger="tooltip"> <svg xmlns="http://www.w3.org/2000/svg" role="presentation" class="glyph" width="14" height="12" viewBox="0 0 14 12"><path fill-rule="evenodd" d="M10.33 8.23h-.26c1.16 0 1.88.2 2.62.5q.65.25 1 .59.45.4.44.83v1.35h-3.15V9.8c0-.51-.19-1.06-.65-1.58m-.26-5.53c.58 0 1.11.21 1.5.61.34.35.56.85.56 1.49a3.7 3.7 0 0 1-.54 2c-.34.48-.84.8-1.52.8-.65 0-1.15-.32-1.5-.84a3.7 3.7 0 0 1-.57-2 2 2 0 0 1 .56-1.46c.39-.4.92-.6 1.5-.6M4.98 7.41A7 7 0 0 1 9.3 8.77q.54.52.53 1.04v1.69H.13V9.81q0-.52.53-1.04.45-.41 1.26-.74c.92-.37 1.6-.62 3.06-.62m0-6.91c.72 0 1.4.27 1.88.76.42.44.7 1.07.7 1.86 0 .87-.21 1.82-.68 2.5a2.23 2.23 0 0 1-3.78-.04 4.6 4.6 0 0 1-.7-2.5c0-.79.27-1.4.7-1.83A2.6 2.6 0 0 1 4.98.5"/></svg> </span> <span class="label _sr-only">Visible to the member’s friends (with link)</span> </span></template> <template id="share-policy-icon-you"><span class="policy-icon -share -you -circle inline-symbol" data-policy-type="share" data-policy-code="you"><span class="frame tooltip" data-original-title="Only visible to you" data-js-trigger="tooltip"> <svg xmlns="http://www.w3.org/2000/svg" role="presentation" class="glyph" width="10" height="12" viewBox="0 0 10 12"><path fill-rule="evenodd" d="M5 0a3.5 3.5 0 0 1 3.5 3.5V4c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5h-7A1.5 1.5 0 0 1 0 10.5v-5C0 4.67.67 4 1.5 4v-.5A3.5 3.5 0 0 1 5 0m0 7a1 1 0 1 0 0 2 1 1 0 0 0 0-2m0-5.5a2 2 0 0 0-2 2V4h4v-.5a2 2 0 0 0-1.85-2z"/></svg> </span> <span class="label _sr-only">Only visible to you</span> </span></template> <template id="dismiss-icon-12"><svg xmlns="http://www.w3.org/2000/svg" role="presentation" class="glyph" width="12" height="12" viewBox="0 0 12 12"><path stroke="currentColor" stroke-linecap="round" d="m1 1 10 10M1 11 11 1" vector-effect="non-scaling-stroke"></svg></template> <template id="add-icon-16"><svg xmlns="http://www.w3.org/2000/svg" role="presentation" class="glyph" width="16" height="16" viewBox="0 0 16 16"> <path stroke="currentColor" stroke-linecap="round" stroke-width="2" vector-effect="non-scaling-stroke" d="M8 3v10M3 8h10"/> </svg></template> <template id="search-icon-16"><svg xmlns="http://www.w3.org/2000/svg" role="presentation" class="glyph" width="16" height="16" viewBox="0 0 16 16"><g fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6.81" cy="6.81" r="6.06"/><path stroke-linecap="round" d="m15.25 15.25-3.69-3.69"/></g></svg></template>
+
+
+
+
+
+
+
+
+
+<script>
+var mainMenu = [];
+
+	mainMenu.push({
+		"id": 1,
+		"url": "/sign-in/", 
+		"name": "Sign in",
+		"cssClassCode": "sign-in-menu",
+		"hideWhenSignedIn": true,
+		"hideWhenNotSignedIn": false,
+		"showInMainNavForMobile": true,
+		"tooltip": "",
+		"selected": false
+	});
+
+	mainMenu.push({
+		"id": 2,
+		"url": "/create-account/", 
+		"name": "Create account",
+		"cssClassCode": "create-account-menu",
+		"hideWhenSignedIn": true,
+		"hideWhenNotSignedIn": false,
+		"showInMainNavForMobile": false,
+		"tooltip": "",
+		"selected": false
+	});
+
+	mainMenu.push({
+		"id": 3,
+		"url": "/", 
+		"name": "Home",
+		"cssClassCode": "person-home",
+		"hideWhenSignedIn": true,
+		"hideWhenNotSignedIn": true,
+		"showInMainNavForMobile": false,
+		"tooltip": "",
+		"selected": false
+	});
+
+	mainMenu.push({
+		"id": 4,
+		"url": "/activity/", 
+		"name": "Activity",
+		"cssClassCode": "main-nav-activity",
+		"hideWhenSignedIn": false,
+		"hideWhenNotSignedIn": true,
+		"showInMainNavForMobile": false,
+		"tooltip": "Activity",
+		"selected": false
+	});
+
+	mainMenu.push({
+		"id": 5,
+		"url": "/films/", 
+		"name": "Films",
+		"cssClassCode": "films-page main-nav-films",
+		"hideWhenSignedIn": false,
+		"hideWhenNotSignedIn": false,
+		"showInMainNavForMobile": false,
+		"tooltip": "",
+		"selected": false
+	});
+
+	mainMenu.push({
+		"id": 6,
+		"url": "/lists/", 
+		"name": "Lists",
+		"cssClassCode": "lists-page main-nav-lists",
+		"hideWhenSignedIn": false,
+		"hideWhenNotSignedIn": false,
+		"showInMainNavForMobile": false,
+		"tooltip": "",
+		"selected": false
+	});
+
+	mainMenu.push({
+		"id": 7,
+		"url": "/members/", 
+		"name": "Members",
+		"cssClassCode": "main-nav-people",
+		"hideWhenSignedIn": false,
+		"hideWhenNotSignedIn": false,
+		"showInMainNavForMobile": false,
+		"tooltip": "",
+		"selected": false
+	});
+
+	mainMenu.push({
+		"id": 8,
+		"url": "/journal/", 
+		"name": "Journal",
+		"cssClassCode": "main-nav-journal",
+		"hideWhenSignedIn": false,
+		"hideWhenNotSignedIn": false,
+		"showInMainNavForMobile": false,
+		"tooltip": "",
+		"selected": false
+	});
+
+	mainMenu.push({
+		"id": 9,
+		"url": "/search/", 
+		"name": "Search results",
+		"cssClassCode": "",
+		"hideWhenSignedIn": true,
+		"hideWhenNotSignedIn": true,
+		"showInMainNavForMobile": false,
+		"tooltip": "",
+		"selected": false
+	});
+
+</script>
+
+<header class="site-header js-hide-in-app" id="header">
+	<div class="site-header-bg"></div>
+	<section>
+		<h1 class="site-logo"><a href="/" class="logo replace">Letterboxd &mdash; Your life in film</a></h1>
+
+		<div class="react-component" data-component-class="NavComponent"></div>
+
+		
+
+
+	
+
+
+
+
+
+<form method="post" action="#" id="signin" class="signin signin-form js-header-signin-form js-signin" data-captcha-action="signin" data-url="/user/login.do" novalidate='novalidate' autocorrect='off' autocapitalize='off'>
+	<input type="hidden" name="__csrf" value="placeholder" />
+	<input type="hidden" name="authenticationCode" value="" />
+	<fieldset class="fieldset">
+		<div class="fields">
+			<div class="col">
+				<label for="username">Username</label>
+				<input type="email" name="username" id="username" class="field signin-field" tabindex="1" data-focus-control="signingIn" autocomplete='email' inputmode='email' value="" />
+			</div>
+			<div class="col">
+				<label for="password">Password</label>
+				<input type="password" name="password" id="password" class="field signin-field" tabindex="2" autocomplete='current-password' value="" />
+			</div>
+			<div class="signin-actions">
+				<label for="remember" class="option-label -checkbox -small">
+					<input type="checkbox" name="remember" id="remember" class="checkbox" tabindex="3" value="true" /><i class="substitute"></i>
+					<span class="focus">Remember<span class="mob-hide"> me</span></span>
+				</label>
+				<p class="reset" tabindex="5"><a class="reset-password-link" href="/user/request-password-reset" target="_top">Forgotten<span class="elongated"> username or password</span>?</a></p>
+			</div>
+			<div class="col buttons">
+				<div class="button-container"><input type="submit" value="Sign in" class="button -action button-green" tabindex="4" /><i></i></div>
+				<div class="close js-close-signin">&times;</div>
+			</div>
+		</div>
+	</fieldset>
+	<div id="signin-message" class="errormessage"></div>
+</form>
+
+
+
+		
+			
+
+
+<div class="react-component"
+	data-component-class="AddMenu"
+	data-new-list-url="/list/new/"
+>
+</div>
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="diary-entry-form-modal" class="modal fade diary-entry-form-modal" attributesText="" tabindex="-1" role="dialog" aria-labelledby="diary-entry-form-modal-title" aria-hidden="true" data-bs-backdrop="static">
+	<div class="modal-dialog modal-fullscreen-sm-down modal-dialog-centered">
+		<div class="modal-content" data-theme="dialog">
+			<div class="modal-header">
+				<h5 class="modal-title" id="diary-entry-form-modal-title">
+					<span data-js-label-for="search">Add to your films…</span>
+					<span data-js-label-for="compose" hidden>I watched…</span>
+					<span data-js-label-for="edit" hidden>Edit diary entry</span>
+				</h5>
+
+				<button type="button" class="diary-entry-form-wizard-backtrigger" data-js-trigger="wizardback" aria-controls="diary-entry-form-6b1cf43e-1dfa-486b-af6e-9d68272fd7a1" aria-label="Return to search" disabled hidden>
+					<span class="label">Back</span>
+				</button>
+
+				<button type="button" class="modal-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				
+				<form method="post" action="/s/save-diary-entry" id="diary-entry-form-6b1cf43e-1dfa-486b-af6e-9d68272fd7a1" class="diary-entry-form js-diary-entry-form" data-js-target='diary-entry-form' data-diary-entry-form-options='{"id": "6b1cf43e-1dfa-486b-af6e-9d68272fd7a1"}' novalidate='novalidate' aria-live='polite'>
+					<input type="hidden" name="__csrf" value="placeholder" />
+					<input type="hidden" name="viewingId" value="" id="frm-viewing-id" />
+					<input type="hidden" name="viewingableUid" value="" id="frm-viewingable-uid" />
+
+					
+
+					<section class="diary-entry-form-wizard-step -search" data-js-wizard-step="search" role="group" aria-roledescription="step" aria-label="1 of 2">
+						<div class="body">
+							<div class="formrow">
+								<label class="_sr-only">Name of Film</label>
+								<input type="text" class="field-large field -reversed -large js-viewingable-type-input" data-url="/s/autocompletefilm" placeholder="Search for film…" />
+
+								<div class="viewingablesuggestion js-viewingablesuggestion" hidden>
+									<span class="label">Or add</span>
+									<button type="button" data-js-trigger="suggestion" class="trigger welltrigger"><span class="label js-label viewingablelabel"></span></button>
+								</div>
+							</div>
+						</div>
+					</section>
+					
+					<section class="diary-entry-form-wizard-step -compose fields-reversed" data-js-wizard-step="compose" role="group" aria-roledescription="step" aria-label="2 of 2" hidden>
+						<div class="header js-header">
+							
+						</div>
+
+						<aside class="figure">
+							<figure class="poster-list -p150 no-hover js-poster-preview">
+								<div class="poster no-poster">
+									<span class="frame"></span>
+								</div>
+							</figure>
+						</aside>
+
+						<div class="body">
+							<div class="formrow datefields">
+								<div class="fieldgroup -specifieddate">
+									<label for="frm-specify-date" class="option-label -checkbox -default -reversed js-specifiy-date">
+										<input type="checkbox" name="specifiedDate" id="frm-specify-date" class="checkbox " value="true" /><i class="substitute"></i>
+										<span id="frm-specify-date-label" class="label js-specify-date-label">Add to your&nbsp;diary?</span>
+									</label>
+									<div class="specifydatecta js-specify-date-cta" hidden>Watched on&nbsp;<button type="button" class="trigger welltrigger" data-js-trigger="datepicker"><span class="label"></span></button></div>
+								</div>
+
+								<div class="fieldgroup -rewatch js-fieldgroup-rewatch">
+									<label for="frm-rewatch" id="frm-rewatch-label" class="option-label -checkbox -default">
+										<input type="checkbox" name="rewatch" id="frm-rewatch" class="checkbox" value="true" /><i class="substitute"></i> 
+										I’ve watched this before
+									</label>
+								</div>
+								<input type="hidden" name="viewingDateStr" id="frm-viewing-date-string" value="" />
+							</div>
+
+							<div class="formrow reviewfields js-reviewfields -is-not-spoilersvisible">
+								<div class="inner">
+									<textarea name="review" id="frm-review" class="field reviewfield" placeholder="Add a review…"></textarea>
+
+									<div class="spoilers">
+										<label for="frm-spoilers" class="spoilercheckbox option-label -checkbox -default">
+											<input type="checkbox" name="containsSpoilers" id="frm-spoilers" class="checkbox" value="true" /><i class="substitute"></i>  
+											Contains spoilers
+										</label>
+
+										<div class="moderatornote form-note js-spoilers-locked-note" hidden>
+											<p>A moderator has locked spoilers for this review</p>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="formrow tagslikeratingfields">
+								<div class="fieldgroup -tags -has-topnote add-tags">
+									
+									
+
+
+
+
+
+
+
+
+		
+	
+
+<label for="frm-tags">Tags</label>
+<p class="form-note note -topnote">Press <kbd>Tab</kbd> to complete, <kbd>Enter</kbd> to create</p>
+<div class="autocomplete-tags">
+	<div id="tag-container">
+		<input type="text" id="frm-tags" class="tag-input-field field" name="tags" placeholder="eg. netflix" data-url="/s/autocompletetags" />
+	</div>
+	<div id="current-tags" class="js-autocomplete-current-tags">
+		
+	</div>
+</div>
+								</div>
+
+								<div class="fieldgroup -rating -has-topnote">
+									<label>Rating</label>
+									<p class="form-note note rating-text"></p>
+									<input id="frm-rating" name="rating" type="range" min="0" max="10" step="1" value="0"/>
+									<div class="rateit js-rateit" data-rateit-backingfld="#frm-rating" data-rateit-starwidth="13" data-rateit-starheight="26" data-rateit-resetable="true"></div>
+								</div>
+
+								<div class="fieldgroup -like">
+									<label class="option-label -like">
+										<input type="checkbox" name="liked" value="true" class="ajax-working like-checkbox"/><i class="substitute"></i> 
+										Like
+									</label>
+								</div>
+							</div>
+						</div>
+					</section>
+				</form>
+				
+			</div>
+
+
+			
+			<div class="modal-footer js-modal-footer" hidden>
+				<div class="diary-entry-form-controls" data-diary-entry-form-controls-for="diary-entry-form-6b1cf43e-1dfa-486b-af6e-9d68272fd7a1" hidden>
+					<div class="modal-action-group privacygroup show-for-pv">
+						<div class="privacycontrols js-privacycontrols" aria-hidden="true">
+							<label class="label" for="frm-privacy-policy"> 
+								Privacy mode
+								<span class="s icon-14 icon-tip" target="_blank" title="Control who sees the rating, review, tags and like for this entry" data-js-trigger="tooltip"><span class="icon"></span>(Help)</span>
+							</label>
+
+							<select name="privacyPolicyStr" id="frm-privacy-policy" class="select" hidden form='diary-entry-form-6b1cf43e-1dfa-486b-af6e-9d68272fd7a1'>
+								<option value="">Default</option>
+								
+									<option value="Anyone">Anyone (public)</option>
+								
+									<option value="Friends">Close Friends (selected by you)</option>
+								
+									<option value="You">You (private)</option>
+								
+									
+								
+							</select>
+
+							
+	<div class="privacy-policy-menu dropdown-wrapper js-privacy-policy-menu -pending">
+		<button id="privacy-policy-menu-trigger-d4df2b4d-c864-4fba-92f0-04bf360e9027" class="privacy-policy-menu-trigger -default dropdown-trigger" type="button" aria-label="Select privacy policy" aria-haspopup="listbox" aria-expanded="false" aria-controls="privacy-policy-menu-d4df2b4d-c864-4fba-92f0-04bf360e9027-dropdown">
+			<span class="label js-label">…</span>
+		</button>
+
+		<div id="privacy-policy-menu-d4df2b4d-c864-4fba-92f0-04bf360e9027-dropdown" class="dropdown-menu -legacy dropdown-listbox privacy-policy-menu-dropdown" aria-labelledby="privacy-policy-menu-trigger-d4df2b4d-c864-4fba-92f0-04bf360e9027" role="listbox">
+			<div class="header">
+				<h3 class="title js-menutitle"></h3>
+			</div>
+
+			<div class="dropdown-menulist">
+				
+					
+						<div role="none" class="menuitem -trigger -has-icon js-dropdown-child">
+							<button type="button" role="option" data-dismiss="dropdown" data-value="Anyone">
+								
+										<svg class="glyph" role="presentation" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M8 .5a7.5 7.5 0 1 1 0 15 7.5 7.5 0 0 1 0-15Zm1.73 8.25H6.27c.07 1.53.36 2.93.8 3.96.4.9.8 1.29.93 1.29s.53-.38.92-1.3c.45-1.02.74-2.42.81-3.95Zm-4.96 0H2.05a6 6 0 0 0 3.79 4.85 12.7 12.7 0 0 1-1.07-4.85Zm9.18 0h-2.72a12.7 12.7 0 0 1-1.07 4.85 6 6 0 0 0 3.8-4.85ZM5.84 2.4l-.18.07a6 6 0 0 0-3.61 4.78h2.72A12.7 12.7 0 0 1 5.84 2.4ZM8 2c-.13 0-.53.38-.92 1.3a11.66 11.66 0 0 0-.81 3.95h3.46a11.66 11.66 0 0 0-.8-3.96c-.38-.85-.74-1.24-.9-1.28L8 2Zm2.16.4.01.02c.59 1.22.98 2.92 1.06 4.83h2.72a6 6 0 0 0-3.79-4.85Z"/></svg>
+									
+								<span class="label js-label">Anyone (public)</span>
+							</button>
+						</div>
+					
+				
+					
+						<div role="none" class="menuitem -trigger -has-icon js-dropdown-child">
+							<button type="button" role="option" data-dismiss="dropdown" data-value="Friends">
+								
+										<svg class="glyph" role="presentation" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M8 .5a7.5 7.5 0 1 1 0 15 7.5 7.5 0 0 1 0-15ZM8 2a6 6 0 0 0-4.8 2.4 1.04 1.04 0 0 1 1.28.16l.63.63.64-.63a1.04 1.04 0 0 1 1.47 0c.4.4.4 1.06 0 1.47L5.34 7.9a.32.32 0 0 1-.45 0L3.01 6.03a1.04 1.04 0 0 1-.3-.87A5.98 5.98 0 0 0 8 14a6 6 0 0 0 5.29-8.84c.04.3-.06.63-.3.87L11.11 7.9a.32.32 0 0 1-.45 0L8.78 6.03a1.04 1.04 0 1 1 1.47-1.47l.64.63.63-.63a1.03 1.03 0 0 1 1.29-.15A6 6 0 0 0 8 2ZM5.7 9.92a3 3 0 0 0 4.52.1.75.75 0 0 1 1.1 1 4.49 4.49 0 0 1-6.78-.14.75.75 0 0 1 1.16-.96Z"/></svg>
+									
+								<span class="label js-label">Close Friends (selected by you)</span>
+							</button>
+						</div>
+					
+				
+					
+						<div role="none" class="menuitem -trigger -has-icon js-dropdown-child">
+							<button type="button" role="option" data-dismiss="dropdown" data-value="You">
+								
+										<svg class="glyph" role="presentation" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M7.95 1.25c2.35 0 4.25 1.9 4.25 4.25V6h.3a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-9a2 2 0 0 1-2-2V8c0-1.1.9-2 2-2h.2v-.5c0-2.35 1.9-4.25 4.25-4.25ZM12.5 7.5h-9A.5.5 0 0 0 3 8v6c0 .28.22.5.5.5h9a.5.5 0 0 0 .5-.5V8a.5.5 0 0 0-.5-.5ZM8 9.75a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Zm-.05-7A2.75 2.75 0 0 0 5.2 5.5V6h5.5v-.5a2.75 2.75 0 0 0-2.75-2.75Z"/></svg>
+									
+								<span class="label js-label">You (private)</span>
+							</button>
+						</div>
+					
+				
+					
+				
+
+				<div role="none" class="menuitem -divider">
+					<hr />
+				</div>
+
+				<div role="none" class="menuitem -trigger -has-icon -has-policy-icon js-dropdown-child">
+					<button type="button" role="option" data-dismiss="dropdown" data-value="" data-default="true">
+						<svg class="glyph" role="presentation" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M11.79 7a.7.7 0 0 1 .64.44l.3.77 1 .58.82-.12a.7.7 0 0 1 .7.34l.27.48a.7.7 0 0 1-.05.78l-.5.65v1.16l.51.65a.7.7 0 0 1 .06.78l-.28.48a.7.7 0 0 1-.7.34l-.8-.12-1.02.58-.3.77a.7.7 0 0 1-.64.44h-.58a.7.7 0 0 1-.65-.44l-.3-.77-1-.58-.82.12a.7.7 0 0 1-.7-.34l-.27-.48a.7.7 0 0 1 .05-.78l.51-.65v-1.16l-.52-.65a.7.7 0 0 1-.05-.78l.27-.48a.7.7 0 0 1 .7-.34l.81.12 1.03-.58.3-.77a.7.7 0 0 1 .64-.44h.57ZM6.55 8.9h.1L6.6 9c-.17.28-.25.62-.23.96l.02.17.03.14.04.13h-.3c-1.4.04-2.71.28-3.68.64-.4.14-.7.3-.9.44l-.08.07v.95h5.02A1.7 1.7 0 0 0 6.6 14H0v-2.67C0 10.05 3.02 8.9 6.55 8.9Zm4.95.22a2.37 2.37 0 1 0 0 4.75 2.37 2.37 0 0 0 0-4.74Zm0 1.5a.87.87 0 1 1 0 1.75.87.87 0 0 1 0-1.74ZM6.38 0c1.5 0 2.88 1.53 2.88 3.4 0 1.87-.79 4.1-2.8 4.1-1.9 0-2.81-2.29-2.81-4.15C3.65 1.48 4.87 0 6.38 0Zm0 1.5c-.61 0-1.23.76-1.23 1.85 0 1.5.66 2.65 1.3 2.65.73 0 1.3-1.03 1.3-2.6 0-1.05-.73-1.9-1.37-1.9Z"/></svg>
+						<span class="label js-label">Use account default<span class="labelsupplement js-labelsupplement" hidden></span></span>
+					</button>
+				</div>
+			</div>
+
+			<div class="dropdown-bodytext -note">
+				<p>
+					Your diary date (if set) and watched status for this film remain publicly visible.
+					Ratings on <em>Close Friends</em> and <em>You</em> entries don’t contribute to stats. 
+					Add members to your Close Friends from their profile.
+					Set your account default for Privacy mode in&nbsp;<a href="/settings/">Settings</a>.
+				</p>
+			</div>
+		</div>
+	</div>
+
+						</div>
+
+						<label for="privacy-policy-draft-6b1cf43e-1dfa-486b-af6e-9d68272fd7a1" class="option-label -checkbox -default -reversed drafttoggle">
+							<input id="privacy-policy-draft-6b1cf43e-1dfa-486b-af6e-9d68272fd7a1" class="checkbox" type="checkbox" role="switch" name="privacyPolicyDraft" value="true" form="diary-entry-form-6b1cf43e-1dfa-486b-af6e-9d68272fd7a1" /><i class="substitute"></i>
+							<span class="label">Draft</span>
+						</label>
+
+						<div class="draftnote js-privacydraftnote" aria-hidden="true">Draft entries don’t appear in your watched films or diary for others, and&nbsp;don’t contribute to your&nbsp;stats.</div>
+					</div>
+
+					<div class="modal-action-group formactions">
+						<button form="diary-entry-form-6b1cf43e-1dfa-486b-af6e-9d68272fd7a1" type="button" id="diary-entry-delete-button" class="button-neue -destructive -rounded" data-js-trigger="delete" data-confirm="Are you sure you want to delete this entry? It will disappear from your profile, but remain in your account export bundle for 30&nbsp;days, in a folder of deleted&nbsp;items." disabled><span class="label">Delete</span></button>
+
+						<button form="diary-entry-form-6b1cf43e-1dfa-486b-af6e-9d68272fd7a1" type="submit" class="button-neue -primary -rounded" data-js-trigger="submit" disabled><span class="label">Save</span></button>
+					</div>
+				
+				</div>
+			</div>
+			
+
+		</div>
+	</div>
+</div>
+
+		
+		
+		
+		<form id="search" class="js-search-form search-form" action="/search/" method="get" autocorrect="off">
+			<input autocomplete="false" name="hidden" type="text" style="display:none;" />
+			<fieldset>
+				<label for="search-q" class="hidden">Search:</label>
+				<input type="text" name="q" id="search-q" class="field -borderless" data-lpignore='true' inputmode='search' value="" />
+				<input type="submit" value="Search" class="action" />
+			</fieldset>
+		</form>
+		
+	</section>
+</header>
+
+
+
+
+
+
+<main id="content" class="site-body">
+	
+		<div class="content-wrap">
+	
+
+
+
+
+
+
+
+
+
+
+
+<script>
+ASAP(function(){
+	$('.profile-navigation ul.navlist li.js-page-network').addClass('-active');
+});
+document.currentScript.remove()
+</script>
+
+
+		
+		
+		
+
+
+
+
+ 
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="profile-header js-profile-header -is-mini-nav" data-person="brutalmoose">
+	
+
+	<nav class="profile-navigation">
+		
+			
+			
+
+			<div class="profile-mini-person -has-no-badge">
+				<a class="avatar -a24" href="/brutalmoose/" > <img src="https://a.ltrbxd.com/resized/avatar/upload/9/6/7/8/1/4/1/shard/avtr-0-48-0-48-crop.jpg?v=f84fb6dfbc" alt="brutalmoose" width="24" height="24" /> </a>
+				<h1 class="title-3"><a href="/brutalmoose/">brutalmoose</a></h1>
+				
+			</div>
+		
+		
+			<ul class="navlist">
+				
+
+				
+
+				<li data-owner="brutalmoose" class="navitem hide-for-owner js-page-activity"><a class="navlink" href="/brutalmoose/activity/">Activity</a></li>
+				<li data-owner="brutalmoose" class="navitem show-for-owner js-page-activity"><a class="navlink" href="/activity/">Activity</a></li>
+
+				<li data-owner="brutalmoose" class="navitem js-page-films"><a class="navlink" href="/brutalmoose/films/">Films</a></li>
+
+				
+
+				<li data-owner="brutalmoose" class="navitem js-page-diary"><a class="navlink" href="/brutalmoose/diary/">Diary</a></li>
+
+				<li data-owner="brutalmoose" class="navitem js-page-reviews"><a class="navlink" href="/brutalmoose/reviews/">Reviews</a></li>
+
+				<li class="navitem js-page-watchlist" data-owner="brutalmoose"><a class="navlink" href="/brutalmoose/watchlist/" >Watchlist</a></li>
+
+				<li data-owner="brutalmoose" class="navitem show-for-owner js-page-lists"><a class="navlink" href="/brutalmoose/lists/">Lists</a></li>
+
+				<li data-owner="brutalmoose" class="navitem js-page-likes"><a class="navlink" href="/brutalmoose/likes/films/">Likes</a></li>
+
+				<li data-owner="brutalmoose" class="navitem show-for-owner js-page-tags"><a class="navlink" href="/brutalmoose/tags/">Tags</a></li>
+
+				<li data-owner="brutalmoose" class="navitem js-page-network"><a class="navlink" href="/brutalmoose/following/">Network</a></li>
+
+				
+
+				<li class="navitem -navicon -search" id="profile-search">
+					<a href="#" data-search-prefix="m:brutalmoose" class="has-icon icon-16 icon-search tooltip" title="Search reviews and lists">
+						<span class="_sr-only">Search brutalmoose’s reviews and lists</span>
+					</a>
+				</li>
+				<li class="navitem -navicon -rss">
+					<a href="/brutalmoose/rss/" class="has-icon icon-16 icon-rss tooltip" title="RSS feed">
+						<span class="_sr-only">RSS feed for brutalmoose</span>
+					</a>
+				</li>
+			</ul>
+		
+    </nav>
+</section>
+
+
+	
+
+
+
+
+
+
+
+
+<div class="cols-2">
+	<section class="section col-17 col-main">
+		
+
+<div id="content-nav" class="tabbed gapless"> <section class="sub-nav-wrapper"> <ul class="sub-nav"> <li> <a href="/brutalmoose/following/" class="tooltip" title="11&nbsp;people">Following</a> </li> <li class="selected"> <a href="/brutalmoose/followers/" class="tooltip" title="177&nbsp;people">Followers</a> </li> </ul> </section> <div class="sorting-selects"> <section class="smenu-wrapper"> <strong class="smenu-label">Sort by</strong> <div class="smenu"> <label>When Followed<i class="ir s icon"></i></label> <ul class="smenu-menu"> <li class=""><a class="item" href="/brutalmoose/followers/by/name/">Member Name</a></li> <li class=" smenu-subselected"><a class="item" href="/brutalmoose/followers/"><i class="ir s icon"></i>When Followed</a></li> <li class=""><a class="item" href="/brutalmoose/followers/by/whenJoined/">When Joined</a></li> <li class=""><a class="item" href="/brutalmoose/followers/by/popular/">Popularity</a></li> </ul> </div> </section> </div> <div class="clear"></div> </div>
+		
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<table class="table-base member-table">
+			
+				<colgroup>
+					<col class="col-member" />
+					
+							<col class="col-watched" />
+							<col class="col-lists" />
+							<col class="col-likes" />
+						
+					<col class="col-follow hide-when-logged-out" />
+					
+				</colgroup>
+
+				<thead>
+					<tr>
+						<th class="col-member">Name</th>
+						
+								<th class="col-watched -padding-inline-large">Watched</th>
+								<th class="col-lists -padding-inline-large">Lists</th>
+								<th class="col-likes -padding-inline-large">Likes</th>
+							
+						<th class="col-follow hide-when-logged-out"></th>
+						
+					</tr>
+				</thead>
+			
+			<tbody>
+				
+					
+					
+						
+
+
+
+
+
+
+<tr>
+	<td class="col-member table-person"><div class="person-summary"> <a class="avatar -a40" href="/daniel_wilden/" > <img src="https://a.ltrbxd.com/resized/avatar/upload/1/9/9/5/3/7/1/3/shard/avtr-0-80-0-80-crop.jpg?v=8d7af25f3b" alt="Daniel_Wilden" width="40" height="40" /> </a> <h3 class="title-3"> <a href="/daniel_wilden/" class="name"> Daniel_Wilden </a> </h3> <small class="metadata"> <a href="/daniel_wilden/followers/" class="_nobr">1&nbsp;follower</a>, <a href="/daniel_wilden/following/" class="_nobr">following 6</a> </small> </div></td>
+	
+		
+				<td class="col-watched -padding-inline-large table-stats"><a class="has-icon icon-16 icon-watched" href="/daniel_wilden/films/">106</a></td>
+				<td class="col-lists -padding-inline-large table-stats"><a class="has-icon icon-16 icon-list" href="/daniel_wilden/lists/">0</a></td>
+				<td class="col-likes -padding-inline-large table-stats"><a class="has-icon icon-16 icon-liked tooltip" title="17&nbsp;films liked" href="/daniel_wilden/likes/films/">17</a></td>
+			
+	
+	<td class="col-follow table-follow-status hide-when-logged-out">
+		
+
+
+
+
+
+<div class="follow-button-wrapper js-follow-button-wrapper" data-username="Daniel_Wilden" data-profile="false">
+	
+			<a href="#" data-action="/daniel_wilden/unfollow/" class="ajax-click-action button -compact -following js-button-following tooltip" title="Unfollow Daniel_Wilden" hidden><span class="icon"></span><span class="button-text">Following Daniel_Wilden</span></a>
+			<a href="#" data-action="/daniel_wilden/follow/" data-captcha-action="follow" class="ajax-click-action button -compact -follow js-button-follow tooltip" title="Follow Daniel_Wilden"><span class="icon"></span><span class="button-text">Follow Daniel_Wilden</span></a>
+		
+	
+</div>
+
+	</td>
+	
+</tr>
+
+					
+				
+					
+					
+						
+
+
+
+
+
+
+<tr>
+	<td class="col-member table-person"><div class="person-summary"> <a class="avatar -a40" href="/blueatthevenue/" > <img src="https://a.ltrbxd.com/resized/avatar/upload/3/1/6/0/0/4/1/4/shard/avtr-0-80-0-80-crop.jpg?v=160e450871" alt="Sid" width="40" height="40" /> </a> <h3 class="title-3"> <a href="/blueatthevenue/" class="name"> Sid </a> </h3> <small class="metadata"> <a href="/blueatthevenue/followers/" class="_nobr">3&nbsp;followers</a>, <a href="/blueatthevenue/following/" class="_nobr">following 7</a> </small> </div></td>
+	
+		
+				<td class="col-watched -padding-inline-large table-stats"><a class="has-icon icon-16 icon-watched" href="/blueatthevenue/films/">52</a></td>
+				<td class="col-lists -padding-inline-large table-stats"><a class="has-icon icon-16 icon-list" href="/blueatthevenue/lists/">1</a></td>
+				<td class="col-likes -padding-inline-large table-stats"><a class="has-icon icon-16 icon-liked tooltip" title="22&nbsp;films liked" href="/blueatthevenue/likes/films/">22</a></td>
+			
+	
+	<td class="col-follow table-follow-status hide-when-logged-out">
+		
+
+
+
+
+
+<div class="follow-button-wrapper js-follow-button-wrapper" data-username="blueatthevenue" data-profile="false">
+	
+			<a href="#" data-action="/blueatthevenue/unfollow/" class="ajax-click-action button -compact -following js-button-following tooltip" title="Unfollow Sid" hidden><span class="icon"></span><span class="button-text">Following Sid</span></a>
+			<a href="#" data-action="/blueatthevenue/follow/" data-captcha-action="follow" class="ajax-click-action button -compact -follow js-button-follow tooltip" title="Follow Sid"><span class="icon"></span><span class="button-text">Follow Sid</span></a>
+		
+	
+</div>
+
+	</td>
+	
+</tr>
+
+					
+				
+					
+					
+						
+
+
+
+
+
+
+<tr>
+	<td class="col-member table-person"><div class="person-summary"> <a class="avatar -a40" href="/shaineywainey/" > <img src="https://a.ltrbxd.com/resized/avatar/upload/1/9/1/4/9/0/9/0/shard/avtr-0-80-0-80-crop.jpg?v=f55a1494cd" alt="shaineywainey" width="40" height="40" /> </a> <h3 class="title-3"> <a href="/shaineywainey/" class="name"> shaineywainey </a> </h3> <small class="metadata"> <a href="/shaineywainey/followers/" class="_nobr">16&nbsp;followers</a>, <a href="/shaineywainey/following/" class="_nobr">following 21</a> </small> </div></td>
+	
+		
+				<td class="col-watched -padding-inline-large table-stats"><a class="has-icon icon-16 icon-watched" href="/shaineywainey/films/">173</a></td>
+				<td class="col-lists -padding-inline-large table-stats"><a class="has-icon icon-16 icon-list" href="/shaineywainey/lists/">2</a></td>
+				<td class="col-likes -padding-inline-large table-stats"><a class="has-icon icon-16 icon-liked tooltip" title="132&nbsp;films liked" href="/shaineywainey/likes/films/">132</a></td>
+			
+	
+	<td class="col-follow table-follow-status hide-when-logged-out">
+		
+
+
+
+
+
+<div class="follow-button-wrapper js-follow-button-wrapper" data-username="shaineywainey" data-profile="false">
+	
+			<a href="#" data-action="/shaineywainey/unfollow/" class="ajax-click-action button -compact -following js-button-following tooltip" title="Unfollow shaineywainey" hidden><span class="icon"></span><span class="button-text">Following shaineywainey</span></a>
+			<a href="#" data-action="/shaineywainey/follow/" data-captcha-action="follow" class="ajax-click-action button -compact -follow js-button-follow tooltip" title="Follow shaineywainey"><span class="icon"></span><span class="button-text">Follow shaineywainey</span></a>
+		
+	
+</div>
+
+	</td>
+	
+</tr>
+
+					
+				
+					
+					
+						
+
+
+
+
+
+
+<tr>
+	<td class="col-member table-person"><div class="person-summary"> <a class="avatar -a40" href="/natevasa/" > <img src="https://a.ltrbxd.com/resized/avatar/upload/4/6/2/2/3/5/3/shard/avtr-0-80-0-80-crop.jpg?v=50091111be" alt="natevasa" width="40" height="40" /> </a> <h3 class="title-3"> <a href="/natevasa/" class="name"> natevasa </a> </h3> <small class="metadata"> <a href="/natevasa/followers/" class="_nobr">9&nbsp;followers</a>, <a href="/natevasa/following/" class="_nobr">following 18</a> </small> </div></td>
+	
+		
+				<td class="col-watched -padding-inline-large table-stats"><a class="has-icon icon-16 icon-watched" href="/natevasa/films/">751</a></td>
+				<td class="col-lists -padding-inline-large table-stats"><a class="has-icon icon-16 icon-list" href="/natevasa/lists/">0</a></td>
+				<td class="col-likes -padding-inline-large table-stats"><a class="has-icon icon-16 icon-liked tooltip" title="457&nbsp;films liked" href="/natevasa/likes/films/">457</a></td>
+			
+	
+	<td class="col-follow table-follow-status hide-when-logged-out">
+		
+
+
+
+
+
+<div class="follow-button-wrapper js-follow-button-wrapper" data-username="natevasa" data-profile="false">
+	
+			<a href="#" data-action="/natevasa/unfollow/" class="ajax-click-action button -compact -following js-button-following tooltip" title="Unfollow natevasa" hidden><span class="icon"></span><span class="button-text">Following natevasa</span></a>
+			<a href="#" data-action="/natevasa/follow/" data-captcha-action="follow" class="ajax-click-action button -compact -follow js-button-follow tooltip" title="Follow natevasa"><span class="icon"></span><span class="button-text">Follow natevasa</span></a>
+		
+	
+</div>
+
+	</td>
+	
+</tr>
+
+					
+				
+					
+					
+						
+
+
+
+
+
+
+<tr>
+	<td class="col-member table-person"><div class="person-summary"> <a class="avatar -a40" href="/froststan/" > <img src="https://a.ltrbxd.com/resized/avatar/upload/2/6/2/4/7/8/4/4/shard/avtr-0-80-0-80-crop.jpg?v=609c2de791" alt="froststan" width="40" height="40" /> </a> <h3 class="title-3"> <a href="/froststan/" class="name"> froststan </a> </h3> <small class="metadata"> <a href="/froststan/followers/" class="_nobr">4&nbsp;followers</a>, <a href="/froststan/following/" class="_nobr">following 4</a> </small> </div></td>
+	
+		
+				<td class="col-watched -padding-inline-large table-stats"><a class="has-icon icon-16 icon-watched" href="/froststan/films/">508</a></td>
+				<td class="col-lists -padding-inline-large table-stats"><a class="has-icon icon-16 icon-list" href="/froststan/lists/">0</a></td>
+				<td class="col-likes -padding-inline-large table-stats"><a class="has-icon icon-16 icon-liked tooltip" title="64&nbsp;films liked" href="/froststan/likes/films/">64</a></td>
+			
+	
+	<td class="col-follow table-follow-status hide-when-logged-out">
+		
+
+
+
+
+
+<div class="follow-button-wrapper js-follow-button-wrapper" data-username="froststan" data-profile="false">
+	
+			<a href="#" data-action="/froststan/unfollow/" class="ajax-click-action button -compact -following js-button-following tooltip" title="Unfollow froststan" hidden><span class="icon"></span><span class="button-text">Following froststan</span></a>
+			<a href="#" data-action="/froststan/follow/" data-captcha-action="follow" class="ajax-click-action button -compact -follow js-button-follow tooltip" title="Follow froststan"><span class="icon"></span><span class="button-text">Follow froststan</span></a>
+		
+	
+</div>
+
+	</td>
+	
+</tr>
+
+					
+				
+					
+					
+						
+
+
+
+
+
+
+<tr>
+	<td class="col-member table-person"><div class="person-summary"> <a class="avatar -a40" href="/girthwindnfire/" > <img src="https://a.ltrbxd.com/resized/avatar/upload/1/7/0/1/0/8/6/3/shard/avtr-0-80-0-80-crop.jpg?v=e8b9fda731" alt="girthwindnfire" width="40" height="40" /> </a> <h3 class="title-3"> <a href="/girthwindnfire/" class="name"> girthwindnfire </a> </h3> <small class="metadata"> <a href="/girthwindnfire/followers/" class="_nobr">4&nbsp;followers</a>, <a href="/girthwindnfire/following/" class="_nobr">following 6</a> </small> </div></td>
+	
+		
+				<td class="col-watched -padding-inline-large table-stats"><a class="has-icon icon-16 icon-watched" href="/girthwindnfire/films/">39</a></td>
+				<td class="col-lists -padding-inline-large table-stats"><a class="has-icon icon-16 icon-list" href="/girthwindnfire/lists/">0</a></td>
+				<td class="col-likes -padding-inline-large table-stats"><a class="has-icon icon-16 icon-liked tooltip" title="6&nbsp;films liked" href="/girthwindnfire/likes/films/">6</a></td>
+			
+	
+	<td class="col-follow table-follow-status hide-when-logged-out">
+		
+
+
+
+
+
+<div class="follow-button-wrapper js-follow-button-wrapper" data-username="girthwindnfire" data-profile="false">
+	
+			<a href="#" data-action="/girthwindnfire/unfollow/" class="ajax-click-action button -compact -following js-button-following tooltip" title="Unfollow girthwindnfire" hidden><span class="icon"></span><span class="button-text">Following girthwindnfire</span></a>
+			<a href="#" data-action="/girthwindnfire/follow/" data-captcha-action="follow" class="ajax-click-action button -compact -follow js-button-follow tooltip" title="Follow girthwindnfire"><span class="icon"></span><span class="button-text">Follow girthwindnfire</span></a>
+		
+	
+</div>
+
+	</td>
+	
+</tr>
+
+					
+				
+					
+					
+						
+
+
+
+
+
+
+<tr>
+	<td class="col-member table-person"><div class="person-summary"> <a class="avatar -a40" href="/toastie64/" > <img src="https://a.ltrbxd.com/resized/avatar/upload/4/6/4/8/8/2/6/shard/avtr-0-80-0-80-crop.jpg?v=a7ed96858e" alt="Sonny MacDonald" width="40" height="40" /> </a> <h3 class="title-3"> <a href="/toastie64/" class="name"> Sonny MacDonald </a> </h3> <small class="metadata"> <a href="/toastie64/followers/" class="_nobr">105&nbsp;followers</a>, <a href="/toastie64/following/" class="_nobr">following 166</a> </small> </div></td>
+	
+		
+				<td class="col-watched -padding-inline-large table-stats"><a class="has-icon icon-16 icon-watched" href="/toastie64/films/">1,169</a></td>
+				<td class="col-lists -padding-inline-large table-stats"><a class="has-icon icon-16 icon-list" href="/toastie64/lists/">66</a></td>
+				<td class="col-likes -padding-inline-large table-stats"><a class="has-icon icon-16 icon-liked tooltip" title="863&nbsp;films liked" href="/toastie64/likes/films/">863</a></td>
+			
+	
+	<td class="col-follow table-follow-status hide-when-logged-out">
+		
+
+
+
+
+
+<div class="follow-button-wrapper js-follow-button-wrapper" data-username="toastie64" data-profile="false">
+	
+			<a href="#" data-action="/toastie64/unfollow/" class="ajax-click-action button -compact -following js-button-following tooltip" title="Unfollow Sonny" hidden><span class="icon"></span><span class="button-text">Following Sonny</span></a>
+			<a href="#" data-action="/toastie64/follow/" data-captcha-action="follow" class="ajax-click-action button -compact -follow js-button-follow tooltip" title="Follow Sonny"><span class="icon"></span><span class="button-text">Follow Sonny</span></a>
+		
+	
+</div>
+
+	</td>
+	
+</tr>
+
+					
+				
+					
+					
+						
+
+
+
+
+
+
+<tr>
+	<td class="col-member table-person"><div class="person-summary"> <a class="avatar -a40" href="/seafoambby/" > <img src="https://a.ltrbxd.com/resized/avatar/upload/7/2/1/7/3/7/2/shard/avtr-0-80-0-80-crop.jpg?v=e0ab2282cf" alt="cyan ❥" width="40" height="40" /> </a> <h3 class="title-3"> <a href="/seafoambby/" class="name"> cyan ❥ </a> </h3> <small class="metadata"> <a href="/seafoambby/followers/" class="_nobr">33&nbsp;followers</a>, <a href="/seafoambby/following/" class="_nobr">following 38</a> </small> </div></td>
+	
+		
+				<td class="col-watched -padding-inline-large table-stats"><a class="has-icon icon-16 icon-watched" href="/seafoambby/films/">1,818</a></td>
+				<td class="col-lists -padding-inline-large table-stats"><a class="has-icon icon-16 icon-list" href="/seafoambby/lists/">1</a></td>
+				<td class="col-likes -padding-inline-large table-stats"><a class="has-icon icon-16 icon-liked tooltip" title="1,051&nbsp;films liked" href="/seafoambby/likes/films/">1,051</a></td>
+			
+	
+	<td class="col-follow table-follow-status hide-when-logged-out">
+		
+
+
+
+
+
+<div class="follow-button-wrapper js-follow-button-wrapper" data-username="seafoambby" data-profile="false">
+	
+			<a href="#" data-action="/seafoambby/unfollow/" class="ajax-click-action button -compact -following js-button-following tooltip" title="Unfollow cyan ❥" hidden><span class="icon"></span><span class="button-text">Following cyan ❥</span></a>
+			<a href="#" data-action="/seafoambby/follow/" data-captcha-action="follow" class="ajax-click-action button -compact -follow js-button-follow tooltip" title="Follow cyan ❥"><span class="icon"></span><span class="button-text">Follow cyan ❥</span></a>
+		
+	
+</div>
+
+	</td>
+	
+</tr>
+
+					
+				
+					
+					
+						
+
+
+
+
+
+
+<tr>
+	<td class="col-member table-person"><div class="person-summary"> <a class="avatar -a40" href="/erinmacinnis/" > <img src="https://a.ltrbxd.com/resized/avatar/upload/1/0/1/5/2/2/4/8/shard/avtr-0-80-0-80-crop.jpg?v=7efa647995" alt="Erin MacInnis" width="40" height="40" /> </a> <h3 class="title-3"> <a href="/erinmacinnis/" class="name"> Erin MacInnis </a> </h3> <small class="metadata"> <a href="/erinmacinnis/followers/" class="_nobr">7&nbsp;followers</a>, <a href="/erinmacinnis/following/" class="_nobr">following 6</a> </small> </div></td>
+	
+		
+				<td class="col-watched -padding-inline-large table-stats"><a class="has-icon icon-16 icon-watched" href="/erinmacinnis/films/">292</a></td>
+				<td class="col-lists -padding-inline-large table-stats"><a class="has-icon icon-16 icon-list" href="/erinmacinnis/lists/">0</a></td>
+				<td class="col-likes -padding-inline-large table-stats"><a class="has-icon icon-16 icon-liked tooltip" title="1&nbsp;film liked" href="/erinmacinnis/likes/films/">1</a></td>
+			
+	
+	<td class="col-follow table-follow-status hide-when-logged-out">
+		
+
+
+
+
+
+<div class="follow-button-wrapper js-follow-button-wrapper" data-username="erinmacinnis" data-profile="false">
+	
+			<a href="#" data-action="/erinmacinnis/unfollow/" class="ajax-click-action button -compact -following js-button-following tooltip" title="Unfollow Erin" hidden><span class="icon"></span><span class="button-text">Following Erin</span></a>
+			<a href="#" data-action="/erinmacinnis/follow/" data-captcha-action="follow" class="ajax-click-action button -compact -follow js-button-follow tooltip" title="Follow Erin"><span class="icon"></span><span class="button-text">Follow Erin</span></a>
+		
+	
+</div>
+
+	</td>
+	
+</tr>
+
+					
+				
+					
+					
+						
+
+
+
+
+
+
+<tr>
+	<td class="col-member table-person"><div class="person-summary"> <a class="avatar -a40" href="/tyleyb/" > <img src="https://a.ltrbxd.com/resized/avatar/upload/1/9/7/0/2/1/4/0/shard/avtr-0-80-0-80-crop.jpg?v=ff13659f1f" alt="tyleyb" width="40" height="40" /> </a> <h3 class="title-3"> <a href="/tyleyb/" class="name"> tyleyb </a> </h3> <small class="metadata"> <a href="/tyleyb/followers/" class="_nobr">5&nbsp;followers</a>, <a href="/tyleyb/following/" class="_nobr">following 6</a> </small> </div></td>
+	
+		
+				<td class="col-watched -padding-inline-large table-stats"><a class="has-icon icon-16 icon-watched" href="/tyleyb/films/">558</a></td>
+				<td class="col-lists -padding-inline-large table-stats"><a class="has-icon icon-16 icon-list" href="/tyleyb/lists/">0</a></td>
+				<td class="col-likes -padding-inline-large table-stats"><a class="has-icon icon-16 icon-liked tooltip" title="51&nbsp;films liked" href="/tyleyb/likes/films/">51</a></td>
+			
+	
+	<td class="col-follow table-follow-status hide-when-logged-out">
+		
+
+
+
+
+
+<div class="follow-button-wrapper js-follow-button-wrapper" data-username="tyleyb" data-profile="false">
+	
+			<a href="#" data-action="/tyleyb/unfollow/" class="ajax-click-action button -compact -following js-button-following tooltip" title="Unfollow tyleyb" hidden><span class="icon"></span><span class="button-text">Following tyleyb</span></a>
+			<a href="#" data-action="/tyleyb/follow/" data-captcha-action="follow" class="ajax-click-action button -compact -follow js-button-follow tooltip" title="Follow tyleyb"><span class="icon"></span><span class="button-text">Follow tyleyb</span></a>
+		
+	
+</div>
+
+	</td>
+	
+</tr>
+
+					
+				
+					
+					
+						
+
+
+
+
+
+
+<tr>
+	<td class="col-member table-person"><div class="person-summary"> <a class="avatar -a40" href="/notahorse/" > <img src="https://a.ltrbxd.com/resized/avatar/upload/1/5/2/9/8/1/3/5/shard/avtr-0-80-0-80-crop.jpg?v=2fb4b51d86" alt="Anne" width="40" height="40" /> </a> <h3 class="title-3"> <a href="/notahorse/" class="name"> Anne </a> </h3> <small class="metadata"> <a href="/notahorse/followers/" class="_nobr">1&nbsp;follower</a>, <a href="/notahorse/following/" class="_nobr">following 3</a> </small> </div></td>
+	
+		
+				<td class="col-watched -padding-inline-large table-stats"><a class="has-icon icon-16 icon-watched" href="/notahorse/films/">22</a></td>
+				<td class="col-lists -padding-inline-large table-stats"><a class="has-icon icon-16 icon-list" href="/notahorse/lists/">0</a></td>
+				<td class="col-likes -padding-inline-large table-stats"><a class="has-icon icon-16 icon-liked tooltip" title="18&nbsp;films liked" href="/notahorse/likes/films/">18</a></td>
+			
+	
+	<td class="col-follow table-follow-status hide-when-logged-out">
+		
+
+
+
+
+
+<div class="follow-button-wrapper js-follow-button-wrapper" data-username="notahorse" data-profile="false">
+	
+			<a href="#" data-action="/notahorse/unfollow/" class="ajax-click-action button -compact -following js-button-following tooltip" title="Unfollow Anne" hidden><span class="icon"></span><span class="button-text">Following Anne</span></a>
+			<a href="#" data-action="/notahorse/follow/" data-captcha-action="follow" class="ajax-click-action button -compact -follow js-button-follow tooltip" title="Follow Anne"><span class="icon"></span><span class="button-text">Follow Anne</span></a>
+		
+	
+</div>
+
+	</td>
+	
+</tr>
+
+					
+				
+					
+					
+						
+
+
+
+
+
+
+<tr>
+	<td class="col-member table-person"><div class="person-summary"> <a class="avatar -a40" href="/gavinh080/" > <img src="https://a.ltrbxd.com/resized/avatar/upload/2/1/1/0/1/4/2/shard/avtr-0-80-0-80-crop.jpg?v=542f46da12" alt="Gavin" width="40" height="40" /> </a> <h3 class="title-3"> <a href="/gavinh080/" class="name"> Gavin </a> </h3> <small class="metadata"> <a href="/gavinh080/followers/" class="_nobr">3&nbsp;followers</a>, <a href="/gavinh080/following/" class="_nobr">following 4</a> </small> </div></td>
+	
+		
+				<td class="col-watched -padding-inline-large table-stats"><a class="has-icon icon-16 icon-watched" href="/gavinh080/films/">194</a></td>
+				<td class="col-lists -padding-inline-large table-stats"><a class="has-icon icon-16 icon-list" href="/gavinh080/lists/">1</a></td>
+				<td class="col-likes -padding-inline-large table-stats"><a class="has-icon icon-16 icon-liked tooltip" title="22&nbsp;films liked" href="/gavinh080/likes/films/">22</a></td>
+			
+	
+	<td class="col-follow table-follow-status hide-when-logged-out">
+		
+
+
+
+
+
+<div class="follow-button-wrapper js-follow-button-wrapper" data-username="gavinh080" data-profile="false">
+	
+			<a href="#" data-action="/gavinh080/unfollow/" class="ajax-click-action button -compact -following js-button-following tooltip" title="Unfollow Gavin" hidden><span class="icon"></span><span class="button-text">Following Gavin</span></a>
+			<a href="#" data-action="/gavinh080/follow/" data-captcha-action="follow" class="ajax-click-action button -compact -follow js-button-follow tooltip" title="Follow Gavin"><span class="icon"></span><span class="button-text">Follow Gavin</span></a>
+		
+	
+</div>
+
+	</td>
+	
+</tr>
+
+					
+				
+					
+					
+						
+
+
+
+
+
+
+<tr>
+	<td class="col-member table-person"><div class="person-summary"> <a class="avatar -a40" href="/naiz0/" > <img src="https://a.ltrbxd.com/resized/avatar/upload/3/2/8/4/2/5/6/3/shard/avtr-0-80-0-80-crop.jpg?v=26e40d53ed" alt="Naiz0" width="40" height="40" /> </a> <h3 class="title-3"> <a href="/naiz0/" class="name"> Naiz0 </a> </h3> <small class="metadata"> <a href="/naiz0/followers/" class="_nobr">2&nbsp;followers</a>, <a href="/naiz0/following/" class="_nobr">following 3</a> </small> </div></td>
+	
+		
+				<td class="col-watched -padding-inline-large table-stats"><a class="has-icon icon-16 icon-watched" href="/naiz0/films/">842</a></td>
+				<td class="col-lists -padding-inline-large table-stats"><a class="has-icon icon-16 icon-list" href="/naiz0/lists/">0</a></td>
+				<td class="col-likes -padding-inline-large table-stats"><a class="has-icon icon-16 icon-liked tooltip" title="1&nbsp;film liked" href="/naiz0/likes/films/">1</a></td>
+			
+	
+	<td class="col-follow table-follow-status hide-when-logged-out">
+		
+
+
+
+
+
+<div class="follow-button-wrapper js-follow-button-wrapper" data-username="Naiz0" data-profile="false">
+	
+			<a href="#" data-action="/naiz0/unfollow/" class="ajax-click-action button -compact -following js-button-following tooltip" title="Unfollow Naiz0" hidden><span class="icon"></span><span class="button-text">Following Naiz0</span></a>
+			<a href="#" data-action="/naiz0/follow/" data-captcha-action="follow" class="ajax-click-action button -compact -follow js-button-follow tooltip" title="Follow Naiz0"><span class="icon"></span><span class="button-text">Follow Naiz0</span></a>
+		
+	
+</div>
+
+	</td>
+	
+</tr>
+
+					
+				
+					
+					
+						
+
+
+
+
+
+
+<tr>
+	<td class="col-member table-person"><div class="person-summary"> <a class="avatar -a40" href="/thatcatbasil/" > <img src="https://a.ltrbxd.com/resized/avatar/upload/1/0/1/9/3/9/5/7/shard/avtr-0-80-0-80-crop.jpg?v=4cae76ac5d" alt="Basil" width="40" height="40" /> </a> <h3 class="title-3"> <a href="/thatcatbasil/" class="name"> Basil </a> </h3> <small class="metadata"> <a href="/thatcatbasil/followers/" class="_nobr">15&nbsp;followers</a>, <a href="/thatcatbasil/following/" class="_nobr">following 20</a> </small> </div></td>
+	
+		
+				<td class="col-watched -padding-inline-large table-stats"><a class="has-icon icon-16 icon-watched" href="/thatcatbasil/films/">682</a></td>
+				<td class="col-lists -padding-inline-large table-stats"><a class="has-icon icon-16 icon-list" href="/thatcatbasil/lists/">8</a></td>
+				<td class="col-likes -padding-inline-large table-stats"><a class="has-icon icon-16 icon-liked tooltip" title="322&nbsp;films liked" href="/thatcatbasil/likes/films/">322</a></td>
+			
+	
+	<td class="col-follow table-follow-status hide-when-logged-out">
+		
+
+
+
+
+
+<div class="follow-button-wrapper js-follow-button-wrapper" data-username="thatcatbasil" data-profile="false">
+	
+			<a href="#" data-action="/thatcatbasil/unfollow/" class="ajax-click-action button -compact -following js-button-following tooltip" title="Unfollow Basil" hidden><span class="icon"></span><span class="button-text">Following Basil</span></a>
+			<a href="#" data-action="/thatcatbasil/follow/" data-captcha-action="follow" class="ajax-click-action button -compact -follow js-button-follow tooltip" title="Follow Basil"><span class="icon"></span><span class="button-text">Follow Basil</span></a>
+		
+	
+</div>
+
+	</td>
+	
+</tr>
+
+					
+				
+					
+					
+						
+
+
+
+
+
+
+<tr>
+	<td class="col-member table-person"><div class="person-summary"> <a class="avatar -a40" href="/szbrosky/" > <img src="https://a.ltrbxd.com/resized/avatar/upload/1/2/9/8/8/8/5/1/shard/avtr-0-80-0-80-crop.jpg?v=d4d9df7809" alt="szbrosky" width="40" height="40" /> </a> <h3 class="title-3"> <a href="/szbrosky/" class="name"> szbrosky </a> </h3> <small class="metadata"> <a href="/szbrosky/followers/" class="_nobr">9&nbsp;followers</a>, <a href="/szbrosky/following/" class="_nobr">following 12</a> </small> </div></td>
+	
+		
+				<td class="col-watched -padding-inline-large table-stats"><a class="has-icon icon-16 icon-watched" href="/szbrosky/films/">202</a></td>
+				<td class="col-lists -padding-inline-large table-stats"><a class="has-icon icon-16 icon-list" href="/szbrosky/lists/">2</a></td>
+				<td class="col-likes -padding-inline-large table-stats"><a class="has-icon icon-16 icon-liked tooltip" title="90&nbsp;films liked" href="/szbrosky/likes/films/">90</a></td>
+			
+	
+	<td class="col-follow table-follow-status hide-when-logged-out">
+		
+
+
+
+
+
+<div class="follow-button-wrapper js-follow-button-wrapper" data-username="szbrosky" data-profile="false">
+	
+			<a href="#" data-action="/szbrosky/unfollow/" class="ajax-click-action button -compact -following js-button-following tooltip" title="Unfollow szbrosky" hidden><span class="icon"></span><span class="button-text">Following szbrosky</span></a>
+			<a href="#" data-action="/szbrosky/follow/" data-captcha-action="follow" class="ajax-click-action button -compact -follow js-button-follow tooltip" title="Follow szbrosky"><span class="icon"></span><span class="button-text">Follow szbrosky</span></a>
+		
+	
+</div>
+
+	</td>
+	
+</tr>
+
+					
+				
+					
+					
+						
+
+
+
+
+
+
+<tr>
+	<td class="col-member table-person"><div class="person-summary"> <a class="avatar -a40" href="/itscajuntime/" > <img src="https://a.ltrbxd.com/resized/avatar/upload/7/0/3/8/3/5/8/shard/avtr-0-80-0-80-crop.jpg?v=464b82ea1b" alt="Daniel" width="40" height="40" /> </a> <h3 class="title-3"> <a href="/itscajuntime/" class="name"> Daniel </a> </h3> <small class="metadata"> <a href="/itscajuntime/followers/" class="_nobr">44&nbsp;followers</a>, <a href="/itscajuntime/following/" class="_nobr">following 67</a> </small> </div></td>
+	
+		
+				<td class="col-watched -padding-inline-large table-stats"><a class="has-icon icon-16 icon-watched" href="/itscajuntime/films/">609</a></td>
+				<td class="col-lists -padding-inline-large table-stats"><a class="has-icon icon-16 icon-list" href="/itscajuntime/lists/">34</a></td>
+				<td class="col-likes -padding-inline-large table-stats"><a class="has-icon icon-16 icon-liked tooltip" title="250&nbsp;films liked" href="/itscajuntime/likes/films/">250</a></td>
+			
+	
+	<td class="col-follow table-follow-status hide-when-logged-out">
+		
+
+
+
+
+
+<div class="follow-button-wrapper js-follow-button-wrapper" data-username="itscajuntime" data-profile="false">
+	
+			<a href="#" data-action="/itscajuntime/unfollow/" class="ajax-click-action button -compact -following js-button-following tooltip" title="Unfollow Daniel" hidden><span class="icon"></span><span class="button-text">Following Daniel</span></a>
+			<a href="#" data-action="/itscajuntime/follow/" data-captcha-action="follow" class="ajax-click-action button -compact -follow js-button-follow tooltip" title="Follow Daniel"><span class="icon"></span><span class="button-text">Follow Daniel</span></a>
+		
+	
+</div>
+
+	</td>
+	
+</tr>
+
+					
+				
+					
+					
+						
+
+
+
+
+
+
+<tr>
+	<td class="col-member table-person"><div class="person-summary"> <a class="avatar -a40" href="/durgdurg/" > <img src="https://a.ltrbxd.com/resized/avatar/upload/1/0/7/4/7/3/2/4/shard/avtr-0-80-0-80-crop.jpg?v=5c7e8ad54c" alt="durgdurg" width="40" height="40" /> </a> <h3 class="title-3"> <a href="/durgdurg/" class="name"> durgdurg </a> </h3> <small class="metadata"> <a href="/durgdurg/followers/" class="_nobr">2&nbsp;followers</a>, <a href="/durgdurg/following/" class="_nobr">following 7</a> </small> </div></td>
+	
+		
+				<td class="col-watched -padding-inline-large table-stats"><a class="has-icon icon-16 icon-watched" href="/durgdurg/films/">128</a></td>
+				<td class="col-lists -padding-inline-large table-stats"><a class="has-icon icon-16 icon-list" href="/durgdurg/lists/">0</a></td>
+				<td class="col-likes -padding-inline-large table-stats"><a class="has-icon icon-16 icon-liked tooltip" title="0&nbsp;films liked" href="/durgdurg/likes/films/">0</a></td>
+			
+	
+	<td class="col-follow table-follow-status hide-when-logged-out">
+		
+
+
+
+
+
+<div class="follow-button-wrapper js-follow-button-wrapper" data-username="durgdurg" data-profile="false">
+	
+			<a href="#" data-action="/durgdurg/unfollow/" class="ajax-click-action button -compact -following js-button-following tooltip" title="Unfollow durgdurg" hidden><span class="icon"></span><span class="button-text">Following durgdurg</span></a>
+			<a href="#" data-action="/durgdurg/follow/" data-captcha-action="follow" class="ajax-click-action button -compact -follow js-button-follow tooltip" title="Follow durgdurg"><span class="icon"></span><span class="button-text">Follow durgdurg</span></a>
+		
+	
+</div>
+
+	</td>
+	
+</tr>
+
+					
+				
+					
+					
+						
+
+
+
+
+
+
+<tr>
+	<td class="col-member table-person"><div class="person-summary"> <a class="avatar -a40" href="/hardscope/" > <img src="https://a.ltrbxd.com/resized/avatar/upload/9/7/9/5/2/8/1/shard/avtr-0-80-0-80-crop.jpg?v=f3827ccbd8" alt="Hardscope" width="40" height="40" /> </a> <h3 class="title-3"> <a href="/hardscope/" class="name"> Hardscope </a> </h3> <small class="metadata"> <a href="/hardscope/followers/" class="_nobr">3&nbsp;followers</a>, <a href="/hardscope/following/" class="_nobr">following 5</a> </small> </div></td>
+	
+		
+				<td class="col-watched -padding-inline-large table-stats"><a class="has-icon icon-16 icon-watched" href="/hardscope/films/">233</a></td>
+				<td class="col-lists -padding-inline-large table-stats"><a class="has-icon icon-16 icon-list" href="/hardscope/lists/">0</a></td>
+				<td class="col-likes -padding-inline-large table-stats"><a class="has-icon icon-16 icon-liked tooltip" title="89&nbsp;films liked" href="/hardscope/likes/films/">89</a></td>
+			
+	
+	<td class="col-follow table-follow-status hide-when-logged-out">
+		
+
+
+
+
+
+<div class="follow-button-wrapper js-follow-button-wrapper" data-username="Hardscope" data-profile="false">
+	
+			<a href="#" data-action="/hardscope/unfollow/" class="ajax-click-action button -compact -following js-button-following tooltip" title="Unfollow Hardscope" hidden><span class="icon"></span><span class="button-text">Following Hardscope</span></a>
+			<a href="#" data-action="/hardscope/follow/" data-captcha-action="follow" class="ajax-click-action button -compact -follow js-button-follow tooltip" title="Follow Hardscope"><span class="icon"></span><span class="button-text">Follow Hardscope</span></a>
+		
+	
+</div>
+
+	</td>
+	
+</tr>
+
+					
+				
+					
+					
+						
+
+
+
+
+
+
+<tr>
+	<td class="col-member table-person"><div class="person-summary"> <a class="avatar -a40" href="/eizzz/" > <img src="https://a.ltrbxd.com/resized/avatar/upload/5/2/6/6/8/0/shard/avtr-0-80-0-80-crop.jpg?v=77c3a8db59" alt="Natalia" width="40" height="40" /> </a> <h3 class="title-3"> <a href="/eizzz/" class="name"> Natalia </a> </h3> <small class="metadata"> <a href="/eizzz/followers/" class="_nobr">22&nbsp;followers</a>, <a href="/eizzz/following/" class="_nobr">following 41</a> </small> </div></td>
+	
+		
+				<td class="col-watched -padding-inline-large table-stats"><a class="has-icon icon-16 icon-watched" href="/eizzz/films/">1,115</a></td>
+				<td class="col-lists -padding-inline-large table-stats"><a class="has-icon icon-16 icon-list" href="/eizzz/lists/">12</a></td>
+				<td class="col-likes -padding-inline-large table-stats"><a class="has-icon icon-16 icon-liked tooltip" title="123&nbsp;films liked" href="/eizzz/likes/films/">123</a></td>
+			
+	
+	<td class="col-follow table-follow-status hide-when-logged-out">
+		
+
+
+
+
+
+<div class="follow-button-wrapper js-follow-button-wrapper" data-username="eizzz" data-profile="false">
+	
+			<a href="#" data-action="/eizzz/unfollow/" class="ajax-click-action button -compact -following js-button-following tooltip" title="Unfollow Natalia" hidden><span class="icon"></span><span class="button-text">Following Natalia</span></a>
+			<a href="#" data-action="/eizzz/follow/" data-captcha-action="follow" class="ajax-click-action button -compact -follow js-button-follow tooltip" title="Follow Natalia"><span class="icon"></span><span class="button-text">Follow Natalia</span></a>
+		
+	
+</div>
+
+	</td>
+	
+</tr>
+
+					
+				
+					
+					
+						
+
+
+
+
+
+
+<tr>
+	<td class="col-member table-person"><div class="person-summary"> <a class="avatar -a40" href="/kernya/" > <img src="https://s.ltrbxd.com/static/img/avatar80-CTtJ8HSs.png" alt="kernya" width="40" height="40" /> </a> <h3 class="title-3"> <a href="/kernya/" class="name"> kernya </a> </h3> <small class="metadata"> <a href="/kernya/followers/" class="_nobr">2&nbsp;followers</a>, <a href="/kernya/following/" class="_nobr">following 3</a> </small> </div></td>
+	
+		
+				<td class="col-watched -padding-inline-large table-stats"><a class="has-icon icon-16 icon-watched" href="/kernya/films/">309</a></td>
+				<td class="col-lists -padding-inline-large table-stats"><a class="has-icon icon-16 icon-list" href="/kernya/lists/">0</a></td>
+				<td class="col-likes -padding-inline-large table-stats"><a class="has-icon icon-16 icon-liked tooltip" title="34&nbsp;films liked" href="/kernya/likes/films/">34</a></td>
+			
+	
+	<td class="col-follow table-follow-status hide-when-logged-out">
+		
+
+
+
+
+
+<div class="follow-button-wrapper js-follow-button-wrapper" data-username="kernya" data-profile="false">
+	
+			<a href="#" data-action="/kernya/unfollow/" class="ajax-click-action button -compact -following js-button-following tooltip" title="Unfollow kernya" hidden><span class="icon"></span><span class="button-text">Following kernya</span></a>
+			<a href="#" data-action="/kernya/follow/" data-captcha-action="follow" class="ajax-click-action button -compact -follow js-button-follow tooltip" title="Follow kernya"><span class="icon"></span><span class="button-text">Follow kernya</span></a>
+		
+	
+</div>
+
+	</td>
+	
+</tr>
+
+					
+				
+					
+					
+						
+
+
+
+
+
+
+<tr>
+	<td class="col-member table-person"><div class="person-summary"> <a class="avatar -a40" href="/beatrizbee24/" > <img src="https://a.ltrbxd.com/resized/avatar/upload/1/4/8/9/5/9/2/5/shard/avtr-0-80-0-80-crop.jpg?v=c2f5688d14" alt="BiaAaa34" width="40" height="40" /> </a> <h3 class="title-3"> <a href="/beatrizbee24/" class="name"> BiaAaa34 </a> </h3> <small class="metadata"> <a href="/beatrizbee24/followers/" class="_nobr">4&nbsp;followers</a>, <a href="/beatrizbee24/following/" class="_nobr">following 6</a> </small> </div></td>
+	
+		
+				<td class="col-watched -padding-inline-large table-stats"><a class="has-icon icon-16 icon-watched" href="/beatrizbee24/films/">547</a></td>
+				<td class="col-lists -padding-inline-large table-stats"><a class="has-icon icon-16 icon-list" href="/beatrizbee24/lists/">1</a></td>
+				<td class="col-likes -padding-inline-large table-stats"><a class="has-icon icon-16 icon-liked tooltip" title="10&nbsp;films liked" href="/beatrizbee24/likes/films/">10</a></td>
+			
+	
+	<td class="col-follow table-follow-status hide-when-logged-out">
+		
+
+
+
+
+
+<div class="follow-button-wrapper js-follow-button-wrapper" data-username="beatrizbee24" data-profile="false">
+	
+			<a href="#" data-action="/beatrizbee24/unfollow/" class="ajax-click-action button -compact -following js-button-following tooltip" title="Unfollow BiaAaa34" hidden><span class="icon"></span><span class="button-text">Following BiaAaa34</span></a>
+			<a href="#" data-action="/beatrizbee24/follow/" data-captcha-action="follow" class="ajax-click-action button -compact -follow js-button-follow tooltip" title="Follow BiaAaa34"><span class="icon"></span><span class="button-text">Follow BiaAaa34</span></a>
+		
+	
+</div>
+
+	</td>
+	
+</tr>
+
+					
+				
+					
+					
+						
+
+
+
+
+
+
+<tr>
+	<td class="col-member table-person"><div class="person-summary"> <a class="avatar -a40" href="/girplejuice/" > <img src="https://a.ltrbxd.com/resized/avatar/upload/1/1/1/8/3/6/7/9/shard/avtr-0-80-0-80-crop.jpg?v=97b08dd482" alt="girplejuice" width="40" height="40" /> </a> <h3 class="title-3"> <a href="/girplejuice/" class="name"> girplejuice </a> </h3> <small class="metadata"> <a href="/girplejuice/followers/" class="_nobr">18&nbsp;followers</a>, <a href="/girplejuice/following/" class="_nobr">following 20</a> </small> </div></td>
+	
+		
+				<td class="col-watched -padding-inline-large table-stats"><a class="has-icon icon-16 icon-watched" href="/girplejuice/films/">460</a></td>
+				<td class="col-lists -padding-inline-large table-stats"><a class="has-icon icon-16 icon-list" href="/girplejuice/lists/">0</a></td>
+				<td class="col-likes -padding-inline-large table-stats"><a class="has-icon icon-16 icon-liked tooltip" title="111&nbsp;films liked" href="/girplejuice/likes/films/">111</a></td>
+			
+	
+	<td class="col-follow table-follow-status hide-when-logged-out">
+		
+
+
+
+
+
+<div class="follow-button-wrapper js-follow-button-wrapper" data-username="girplejuice" data-profile="false">
+	
+			<a href="#" data-action="/girplejuice/unfollow/" class="ajax-click-action button -compact -following js-button-following tooltip" title="Unfollow girplejuice" hidden><span class="icon"></span><span class="button-text">Following girplejuice</span></a>
+			<a href="#" data-action="/girplejuice/follow/" data-captcha-action="follow" class="ajax-click-action button -compact -follow js-button-follow tooltip" title="Follow girplejuice"><span class="icon"></span><span class="button-text">Follow girplejuice</span></a>
+		
+	
+</div>
+
+	</td>
+	
+</tr>
+
+					
+				
+					
+					
+						
+
+
+
+
+
+
+<tr>
+	<td class="col-member table-person"><div class="person-summary"> <a class="avatar -a40" href="/aavveery/" > <img src="https://a.ltrbxd.com/resized/avatar/upload/4/8/5/6/4/1/9/shard/avtr-0-80-0-80-crop.jpg?v=a9adcdc8ad" alt="avery" width="40" height="40" /> </a> <h3 class="title-3"> <a href="/aavveery/" class="name"> avery </a> </h3> <small class="metadata"> <a href="/aavveery/followers/" class="_nobr">33&nbsp;followers</a>, <a href="/aavveery/following/" class="_nobr">following 37</a> </small> </div></td>
+	
+		
+				<td class="col-watched -padding-inline-large table-stats"><a class="has-icon icon-16 icon-watched" href="/aavveery/films/">1,058</a></td>
+				<td class="col-lists -padding-inline-large table-stats"><a class="has-icon icon-16 icon-list" href="/aavveery/lists/">8</a></td>
+				<td class="col-likes -padding-inline-large table-stats"><a class="has-icon icon-16 icon-liked tooltip" title="138&nbsp;films liked" href="/aavveery/likes/films/">138</a></td>
+			
+	
+	<td class="col-follow table-follow-status hide-when-logged-out">
+		
+
+
+
+
+
+<div class="follow-button-wrapper js-follow-button-wrapper" data-username="aavveery" data-profile="false">
+	
+			<a href="#" data-action="/aavveery/unfollow/" class="ajax-click-action button -compact -following js-button-following tooltip" title="Unfollow avery" hidden><span class="icon"></span><span class="button-text">Following avery</span></a>
+			<a href="#" data-action="/aavveery/follow/" data-captcha-action="follow" class="ajax-click-action button -compact -follow js-button-follow tooltip" title="Follow avery"><span class="icon"></span><span class="button-text">Follow avery</span></a>
+		
+	
+</div>
+
+	</td>
+	
+</tr>
+
+					
+				
+					
+					
+						
+
+
+
+
+
+
+<tr>
+	<td class="col-member table-person"><div class="person-summary"> <a class="avatar -a40" href="/micheleknott221/" > <img src="https://a.ltrbxd.com/resized/avatar/upload/1/0/4/9/4/8/6/shard/avtr-0-80-0-80-crop.jpg?v=6a091f2e90" alt="Michele" width="40" height="40" /> </a> <h3 class="title-3"> <a href="/micheleknott221/" class="name"> Michele </a> </h3> <small class="metadata"> <a href="/micheleknott221/followers/" class="_nobr">24&nbsp;followers</a>, <a href="/micheleknott221/following/" class="_nobr">following 27</a> </small> </div></td>
+	
+		
+				<td class="col-watched -padding-inline-large table-stats"><a class="has-icon icon-16 icon-watched" href="/micheleknott221/films/">1,545</a></td>
+				<td class="col-lists -padding-inline-large table-stats"><a class="has-icon icon-16 icon-list" href="/micheleknott221/lists/">24</a></td>
+				<td class="col-likes -padding-inline-large table-stats"><a class="has-icon icon-16 icon-liked tooltip" title="226&nbsp;films liked" href="/micheleknott221/likes/films/">226</a></td>
+			
+	
+	<td class="col-follow table-follow-status hide-when-logged-out">
+		
+
+
+
+
+
+<div class="follow-button-wrapper js-follow-button-wrapper" data-username="micheleknott221" data-profile="false">
+	
+			<a href="#" data-action="/micheleknott221/unfollow/" class="ajax-click-action button -compact -following js-button-following tooltip" title="Unfollow Michele" hidden><span class="icon"></span><span class="button-text">Following Michele</span></a>
+			<a href="#" data-action="/micheleknott221/follow/" data-captcha-action="follow" class="ajax-click-action button -compact -follow js-button-follow tooltip" title="Follow Michele"><span class="icon"></span><span class="button-text">Follow Michele</span></a>
+		
+	
+</div>
+
+	</td>
+	
+</tr>
+
+					
+				
+					
+					
+						
+
+
+
+
+
+
+<tr>
+	<td class="col-member table-person"><div class="person-summary"> <a class="avatar -a40" href="/mrgingersir/" > <img src="https://a.ltrbxd.com/resized/avatar/upload/2/9/9/9/6/1/2/8/shard/avtr-0-80-0-80-crop.jpg?v=9ce4dc5ed1" alt="MrGingerSir" width="40" height="40" /> </a> <h3 class="title-3"> <a href="/mrgingersir/" class="name"> MrGingerSir </a> </h3> <small class="metadata"> <a href="/mrgingersir/followers/" class="_nobr">1&nbsp;follower</a>, <a href="/mrgingersir/following/" class="_nobr">following 3</a> </small> </div></td>
+	
+		
+				<td class="col-watched -padding-inline-large table-stats"><a class="has-icon icon-16 icon-watched" href="/mrgingersir/films/">1,127</a></td>
+				<td class="col-lists -padding-inline-large table-stats"><a class="has-icon icon-16 icon-list" href="/mrgingersir/lists/">0</a></td>
+				<td class="col-likes -padding-inline-large table-stats"><a class="has-icon icon-16 icon-liked tooltip" title="304&nbsp;films liked" href="/mrgingersir/likes/films/">304</a></td>
+			
+	
+	<td class="col-follow table-follow-status hide-when-logged-out">
+		
+
+
+
+
+
+<div class="follow-button-wrapper js-follow-button-wrapper" data-username="MrGingerSir" data-profile="false">
+	
+			<a href="#" data-action="/mrgingersir/unfollow/" class="ajax-click-action button -compact -following js-button-following tooltip" title="Unfollow MrGingerSir" hidden><span class="icon"></span><span class="button-text">Following MrGingerSir</span></a>
+			<a href="#" data-action="/mrgingersir/follow/" data-captcha-action="follow" class="ajax-click-action button -compact -follow js-button-follow tooltip" title="Follow MrGingerSir"><span class="icon"></span><span class="button-text">Follow MrGingerSir</span></a>
+		
+	
+</div>
+
+	</td>
+	
+</tr>
+
+					
+				
+			</tbody>
+		</table>
+		<div class="pagination"> <div class="paginate-nextprev paginate-disabled"><span class="previous">Previous</span></div> <div class="paginate-nextprev"><a class="next" href="/brutalmoose/followers/page/2/">Next</a></div> </div>
+	
+			
+	</section>
+
+	<aside class="sidebar">
+		
+
+<script id="script-a690b760-18be-4e5f-8ae8-9104d7708150"> ((tag, target) => { let adsScript = null; let adsPlatforms = null; let adsLocations = null; let adsMode = ''; if (!disableAds && person.showAds) { let adUnit = document.createElement('div'); let kicker = [ '<div class="upgrade-kicker -skyscraper js-hide-in-app">', '<button type="button" class="modaltrigger" data-bs-toggle="modal" data-bs-target="#remove-ads-modal">', 'Remove Ads', '<svg aria-hidden="true" width="7" height="7" xmlns="http://www.w3.org/2000/svg"><path d="m.5.5 6 6M6.5.5l-6 6" fill-rule="evenodd" stroke="#000"/></svg>', '</button>', '</div>' ].join(''); if ( adsScript && adsScript === 'bandsintown' && adsPlatforms && ((window.isIOS && adsPlatforms.indexOf("iOS") >= 0) || (window.isAndroid && adsPlatforms.indexOf("Android") >= 0)) && adsLocations && adsMode && ( (adsMode === 'include' && adsLocations.indexOf(window.adsLocation) >= 0) || (adsMode === 'exclude' && adsLocations.indexOf(window.adsLocation) == -1) ) ) { var opts = { artist: "", song: "", adunit_id: 100005950, div_id: "cf_async_a690b760-18be-4e5f-8ae8-9104d7708150" }; adUnit.id = opts.div_id; if (target) { target.insertAdjacentElement('beforeend', adUnit); } else { tag.insertAdjacentElement('afterend', adUnit); } var c=function(){cf.showAsyncAd(opts)};if(typeof window.cf !== 'undefined')c();else{cf_async=!0;var r=document.createElement("script"),s=document.getElementsByTagName("script")[0];r.async=!0;r.src="//srv.tunefindforfans.com/fruits/apricots.js";r.readyState?r.onreadystatechange=function(){if("loaded"==r.readyState||"complete"==r.readyState)r.onreadystatechange=null,c()}:r.onload=c;s.parentNode.insertBefore(r,s)}; } else { adUnit.id = 'pw-a690b760-18be-4e5f-8ae8-9104d7708150'; adUnit.className = 'pw-div -nomargin'; adUnit.setAttribute('data-pw-' + (renderMobile ? 'mobi' : 'desk'), 'sky_atf'); if (target) { target.insertAdjacentElement('beforeend', adUnit); } else { tag.insertAdjacentElement('afterend', adUnit); } adUnit.insertAdjacentHTML('afterend', kicker); window.ramp.que.push(function () { window.ramp.addTag('pw-a690b760-18be-4e5f-8ae8-9104d7708150'); }); } } tag.remove(); })(document.getElementById('script-a690b760-18be-4e5f-8ae8-9104d7708150')); </script>
+
+	</aside>
+</div>
+
+
+
+
+
+
+
+
+	
+		</div> 
+	
+
+	
+
+	</main> 
+
+
+
+	<footer id="page-footer" class="page-footer js-page-footer js-hide-in-app">
+		<div class="content-wrap">
+			
+				<nav class="footer-nav js-footer-nav">
+					<ul>
+						<li><a href="/about/">About</a></li>
+						<li class="js-hide-in-app"><a href="/pro/">Pro</a></li>
+						<li><a href="/journal/">News</a></li>
+						<li><a href="/apps/">Apps</a></li>
+						<li><a href="/year-in-review/">Year in Review</a></li>
+						
+<li><a href="/video-store/">Video Store</a></li>
+
+						<li><a href="/gift-guide/">Gifts</a></li>
+						<li><a href="/welcome/">Help</a></li>
+						<li><a href="/legal/terms-of-use/">Terms</a></li>
+						<li><a href="/api-beta/">API</a></li>
+						<li><a href="/contact/">Contact</a></li>
+					</ul>
+				</nav>
+	
+
+			<div class="socials">
+				<nav class="social-service-list -inline">
+					<div class="listitem -icononly">
+						<a class="trigger tooltip" href="https://www.instagram.com/letterboxd" target="_blank" rel="noopener noreferrer" title="Letterboxd on Instagram">
+							<svg class="glyph" aria-hidden="true" role="presentation" width="20" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M14.12.06c1.07.05 1.8.22 2.43.46.66.26 1.21.6 1.77 1.16.56.55.9 1.11 1.15 1.77.25.63.42 1.36.47 2.43.04.94.06 1.32.06 3.3v1.37c0 1.54 0 2.19-.03 2.77v.22l-.03.58a7.34 7.34 0 0 1-.47 2.43 4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.16c-.64.24-1.36.41-2.43.46l-.61.03h-.23c-.5.02-1.06.03-2.21.03H9.2c-2 0-2.37-.02-3.32-.06a7.34 7.34 0 0 1-2.43-.46 4.9 4.9 0 0 1-1.77-1.16 4.9 4.9 0 0 1-1.16-1.77 7.34 7.34 0 0 1-.46-2.43l-.03-.61v-.2A60.9 60.9 0 0 1 0 11.5V8.75C0 7.7.01 7.17.03 6.7v-.2l.03-.61C.1 4.8.28 4.08.52 3.45a4.9 4.9 0 0 1 1.16-1.77A4.9 4.9 0 0 1 3.45.52 7.34 7.34 0 0 1 5.88.06l.61-.03h.2C7.12 0 7.6 0 8.5 0h2.74c1.62 0 2 .02 2.88.06ZM11.02 2H8.97c-1.7 0-2.05.02-2.92.06a5.4 5.4 0 0 0-1.82.33c-.45.18-.78.39-1.12.73-.34.34-.55.67-.73 1.12-.13.35-.3.86-.33 1.82C2.02 6.93 2 7.29 2 8.98v2.04c0 1.7.02 2.05.06 2.92.04.95.2 1.47.33 1.81.18.46.39.78.73 1.13.34.34.67.55 1.12.73.35.13.86.29 1.82.33.83.04 1.2.05 2.7.06h2.47c1.51 0 1.87-.02 2.71-.06a5.4 5.4 0 0 0 1.81-.33c.46-.18.78-.4 1.12-.73.35-.35.56-.67.73-1.13.14-.34.3-.86.34-1.8a49 49 0 0 0 .06-2.72V8.77a49 49 0 0 0-.06-2.71 5.4 5.4 0 0 0-.34-1.82 3.02 3.02 0 0 0-.73-1.12 3.02 3.02 0 0 0-1.12-.73 5.4 5.4 0 0 0-1.81-.33c-.88-.04-1.23-.06-2.93-.06ZM10 4.86a5.14 5.14 0 1 1 0 10.28 5.14 5.14 0 0 1 0-10.28ZM10 7a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-3.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"/></svg>
+							<span class="label">Instagram</span>
+						</a>
+					</div>
+
+					
+						<div class="listitem -icononly">
+							<a class="trigger tooltip" href="https://www.threads.net/@letterboxd" target="_blank" rel="noopener noreferrer" title="Letterboxd on Threads">
+								<svg class="glyph" aria-hidden="true" role="presentation" xmlns="http://www.w3.org/2000/svg" width="16" height="18"><path fill-rule="nonzero" d="M8.1 0c2.8 0 4.9.9 6.3 2.6.7.9 1.3 1.9 1.6 3v.1l-1.6.4c-.3-1-.7-1.8-1.3-2.4-1.1-1.3-2.8-2-5-2-2.1 0-3.8.7-4.9 2-1 1.2-1.5 3-1.5 5.3s.5 4 1.5 5.3c1.1 1.3 2.8 2 5 2 1.9 0 3.2-.4 4.3-1.5 1-1 1.3-2.4.8-3.5-.2-.5-.6-1-1.1-1.2-.2 1-.5 1.7-1 2.3-.7.8-1.6 1.3-2.8 1.3-1 .1-1.8-.1-2.5-.6A2.8 2.8 0 0 1 4.5 11C4.5 9 6 7.8 8.2 7.6l2.3.1c-.1-.5-.3-.9-.6-1.2-.4-.4-1-.6-1.7-.7-.9 0-1.6.3-2 1H6L4.7 6a4 4 0 0 1 3.5-1.7c2.3 0 3.8 1.4 4 3.8v.2h.2v.1c1.2.5 2 1.3 2.4 2.3.8 1.7.5 3.8-1.1 5.4A7.4 7.4 0 0 1 8 18c-2.7 0-4.8-1-6.2-2.6A10 10 0 0 1 0 9c0-2.7.7-4.8 2-6.4C3.2 1 5.3 0 8 0ZM9 9.3h-.6c-1.4 0-2.1.7-2 1.5 0 .8.9 1.3 2 1.3.6 0 1-.2 1.4-.5.4-.4.7-1 .8-2v-.2A8 8 0 0 0 9 9.3h-.1Z"/></svg>
+								<span class="label">Threads</span>
+							</a>
+						</div>
+					
+
+					<div class="listitem -icononly">
+						<a class="trigger tooltip" href="https://x.com/letterboxd" target="_blank" rel="noopener noreferrer" title="Letterboxd on X">
+							<svg class="glyph" aria-hidden="true" role="presentation" xmlns="http://www.w3.org/2000/svg" width="17" height="17"><path fill-rule="nonzero" d="m5.4 0 4 6 5-6h2.1l-.3.4-5.9 6.8 6.5 9.5.2.3h-5.3l-4.3-6.3L2 16.9 2 17H0l.3-.4 6.2-7.2L.3.4 0 0h5.3Zm-1 1.5H2.9l4.9 7 .6.9 4.3 6.1h1.6l-5-7.3-.7-.9-4-5.8Z"/></svg>
+							<span class="label">X</span>
+						</a>
+					</div>
+
+					
+						<div class="listitem -icononly">
+							<a class="trigger tooltip" href="https://bsky.app/profile/letterboxd.social" target="_blank" rel="noopener noreferrer" title="Letterboxd on Bluesky">
+								<svg class="glyph" aria-hidden="true" role="presentation" xmlns="http://www.w3.org/2000/svg" width="19" height="17"><path fill="#000" fill-rule="nonzero" d="M4.15 1.14C6.34 2.81 8.7 6.18 9.56 7.98c.87-1.8 3.23-5.17 5.42-6.84 1.58-1.2 4.14-2.12 4.14.83 0 .59-.33 4.95-.53 5.66-.68 2.46-3.17 3.1-5.38 2.71 3.87.67 4.85 2.87 2.73 5.07-4.04 4.18-5.8-1.05-6.26-2.39-.08-.25-.12-.36-.12-.26 0-.1-.04.01-.12.26-.45 1.34-2.22 6.57-6.25 2.39-2.13-2.2-1.14-4.4 2.72-5.07-2.2.38-4.7-.25-5.38-2.7C.33 6.91 0 2.55 0 1.96 0-.98 2.56-.05 4.15 1.14Z"/></svg>
+								<span class="label">Bluesky</span>
+							</a>
+						</div>
+					
+
+					<div class="listitem -icononly">
+						<a class="trigger tooltip" href="https://www.facebook.com/letterboxd" target="_blank" rel="noopener noreferrer" title="Letterboxd on Facebook">
+							<svg class="glyph" aria-hidden="true" role="presentation" width="19" height="19" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 0a9.5 9.5 0 0 0-1.48 18.89V12H5.6V9.25h2.42V7.41c0-2.38 1.41-3.7 3.58-3.7 1.04 0 2.13.19 2.13.19v2.33h-1.2c-1.18 0-1.54.74-1.54 1.49v1.53h2.63L13.2 12h-2.21v6.89A9.5 9.5 0 0 0 9.5 0Z"/></svg>
+							<span class="label">Facebook</span>
+						</a>
+					</div>
+
+					<div class="listitem -icononly">
+						<a class="trigger tooltip" href="https://www.tiktok.com/@letterboxd" target="_blank" rel="noopener noreferrer" title="Letterboxd on TikTok">
+							<svg class="glyph" aria-hidden="true" role="presentation" width="17" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M16.48 4.32a4.62 4.62 0 0 1-3.92-2.66A4.04 4.04 0 0 1 12.23 0H9.07v11.85c0 1.93-1.19 3.07-2.65 3.07a2.71 2.71 0 0 1-2.04-.9 2.57 2.57 0 0 1-.6-2.1 2.55 2.55 0 0 1 1.26-1.81 2.7 2.7 0 0 1 2.24-.21V6.77a5.92 5.92 0 0 0-4.08.86 5.7 5.7 0 0 0-2.15 2.55 5.53 5.53 0 0 0 1.26 6.16 5.86 5.86 0 0 0 6.33 1.23 5.78 5.78 0 0 0 2.6-2.08c.64-.94.98-2.03.98-3.15V5.96a7.74 7.74 0 0 0 4.25 1.25V4.32Z"/></svg>
+							<span class="label">TikTok</span>
+						</a>
+					</div>
+
+					<div class="listitem -icononly">
+						<a class="trigger tooltip" href="https://www.youtube.com/letterboxdhq" target="_blank" rel="noopener noreferrer" title="Letterboxd on YouTube">
+							<svg class="glyph" aria-hidden="true" role="presentation" width="23" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M11.74 0c.61 0 2.33.02 4.11.08l.54.02c1.7.06 3.35.18 4.1.38a2.87 2.87 0 0 1 2.03 2.02c.45 1.67.48 5.04.48 5.46v.08c0 .42-.03 3.8-.48 5.46a2.87 2.87 0 0 1-2.03 2.02c-.75.2-2.4.32-4.1.38l-.54.02c-1.78.07-3.5.08-4.11.08H11.26c-.62 0-2.33-.01-4.11-.08l-.54-.02c-1.7-.06-3.36-.18-4.1-.38A2.87 2.87 0 0 1 .48 13.5C.04 11.9 0 8.68 0 8.1v-.2c0-.58.04-3.79.48-5.4A2.87 2.87 0 0 1 2.5.48c.74-.2 2.4-.32 4.1-.38l.54-.02C8.93.02 10.65 0 11.26 0ZM9 4.57v6.86L15 8 9 4.57Z"/></svg>
+							<span class="label">YouTube</span>
+						</a>
+					</div>
+				</nav>
+			</div>
+			
+			<p class="copyright">
+				&copy; Letterboxd Limited. Made by <a href="/crew/" class="mute">fans</a> in Aotearoa New Zealand.
+				<span class="nobr"><a href="https://letterboxd.com/about/film-data/" class="mute">Film data</a> from <a href="https://www.themoviedb.org" class="mute">TMDB</a>. 
+				
+						<a href="#" class="mute js-mobile-site-switch" data-use-mobile-site="yes">Mobile&nbsp;site</a>.
+					
+	</span>
+			</p>
+		</div>
+	</footer>
+
+	
+
+
+
+
+
+
+<div id="poster-picker-modal" class="modal fade content-media-picker-modal poster-picker-modal" tabindex="-1" role="dialog" aria-labelledby="poster-picker-modal-title" aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal-dialog modal-lg modal-fullscreen-sm-down modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content" data-theme="dialog">
+            <div class="modal-header">
+                <h5 class="modal-title" id="poster-picker-modal-title">Select your preferred <span class="js-image-type">poster</span></h5>
+                
+                <button type="button" class="modal-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="poster-picker-c079d291-933b-40b0-98c1-ce8e99f89a5c" method="post" action="" novalidate="novalidate" data-poster-picker-options='{&#034;id&#034;: &#034;c079d291-933b-40b0-98c1-ce8e99f89a5c&#034;}' data-js-target="poster-picker"></form>
+            </div>
+            <div class="modal-footer">
+				<div class="content-media-picker-footer" data-poster-picker-footer-for="poster-picker-c079d291-933b-40b0-98c1-ce8e99f89a5c" hidden>
+					<div class="content-media-picker-note js-content-media-picker-note"></div>
+					<div class="content-media-picker-controls poster-picker-controls" data-poster-picker-controls-for="poster-picker-c079d291-933b-40b0-98c1-ce8e99f89a5c"> <div class="objectonly js-objectonly" aria-hidden="true" hidden> <label for="poster-picker-frm-object-only" class="option-label -checkbox -medium -reversed"> <input type="checkbox" value="true" class="checkbox" id="poster-picker-frm-object-only" data-js-trigger="object-only" disabled /><i class="substitute"></i>This <span class="js-object-name">item</span> only </label> </div> <div class="actions"> <button form="poster-picker-c079d291-933b-40b0-98c1-ce8e99f89a5c" class="button-neue -destructive -rounded" type="button" data-js-trigger="reset" disabled> <span class="label" data-js-label-for="film" >Reset <span class="js-image-type">poster</span></span> <span class="label" data-js-label-for="object" hidden>Reset for <span class="js-object-name">item</span></span> </button> <button form="poster-picker-c079d291-933b-40b0-98c1-ce8e99f89a5c" class="button-neue -primary -rounded" type="submit" data-js-trigger="submit" disabled> <span class="label" data-js-label-for="film" >Save<span class="mob-hide"> changes</span></span> <span class="label" data-js-label-for="object" hidden>Save<span class="mob-hide"> for <span class="js-object-name">item</span></span></span> </button> </div> </div>
+				</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+	
+
+
+
+
+
+
+<div id="backdrop-picker-modal" class="modal fade content-media-picker-modal backdrop-picker-modal" tabindex="-1" role="dialog" aria-labelledby="backdrop-picker-modal-title" aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal-dialog modal-lg modal-fullscreen-sm-down modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content" data-theme="dialog">
+            <div class="modal-header">
+                <h5 class="modal-title" id="backdrop-picker-modal-title">Select your preferred backdrop</a></h5>
+                
+                <button type="button" class="modal-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="backdrop-picker-b7be52c9-7cd1-4917-9b1f-bff057a8a2aa" method="post" action="" novalidate="novalidate" data-backdrop-picker-options='{&#034;id&#034;: &#034;b7be52c9-7cd1-4917-9b1f-bff057a8a2aa&#034;}' data-js-target="backdrop-picker"></form>
+            </div>
+            <div class="modal-footer">
+				<div class="content-media-picker-footer" data-backdrop-picker-footer-for="backdrop-picker-b7be52c9-7cd1-4917-9b1f-bff057a8a2aa" hidden>
+					<div class="content-media-picker-note js-content-media-picker-note"></div>
+					<div class="content-media-picker-controls backdrop-picker-controls" data-backdrop-picker-controls-for="backdrop-picker-b7be52c9-7cd1-4917-9b1f-bff057a8a2aa"> <div class="objectonly js-objectonly" aria-hidden="true" hidden> <label for="backdrop-picker-frm-object-only" class="option-label -checkbox -medium -reversed"> <input type="checkbox" value="true" class="checkbox" id="backdrop-picker-frm-object-only" data-js-trigger="object-only" disabled /><i class="substitute"></i>This <span class="js-object-name">item</span> only </label> </div> <div class="actions"> <button form="backdrop-picker-b7be52c9-7cd1-4917-9b1f-bff057a8a2aa" class="button-neue -destructive -rounded" type="button" data-js-trigger="reset" disabled> <span class="label" data-js-label-for="film" >Reset <span class="js-image-type">poster</span></span> <span class="label" data-js-label-for="object" hidden>Reset for <span class="js-object-name">item</span></span> </button> <button form="backdrop-picker-b7be52c9-7cd1-4917-9b1f-bff057a8a2aa" class="button-neue -primary -rounded" type="submit" data-js-trigger="submit" disabled> <span class="label" data-js-label-for="film" >Save<span class="mob-hide"> changes</span></span> <span class="label" data-js-label-for="object" hidden>Save<span class="mob-hide"> for <span class="js-object-name">item</span></span></span> </button> </div> </div>
+				</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+	
+	
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a227bd49a947e938',t:'MTc4NTI4MjEzNg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
