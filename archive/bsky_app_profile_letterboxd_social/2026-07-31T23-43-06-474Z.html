@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, viewport-fit=cover">
+  <meta name="referrer" content="origin-when-cross-origin">
+  <!--
+    Preconnect to essential domains
+  -->
+  <link rel="preconnect" href="https://bsky.social">
+  <link rel="preconnect" href="https://go.bsky.app">
+  <title>@letterboxd.social on Bluesky</title>
+
+  <!-- Hello Humans! API docs at https://atproto.com -->
+
+  <link rel="preload" as="font" type="font/woff2" href="https://web-cdn.bsky.app/static/media/InterVariable.c504db5c06caaf7cdfba.woff2" crossorigin>
+
+  <style>
+    /**
+     * Minimum styles required to render splash.
+     *
+     * ALL OTHER STYLES BELONG IN `src/style.css`
+     *
+     * THIS NEEDS TO BE DUPLICATED IN `bskyweb/templates/base.html`
+     */
+    @font-face {
+      font-family: 'InterVariable';
+      src: url("https://web-cdn.bsky.app/static/media/InterVariable.c504db5c06caaf7cdfba.woff2") format('woff2');
+      font-weight: 300 1000;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'InterVariableItalic';
+      src: url("https://web-cdn.bsky.app/static/media/InterVariable-Italic.01dcbad1bac635f9c9cd.woff2") format('woff2');
+      font-weight: 300 1000;
+      font-style: italic;
+      font-display: swap;
+    }
+    html,
+    body {
+      margin: 0px;
+      padding: 0px;
+      font-family: InterVariable, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Liberation Sans', Helvetica, Arial, sans-serif;
+      text-rendering: optimizeLegibility;
+      /* Platform-specific reset */
+      -webkit-overflow-scrolling: touch;
+      -webkit-text-size-adjust: 100%;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -ms-overflow-style: scrollbar;
+      font-synthesis-weight: none;
+    }
+    :root {
+      --text: black;
+      --background: white;
+      --backgroundLight: #e2e7ee;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        color-scheme: dark;
+        --text: white;
+        --background: black;
+        --backgroundLight: #232e3e;
+      }
+    }
+    html,
+    body,
+    #root {
+      display: flex;
+      flex: 1 0 auto;
+      min-height: 100%;
+      width: 100%;
+    }
+    html.theme--light,
+    html.theme--light body,
+    html.theme--light #root {
+      background-color: white;
+      --text: black;
+      --background: white;
+      --backgroundLight: #DCE2EA;
+    }
+    html.theme--dark,
+    html.theme--dark body,
+    html.theme--dark #root {
+      color-scheme: dark;
+      background-color: black;
+      --text: white;
+      --background: black;
+      --backgroundLight: #232E3E;
+    }
+    html.theme--dim,
+    html.theme--dim body,
+    html.theme--dim #root {
+      color-scheme: dark;
+      background-color: #151D28;
+      --text: white;
+      --background: #151D28;
+      --backgroundLight: #2C3A4E;
+    }
+    #splash {
+      display: flex;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      align-items: center;
+      justify-content: center;
+    }
+    #splash svg {
+      position: relative;
+      top: -50px;
+      width: 100px;
+    }
+    /**
+     * We need these styles to prevent shifting due to scrollbar show/hide on
+     * OSs that have them enabled by default. This also handles cases where the
+     * screen wouldn't otherwise scroll, and therefore hide the scrollbar and
+     * shift the content, by forcing the page to show a scrollbar.
+     */
+    body {
+      width: 100%;
+      overflow-y: scroll;
+    }
+  </style>
+  <script>
+    const theme = localStorage.getItem('ALF_THEME')
+    if (theme) {
+      document.documentElement.classList.add(`theme--${theme}`)
+    }
+  </script>
+
+  <script defer="defer" src="https://web-cdn.bsky.app/static/js/5836.f50026c3.js"></script>
+<link rel="stylesheet" href="https://web-cdn.bsky.app/static/css/main.dbb4f61c.css">
+<script defer="defer" src="https://web-cdn.bsky.app/static/js/main.f11b79bb.js"></script>
+  <link rel="apple-touch-icon" sizes="180x180" href="https://web-cdn.bsky.app/static/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://web-cdn.bsky.app/static/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://web-cdn.bsky.app/static/favicon-16x16.png">
+  <link rel="mask-icon" href="https://web-cdn.bsky.app/static/safari-pinned-tab.svg" color="#1185fe">
+  <meta name="theme-color">
+  <meta name="application-name" content="Bluesky">
+  <meta name="generator" content="bskyweb">
+  
+  <meta property="og:site_name" content="Bluesky Social">
+  <meta property="og:logo" content="https://web-cdn.bsky.app/static/favicon.png">
+  <meta name="twitter:site" content="@bluesky" />
+  <link type="application/activity+json" href="" />
+
+  <meta property="og:site_name" content="Bluesky Social">
+  <meta property="og:type" content="profile">
+  
+  <meta property="og:url" content="https://bsky.app/profile/letterboxd.social">
+  <link rel="canonical" href="https://bsky.app/profile/letterboxd.social" />
+  
+<meta property="profile:username" content="letterboxd.social">
+  <meta property="og:title" content="Letterboxd (@letterboxd.social)">
+  <link rel="alternate" href="at://did:plc:ebczxy5kirxbwzoippkbb2jf/app.bsky.actor.profile/self" />
+
+  <meta name="twitter:label1" content="Account DID">
+  <meta name="twitter:value1" content="did:plc:ebczxy5kirxbwzoippkbb2jf">
+  <link rel="alternate" type="application/rss+xml" href="https://bsky.app/profile/did:plc:ebczxy5kirxbwzoippkbb2jf/rss">
+  
+
+  
+  
+    <meta name="description" content="🧡💚💙 A global community of film lovers. Share your taste in movies via our free apps for iOS, Android, Apple TV, and on the web. https://letterboxd.com">
+    <meta property="og:description" content="🧡💚💙 A global community of film lovers. Share your taste in movies via our free apps for iOS, Android, Apple TV, and on the web. https://letterboxd.com">
+    
+    <meta property="og:image" content="https://cdn.bsky.app/img/banner/plain/did:plc:ebczxy5kirxbwzoippkbb2jf/bafkreievs32eum4qwem2e5oahmcgut3xcz3d2dliqshuht5izqg5duhfpa">
+    <meta name="twitter:card" content="summary_large_image">
+  
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","dateCreated":"2024-11-27T02:08:00.545Z","mainEntity":{"@type":"Person","name":"Letterboxd","alternateName":"@letterboxd.social","identifier":"did:plc:ebczxy5kirxbwzoippkbb2jf","description":"🧡💚💙 A global community of film lovers. Share your taste in movies via our free apps for iOS, Android, Apple TV, and on the web. https://letterboxd.com","image":"https://cdn.bsky.app/img/avatar/plain/did:plc:ebczxy5kirxbwzoippkbb2jf/bafkreibnr5muhkskuyccy6s5q2heap3lpzxpl4wjlfo44qjsflpuiuprvq","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"https://schema.org/FollowAction","userInteractionCount":121954}],"agentInteractionStatistic":[{"@type":"InteractionCounter","interactionType":"https://schema.org/FollowAction","userInteractionCount":67},{"@type":"InteractionCounter","interactionType":"https://schema.org/WriteAction","userInteractionCount":4028}],"reviewedBy":[{"@type":"Person","name":"Bluesky","alternateName":"@bsky.app","identifier":"did:plc:z72i7hdynmk6r22z27h6tvur","url":"https://bsky.app/profile/bsky.app"}]},"hasPart":[{"@type":"DiscussionForumPosting","url":"https://bsky.app/profile/letterboxd.social/post/3mrx5hgmura2r","identifier":"at://did:plc:ebczxy5kirxbwzoippkbb2jf/app.bsky.feed.post/3mrx5hgmura2r","author":{"@type":"Person","name":"Letterboxd","alternateName":"@letterboxd.social","identifier":"did:plc:ebczxy5kirxbwzoippkbb2jf","url":"https://bsky.app/profile/letterboxd.social","reviewedBy":[{"@type":"Person","name":"Bluesky","alternateName":"@bsky.app","identifier":"did:plc:z72i7hdynmk6r22z27h6tvur","url":"https://bsky.app/profile/bsky.app"}]},"text":"Happy #LetterboxdFriday! Time to post your #LastFourWatched 🤳","image":["https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:ebczxy5kirxbwzoippkbb2jf/bafkreihpfjgl7nqkq46wirruehlv3v5ncffei7pgrgfge4dait3csgt5mi"],"thumbnailUrl":"https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:ebczxy5kirxbwzoippkbb2jf/bafkreihpfjgl7nqkq46wirruehlv3v5ncffei7pgrgfge4dait3csgt5mi","datePublished":"2026-07-31T14:17:56.374Z","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"https://schema.org/LikeAction","userInteractionCount":274},{"@type":"InteractionCounter","interactionType":"https://schema.org/CommentAction","userInteractionCount":205},{"@type":"InteractionCounter","interactionType":"https://schema.org/ShareAction","userInteractionCount":658}],"commentCount":205},{"@type":"DiscussionForumPosting","url":"https://bsky.app/profile/letterboxd.social/post/3mrxhqyh7cs2r","identifier":"at://did:plc:ebczxy5kirxbwzoippkbb2jf/app.bsky.feed.post/3mrxhqyh7cs2r","author":{"@type":"Person","name":"Letterboxd","alternateName":"@letterboxd.social","identifier":"did:plc:ebczxy5kirxbwzoippkbb2jf","url":"https://bsky.app/profile/letterboxd.social","reviewedBy":[{"@type":"Person","name":"Bluesky","alternateName":"@bsky.app","identifier":"did:plc:z72i7hdynmk6r22z27h6tvur","url":"https://bsky.app/profile/bsky.app"}]},"text":"New Releases to watch on Letterboxd Video Store now 🍿\n\nFeaturing:\n-  She’s the He!\n-  Leviticus\n-  CAMP\n-  Blue Heron\n-  Silent Friend\n-  Mad Bills to Pay\n-  Blue Film\n-  Manas\n-  The Python Hunt\n-  The Currents\n\nWatch now: https://boxd.it/ioq Pricing and availability vary by region.","image":["https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:ebczxy5kirxbwzoippkbb2jf/bafkreif35y3vu55hnd6nuarlsvpkf3vzycp7adww4n25qzy46x5cx5azie"],"thumbnailUrl":"https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:ebczxy5kirxbwzoippkbb2jf/bafkreif35y3vu55hnd6nuarlsvpkf3vzycp7adww4n25qzy46x5cx5azie","datePublished":"2026-07-31T17:22:13.877Z","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"https://schema.org/LikeAction","userInteractionCount":55},{"@type":"InteractionCounter","interactionType":"https://schema.org/CommentAction","userInteractionCount":2},{"@type":"InteractionCounter","interactionType":"https://schema.org/ShareAction","userInteractionCount":12}],"commentCount":2},{"@type":"DiscussionForumPosting","url":"https://bsky.app/profile/letterboxd.social/post/3mrx5hgmura2r","identifier":"at://did:plc:ebczxy5kirxbwzoippkbb2jf/app.bsky.feed.post/3mrx5hgmura2r","author":{"@type":"Person","name":"Letterboxd","alternateName":"@letterboxd.social","identifier":"did:plc:ebczxy5kirxbwzoippkbb2jf","url":"https://bsky.app/profile/letterboxd.social","reviewedBy":[{"@type":"Person","name":"Bluesky","alternateName":"@bsky.app","identifier":"did:plc:z72i7hdynmk6r22z27h6tvur","url":"https://bsky.app/profile/bsky.app"}]},"text":"Happy #LetterboxdFriday! Time to post your #LastFourWatched 🤳","image":["https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:ebczxy5kirxbwzoippkbb2jf/bafkreihpfjgl7nqkq46wirruehlv3v5ncffei7pgrgfge4dait3csgt5mi"],"thumbnailUrl":"https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:ebczxy5kirxbwzoippkbb2jf/bafkreihpfjgl7nqkq46wirruehlv3v5ncffei7pgrgfge4dait3csgt5mi","datePublished":"2026-07-31T14:17:56.374Z","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"https://schema.org/LikeAction","userInteractionCount":274},{"@type":"InteractionCounter","interactionType":"https://schema.org/CommentAction","userInteractionCount":205},{"@type":"InteractionCounter","interactionType":"https://schema.org/ShareAction","userInteractionCount":658}],"commentCount":205},{"@type":"DiscussionForumPosting","url":"https://bsky.app/profile/letterboxd.social/post/3mruy756gx62o","identifier":"at://did:plc:ebczxy5kirxbwzoippkbb2jf/app.bsky.feed.post/3mruy756gx62o","author":{"@type":"Person","name":"Letterboxd","alternateName":"@letterboxd.social","identifier":"did:plc:ebczxy5kirxbwzoippkbb2jf","url":"https://bsky.app/profile/letterboxd.social","reviewedBy":[{"@type":"Person","name":"Bluesky","alternateName":"@bsky.app","identifier":"did:plc:z72i7hdynmk6r22z27h6tvur","url":"https://bsky.app/profile/bsky.app"}]},"text":"As Gregg Araki makes a long-awaited return to theaters, Luke Hicks sits down with the New Queer Cinema pioneer to discuss his libinidal new comedy, in which carnal delights ignite cross-generational debates. https://boxd.it/3h8 ","image":["https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:ebczxy5kirxbwzoippkbb2jf/bafkreifh7wlabgbakkpucnkcuyssexpld4qmhwfyh57jrq3huvofzrrzi4"],"thumbnailUrl":"https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:ebczxy5kirxbwzoippkbb2jf/bafkreifh7wlabgbakkpucnkcuyssexpld4qmhwfyh57jrq3huvofzrrzi4","datePublished":"2026-07-30T17:38:29.166Z","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"https://schema.org/LikeAction","userInteractionCount":84},{"@type":"InteractionCounter","interactionType":"https://schema.org/CommentAction","userInteractionCount":1},{"@type":"InteractionCounter","interactionType":"https://schema.org/ShareAction","userInteractionCount":17}],"commentCount":1},{"@type":"DiscussionForumPosting","url":"https://bsky.app/profile/letterboxd.social/post/3mruy756gx62o","identifier":"at://did:plc:ebczxy5kirxbwzoippkbb2jf/app.bsky.feed.post/3mruy756gx62o","author":{"@type":"Person","name":"Letterboxd","alternateName":"@letterboxd.social","identifier":"did:plc:ebczxy5kirxbwzoippkbb2jf","url":"https://bsky.app/profile/letterboxd.social","reviewedBy":[{"@type":"Person","name":"Bluesky","alternateName":"@bsky.app","identifier":"did:plc:z72i7hdynmk6r22z27h6tvur","url":"https://bsky.app/profile/bsky.app"}]},"text":"As Gregg Araki makes a long-awaited return to theaters, Luke Hicks sits down with the New Queer Cinema pioneer to discuss his libinidal new comedy, in which carnal delights ignite cross-generational debates. https://boxd.it/3h8 ","image":["https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:ebczxy5kirxbwzoippkbb2jf/bafkreifh7wlabgbakkpucnkcuyssexpld4qmhwfyh57jrq3huvofzrrzi4"],"thumbnailUrl":"https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:ebczxy5kirxbwzoippkbb2jf/bafkreifh7wlabgbakkpucnkcuyssexpld4qmhwfyh57jrq3huvofzrrzi4","datePublished":"2026-07-30T17:38:29.166Z","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"https://schema.org/LikeAction","userInteractionCount":84},{"@type":"InteractionCounter","interactionType":"https://schema.org/CommentAction","userInteractionCount":1},{"@type":"InteractionCounter","interactionType":"https://schema.org/ShareAction","userInteractionCount":17}],"commentCount":1},{"@type":"DiscussionForumPosting","url":"https://bsky.app/profile/letterboxd.social/post/3mrrzepbo7325","identifier":"at://did:plc:ebczxy5kirxbwzoippkbb2jf/app.bsky.feed.post/3mrrzepbo7325","author":{"@type":"Person","name":"Letterboxd","alternateName":"@letterboxd.social","identifier":"did:plc:ebczxy5kirxbwzoippkbb2jf","url":"https://bsky.app/profile/letterboxd.social","reviewedBy":[{"@type":"Person","name":"Bluesky","alternateName":"@bsky.app","identifier":"did:plc:z72i7hdynmk6r22z27h6tvur","url":"https://bsky.app/profile/bsky.app"}]},"text":"Which four films on this list are you most anticipating in August? 👀\n\nView the list of titles on Letterboxd ➡️ https://boxd.it/VAruS","image":["https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:ebczxy5kirxbwzoippkbb2jf/bafkreihlrwz427jy7uihrxvyw6hv5nu5o7lomom5prfai3geil6c2qyxzy"],"thumbnailUrl":"https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:ebczxy5kirxbwzoippkbb2jf/bafkreihlrwz427jy7uihrxvyw6hv5nu5o7lomom5prfai3geil6c2qyxzy","datePublished":"2026-07-29T13:21:30.463Z","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"https://schema.org/LikeAction","userInteractionCount":75},{"@type":"InteractionCounter","interactionType":"https://schema.org/CommentAction","userInteractionCount":32},{"@type":"InteractionCounter","interactionType":"https://schema.org/ShareAction","userInteractionCount":73}],"commentCount":32},{"@type":"DiscussionForumPosting","url":"https://bsky.app/profile/letterboxd.social/post/3mrsakke5xw25","identifier":"at://did:plc:ebczxy5kirxbwzoippkbb2jf/app.bsky.feed.post/3mrsakke5xw25","author":{"@type":"Person","name":"Letterboxd","alternateName":"@letterboxd.social","identifier":"did:plc:ebczxy5kirxbwzoippkbb2jf","url":"https://bsky.app/profile/letterboxd.social","reviewedBy":[{"@type":"Person","name":"Bluesky","alternateName":"@bsky.app","identifier":"did:plc:z72i7hdynmk6r22z27h6tvur","url":"https://bsky.app/profile/bsky.app"}]},"text":"The official poster for Robert Eggers’ Werwulf 🐺\n\nIn theaters on December 25. Add to your watchlist ➡️ https://boxd.it/SC72","image":["https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:ebczxy5kirxbwzoippkbb2jf/bafkreie7ymxkoeapddd46aoak4wnpcfxltdynsq5zsh26pfa7fxbbk4mvm"],"thumbnailUrl":"https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:ebczxy5kirxbwzoippkbb2jf/bafkreie7ymxkoeapddd46aoak4wnpcfxltdynsq5zsh26pfa7fxbbk4mvm","datePublished":"2026-07-29T15:30:02.974Z","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"https://schema.org/LikeAction","userInteractionCount":453},{"@type":"InteractionCounter","interactionType":"https://schema.org/CommentAction","userInteractionCount":14},{"@type":"InteractionCounter","interactionType":"https://schema.org/ShareAction","userInteractionCount":140}],"commentCount":14},{"@type":"DiscussionForumPosting","url":"https://bsky.app/profile/letterboxd.social/post/3mrsfn7lvvg2q","identifier":"at://did:plc:ebczxy5kirxbwzoippkbb2jf/app.bsky.feed.post/3mrsfn7lvvg2q","author":{"@type":"Person","name":"Letterboxd","alternateName":"@letterboxd.social","identifier":"did:plc:ebczxy5kirxbwzoippkbb2jf","url":"https://bsky.app/profile/letterboxd.social","reviewedBy":[{"@type":"Person","name":"Bluesky","alternateName":"@bsky.app","identifier":"did:plc:z72i7hdynmk6r22z27h6tvur","url":"https://bsky.app/profile/bsky.app"}]},"text":"To mark the 25-year anniversary of The Princess Diaries, Ella Kemp celebrates the timeless charm and signiﬁcant milestones of the Anne Hathaway teen classic by unearthing your own diary entries. https://boxd.it/3hs ","image":["https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:ebczxy5kirxbwzoippkbb2jf/bafkreia6x3c42izc6armlokkzx2kcla3fmg7dl2jlo5zloglbsyuuugsqm"],"thumbnailUrl":"https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:ebczxy5kirxbwzoippkbb2jf/bafkreia6x3c42izc6armlokkzx2kcla3fmg7dl2jlo5zloglbsyuuugsqm","datePublished":"2026-07-29T17:01:01.066Z","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"https://schema.org/LikeAction","userInteractionCount":98},{"@type":"InteractionCounter","interactionType":"https://schema.org/CommentAction","userInteractionCount":1},{"@type":"InteractionCounter","interactionType":"https://schema.org/ShareAction","userInteractionCount":19}],"commentCount":1},{"@type":"DiscussionForumPosting","url":"https://bsky.app/profile/letterboxd.social/post/3mrsqzqgftc2y","identifier":"at://did:plc:ebczxy5kirxbwzoippkbb2jf/app.bsky.feed.post/3mrsqzqgftc2y","author":{"@type":"Person","name":"Letterboxd","alternateName":"@letterboxd.social","identifier":"did:plc:ebczxy5kirxbwzoippkbb2jf","url":"https://bsky.app/profile/letterboxd.social","reviewedBy":[{"@type":"Person","name":"Bluesky","alternateName":"@bsky.app","identifier":"did:plc:z72i7hdynmk6r22z27h6tvur","url":"https://bsky.app/profile/bsky.app"}]},"text":"🤠 🧡","image":["https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:ebczxy5kirxbwzoippkbb2jf/bafkreiek36zofg46qf2do6j5v5asuje4yk6wxh2xmomperkmmfdb7ywzta"],"thumbnailUrl":"https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:ebczxy5kirxbwzoippkbb2jf/bafkreiek36zofg46qf2do6j5v5asuje4yk6wxh2xmomperkmmfdb7ywzta","datePublished":"2026-07-29T20:24:52.669Z","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"https://schema.org/LikeAction","userInteractionCount":78},{"@type":"InteractionCounter","interactionType":"https://schema.org/CommentAction","userInteractionCount":3},{"@type":"InteractionCounter","interactionType":"https://schema.org/ShareAction","userInteractionCount":13}],"commentCount":3},{"@type":"DiscussionForumPosting","url":"https://bsky.app/profile/letterboxd.social/post/3mrsfn7lvvg2q","identifier":"at://did:plc:ebczxy5kirxbwzoippkbb2jf/app.bsky.feed.post/3mrsfn7lvvg2q","author":{"@type":"Person","name":"Letterboxd","alternateName":"@letterboxd.social","identifier":"did:plc:ebczxy5kirxbwzoippkbb2jf","url":"https://bsky.app/profile/letterboxd.social","reviewedBy":[{"@type":"Person","name":"Bluesky","alternateName":"@bsky.app","identifier":"did:plc:z72i7hdynmk6r22z27h6tvur","url":"https://bsky.app/profile/bsky.app"}]},"text":"To mark the 25-year anniversary of The Princess Diaries, Ella Kemp celebrates the timeless charm and signiﬁcant milestones of the Anne Hathaway teen classic by unearthing your own diary entries. https://boxd.it/3hs ","image":["https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:ebczxy5kirxbwzoippkbb2jf/bafkreia6x3c42izc6armlokkzx2kcla3fmg7dl2jlo5zloglbsyuuugsqm"],"thumbnailUrl":"https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:ebczxy5kirxbwzoippkbb2jf/bafkreia6x3c42izc6armlokkzx2kcla3fmg7dl2jlo5zloglbsyuuugsqm","datePublished":"2026-07-29T17:01:01.066Z","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"https://schema.org/LikeAction","userInteractionCount":98},{"@type":"InteractionCounter","interactionType":"https://schema.org/CommentAction","userInteractionCount":1},{"@type":"InteractionCounter","interactionType":"https://schema.org/ShareAction","userInteractionCount":19}],"commentCount":1}]}</script>
+  
+</head>
+<body>
+  <div id="splash">
+    <!-- Bluesky SVG -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 57"><path fill="#006AFF" d="M13.873 3.805C21.21 9.332 29.103 20.537 32 26.55v15.882c0-.338-.13.044-.41.867-1.512 4.456-7.418 21.847-20.923 7.944-7.111-7.32-3.819-14.64 9.125-16.85-7.405 1.264-15.73-.825-18.014-9.015C1.12 23.022 0 8.51 0 6.55 0-3.268 8.579-.182 13.873 3.805ZM50.127 3.805C42.79 9.332 34.897 20.537 32 26.55v15.882c0-.338.13.044.41.867 1.512 4.456 7.418 21.847 20.923 7.944 7.111-7.32 3.819-14.64-9.125-16.85 7.405 1.264 15.73-.825 18.014-9.015C62.88 23.022 64 8.51 64 6.55c0-9.818-8.578-6.732-13.873-2.745Z"/></svg>
+  </div>
+  <div id="root">
+  </div>
+
+  <noscript>
+    <h1 lang="en">JavaScript Required</h1>
+    <p lang="en">This is a heavily interactive web application, and JavaScript is required. Simple HTML interfaces are possible, but that is not what this is.
+    <p lang="en">Learn more about Bluesky at <a href="https://bsky.social">bsky.social</a> and <a href="https://atproto.com">atproto.com</a>.
+    <div id="bsky_profile_summary">
+  <h3>Profile</h3>
+  <p id="bsky_display_name">Letterboxd</p>
+  <p id="bsky_handle">letterboxd.social</p>
+  <p id="bsky_did">did:plc:ebczxy5kirxbwzoippkbb2jf</p>
+  <p id="bsky_profile_description">🧡💚💙 A global community of film lovers. Share your taste in movies via our free apps for iOS, Android, Apple TV, and on the web. https://letterboxd.com</p>
+</div>
+
+  </noscript>
+</body>
+</html>
