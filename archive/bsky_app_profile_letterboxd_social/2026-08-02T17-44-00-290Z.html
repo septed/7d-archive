@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, viewport-fit=cover">
+  <meta name="referrer" content="origin-when-cross-origin">
+  <!--
+    Preconnect to essential domains
+  -->
+  <link rel="preconnect" href="https://bsky.social">
+  <link rel="preconnect" href="https://go.bsky.app">
+  <title>@letterboxd.social on Bluesky</title>
+
+  <!-- Hello Humans! API docs at https://atproto.com -->
+
+  <link rel="preload" as="font" type="font/woff2" href="https://web-cdn.bsky.app/static/media/InterVariable.c504db5c06caaf7cdfba.woff2" crossorigin>
+
+  <style>
+    /**
+     * Minimum styles required to render splash.
+     *
+     * ALL OTHER STYLES BELONG IN `src/style.css`
+     *
+     * THIS NEEDS TO BE DUPLICATED IN `bskyweb/templates/base.html`
+     */
+    @font-face {
+      font-family: 'InterVariable';
+      src: url("https://web-cdn.bsky.app/static/media/InterVariable.c504db5c06caaf7cdfba.woff2") format('woff2');
+      font-weight: 300 1000;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'InterVariableItalic';
+      src: url("https://web-cdn.bsky.app/static/media/InterVariable-Italic.01dcbad1bac635f9c9cd.woff2") format('woff2');
+      font-weight: 300 1000;
+      font-style: italic;
+      font-display: swap;
+    }
+    html,
+    body {
+      margin: 0px;
+      padding: 0px;
+      font-family: InterVariable, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Liberation Sans', Helvetica, Arial, sans-serif;
+      text-rendering: optimizeLegibility;
+      /* Platform-specific reset */
+      -webkit-overflow-scrolling: touch;
+      -webkit-text-size-adjust: 100%;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -ms-overflow-style: scrollbar;
+      font-synthesis-weight: none;
+    }
+    :root {
+      --text: black;
+      --background: white;
+      --backgroundLight: #e2e7ee;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        color-scheme: dark;
+        --text: white;
+        --background: black;
+        --backgroundLight: #232e3e;
+      }
+    }
+    html,
+    body,
+    #root {
+      display: flex;
+      flex: 1 0 auto;
+      min-height: 100%;
+      width: 100%;
+    }
+    html.theme--light,
+    html.theme--light body,
+    html.theme--light #root {
+      background-color: white;
+      --text: black;
+      --background: white;
+      --backgroundLight: #DCE2EA;
+    }
+    html.theme--dark,
+    html.theme--dark body,
+    html.theme--dark #root {
+      color-scheme: dark;
+      background-color: black;
+      --text: white;
+      --background: black;
+      --backgroundLight: #232E3E;
+    }
+    html.theme--dim,
+    html.theme--dim body,
+    html.theme--dim #root {
+      color-scheme: dark;
+      background-color: #151D28;
+      --text: white;
+      --background: #151D28;
+      --backgroundLight: #2C3A4E;
+    }
+    #splash {
+      display: flex;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      align-items: center;
+      justify-content: center;
+    }
+    #splash svg {
+      position: relative;
+      top: -50px;
+      width: 100px;
+    }
+    /**
+     * We need these styles to prevent shifting due to scrollbar show/hide on
+     * OSs that have them enabled by default. This also handles cases where the
+     * screen wouldn't otherwise scroll, and therefore hide the scrollbar and
+     * shift the content, by forcing the page to show a scrollbar.
+     */
+    body {
+      width: 100%;
+      overflow-y: scroll;
+    }
+  </style>
+  <script>
+    const theme = localStorage.getItem('ALF_THEME')
+    if (theme) {
+      document.documentElement.classList.add(`theme--${theme}`)
+    }
+  </script>
+
+  <script defer="defer" src="https://web-cdn.bsky.app/static/js/5836.f50026c3.js"></script>
+<link rel="stylesheet" href="https://web-cdn.bsky.app/static/css/main.dbb4f61c.css">
+<script defer="defer" src="https://web-cdn.bsky.app/static/js/main.f11b79bb.js"></script>
+  <link rel="apple-touch-icon" sizes="180x180" href="https://web-cdn.bsky.app/static/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://web-cdn.bsky.app/static/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://web-cdn.bsky.app/static/favicon-16x16.png">
+  <link rel="mask-icon" href="https://web-cdn.bsky.app/static/safari-pinned-tab.svg" color="#1185fe">
+  <meta name="theme-color">
+  <meta name="application-name" content="Bluesky">
+  <meta name="generator" content="bskyweb">
+  
+  <meta property="og:site_name" content="Bluesky Social">
+  <meta property="og:logo" content="https://web-cdn.bsky.app/static/favicon.png">
+  <meta name="twitter:site" content="@bluesky" />
+  <link type="application/activity+json" href="" />
+
+  <meta property="og:site_name" content="Bluesky Social">
+  <meta property="og:type" content="profile">
+  
+  <meta property="og:url" content="https://bsky.app/profile/letterboxd.social">
+  <link rel="canonical" href="https://bsky.app/profile/letterboxd.social" />
+  
+<meta property="profile:username" content="letterboxd.social">
+  <meta property="og:title" content="Letterboxd (@letterboxd.social)">
+  <link rel="alternate" href="at://did:plc:ebczxy5kirxbwzoippkbb2jf/app.bsky.actor.profile/self" />
+
+  <meta name="twitter:label1" content="Account DID">
+  <meta name="twitter:value1" content="did:plc:ebczxy5kirxbwzoippkbb2jf">
+  <link rel="alternate" type="application/rss+xml" href="https://bsky.app/profile/did:plc:ebczxy5kirxbwzoippkbb2jf/rss">
+  
+
+  
+  
+    <meta name="description" content="🧡💚💙 A global community of film lovers. Share your taste in movies via our free apps for iOS, Android, Apple TV, and on the web. https://letterboxd.com">
+    <meta property="og:description" content="🧡💚💙 A global community of film lovers. Share your taste in movies via our free apps for iOS, Android, Apple TV, and on the web. https://letterboxd.com">
+    
+    <meta property="og:image" content="https://cdn.bsky.app/img/banner/plain/did:plc:ebczxy5kirxbwzoippkbb2jf/bafkreievs32eum4qwem2e5oahmcgut3xcz3d2dliqshuht5izqg5duhfpa">
+    <meta name="twitter:card" content="summary_large_image">
+  
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","dateCreated":"2024-11-27T02:08:00.545Z","mainEntity":{"@type":"Person","name":"Letterboxd","alternateName":"@letterboxd.social","identifier":"did:plc:ebczxy5kirxbwzoippkbb2jf","description":"🧡💚💙 A global community of film lovers. Share your taste in movies via our free apps for iOS, Android, Apple TV, and on the web. https://letterboxd.com","image":"https://cdn.bsky.app/img/avatar/plain/did:plc:ebczxy5kirxbwzoippkbb2jf/bafkreibnr5muhkskuyccy6s5q2heap3lpzxpl4wjlfo44qjsflpuiuprvq","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"https://schema.org/FollowAction","userInteractionCount":122071}],"agentInteractionStatistic":[{"@type":"InteractionCounter","interactionType":"https://schema.org/FollowAction","userInteractionCount":67},{"@type":"InteractionCounter","interactionType":"https://schema.org/WriteAction","userInteractionCount":4041}],"reviewedBy":[{"@type":"Person","name":"Bluesky","alternateName":"@bsky.app","identifier":"did:plc:z72i7hdynmk6r22z27h6tvur","url":"https://bsky.app/profile/bsky.app"}]},"hasPart":[{"@type":"DiscussionForumPosting","url":"https://bsky.app/profile/letterboxd.social/post/3ms4gl775772w","identifier":"at://did:plc:ebczxy5kirxbwzoippkbb2jf/app.bsky.feed.post/3ms4gl775772w","author":{"@type":"Person","name":"Letterboxd","alternateName":"@letterboxd.social","identifier":"did:plc:ebczxy5kirxbwzoippkbb2jf","url":"https://bsky.app/profile/letterboxd.social","reviewedBy":[{"@type":"Person","name":"Bluesky","alternateName":"@bsky.app","identifier":"did:plc:z72i7hdynmk6r22z27h6tvur","url":"https://bsky.app/profile/bsky.app"}]},"text":"With Blades of the Guardians now on Letterboxd Video Store, here are the top 100 wuxia films on Letterboxd, ranked by average member rating.\n\nView the full list and eligibility rules here: https://boxd.it/UZdv4. Curated by Letterboxd member halfoun. \n","image":["https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:ebczxy5kirxbwzoippkbb2jf/bafkreihav23jsqgx2uiodw37cvcuwyx7s6dliaegdv2gkodwzygz4atafm"],"thumbnailUrl":"https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:ebczxy5kirxbwzoippkbb2jf/bafkreihav23jsqgx2uiodw37cvcuwyx7s6dliaegdv2gkodwzygz4atafm","datePublished":"2026-08-02T16:44:24.471Z","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"https://schema.org/LikeAction","userInteractionCount":35},{"@type":"InteractionCounter","interactionType":"https://schema.org/CommentAction","userInteractionCount":1},{"@type":"InteractionCounter","interactionType":"https://schema.org/ShareAction","userInteractionCount":6}],"commentCount":1},{"@type":"DiscussionForumPosting","url":"https://bsky.app/profile/letterboxd.social/post/3ms45fhcxqg2m","identifier":"at://did:plc:ebczxy5kirxbwzoippkbb2jf/app.bsky.feed.post/3ms45fhcxqg2m","author":{"@type":"Person","name":"Letterboxd","alternateName":"@letterboxd.social","identifier":"did:plc:ebczxy5kirxbwzoippkbb2jf","url":"https://bsky.app/profile/letterboxd.social","reviewedBy":[{"@type":"Person","name":"Bluesky","alternateName":"@bsky.app","identifier":"did:plc:z72i7hdynmk6r22z27h6tvur","url":"https://bsky.app/profile/bsky.app"}]},"text":"What is the best summer camp film? ⛺️\n\nFor this week’s showdown, pitch your tent by compiling your ten favorite films set at summer camps. \n\nStart listing now: https://boxd.it/iqQ\n","image":["https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:ebczxy5kirxbwzoippkbb2jf/bafkreibgd3lqhzaoiljz5vt7vhsfsqh5ssn4w7v5e6ljzfg7du3qfnlzmi"],"thumbnailUrl":"https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:ebczxy5kirxbwzoippkbb2jf/bafkreibgd3lqhzaoiljz5vt7vhsfsqh5ssn4w7v5e6ljzfg7du3qfnlzmi","datePublished":"2026-08-02T14:00:08.173Z","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"https://schema.org/LikeAction","userInteractionCount":43},{"@type":"InteractionCounter","interactionType":"https://schema.org/CommentAction","userInteractionCount":12},{"@type":"InteractionCounter","interactionType":"https://schema.org/ShareAction","userInteractionCount":13}],"commentCount":12},{"@type":"DiscussionForumPosting","url":"https://bsky.app/profile/letterboxd.social/post/3ms3ubpzb5g2m","identifier":"at://did:plc:ebczxy5kirxbwzoippkbb2jf/app.bsky.feed.post/3ms3ubpzb5g2m","author":{"@type":"Person","name":"Letterboxd","alternateName":"@letterboxd.social","identifier":"did:plc:ebczxy5kirxbwzoippkbb2jf","url":"https://bsky.app/profile/letterboxd.social","reviewedBy":[{"@type":"Person","name":"Bluesky","alternateName":"@bsky.app","identifier":"did:plc:z72i7hdynmk6r22z27h6tvur","url":"https://bsky.app/profile/bsky.app"}]},"text":"good morning 🥞🍴\n\nMatilda was released 30 years ago today.","image":["https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:ebczxy5kirxbwzoippkbb2jf/bafkreieytkgpr4o2362xzp3rg5favg5pwknf65i735bma6clrovkt6no4a"],"thumbnailUrl":"https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:ebczxy5kirxbwzoippkbb2jf/bafkreieytkgpr4o2362xzp3rg5favg5pwknf65i735bma6clrovkt6no4a","datePublished":"2026-08-02T11:16:59.277Z","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"https://schema.org/LikeAction","userInteractionCount":251},{"@type":"InteractionCounter","interactionType":"https://schema.org/CommentAction","userInteractionCount":3},{"@type":"InteractionCounter","interactionType":"https://schema.org/ShareAction","userInteractionCount":63}],"commentCount":3},{"@type":"DiscussionForumPosting","url":"https://bsky.app/profile/letterboxd.social/post/3mrzxdywdlh2m","identifier":"at://did:plc:ebczxy5kirxbwzoippkbb2jf/app.bsky.feed.post/3mrzxdywdlh2m","author":{"@type":"Person","name":"Letterboxd","alternateName":"@letterboxd.social","identifier":"did:plc:ebczxy5kirxbwzoippkbb2jf","url":"https://bsky.app/profile/letterboxd.social","reviewedBy":[{"@type":"Person","name":"Bluesky","alternateName":"@bsky.app","identifier":"did:plc:z72i7hdynmk6r22z27h6tvur","url":"https://bsky.app/profile/bsky.app"}]},"text":"Spider-Man: Brand New Day has officially joined the Letterboxd One Million Watched Club 🕸️\n\nIt is now tied with The Odyssey as the fastest film to reach one million watches on Letterboxd. ","image":["https://video.bsky.app/watch/did%3Aplc%3Aebczxy5kirxbwzoippkbb2jf/bafkreifqkbl42kvojgfwdikc2byoyc3mrgpnyfbb3tnfm4w32yix6anvfm/thumbnail.jpg"],"thumbnailUrl":"https://video.bsky.app/watch/did%3Aplc%3Aebczxy5kirxbwzoippkbb2jf/bafkreifqkbl42kvojgfwdikc2byoyc3mrgpnyfbb3tnfm4w32yix6anvfm/thumbnail.jpg","video":{"@type":"VideoObject","name":"Video by @letterboxd.social","description":"Spider-Man: Brand New Day has officially joined the Letterboxd One Million Watched Club 🕸️\n\nIt is now tied with The Odyssey as the fastest film to reach one million watches on Letterboxd. ","thumbnailUrl":"https://video.bsky.app/watch/did%3Aplc%3Aebczxy5kirxbwzoippkbb2jf/bafkreifqkbl42kvojgfwdikc2byoyc3mrgpnyfbb3tnfm4w32yix6anvfm/thumbnail.jpg","uploadDate":"2026-08-01T17:06:37.870Z","contentUrl":"https://video.bsky.app/watch/did%3Aplc%3Aebczxy5kirxbwzoippkbb2jf/bafkreifqkbl42kvojgfwdikc2byoyc3mrgpnyfbb3tnfm4w32yix6anvfm/playlist.m3u8","embedUrl":"https://bsky.app/profile/letterboxd.social/post/3mrzxdywdlh2m","width":1080,"height":1080},"datePublished":"2026-08-01T17:06:37.870Z","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"https://schema.org/LikeAction","userInteractionCount":226},{"@type":"InteractionCounter","interactionType":"https://schema.org/CommentAction","userInteractionCount":2},{"@type":"InteractionCounter","interactionType":"https://schema.org/ShareAction","userInteractionCount":38}],"commentCount":2},{"@type":"DiscussionForumPosting","url":"https://bsky.app/profile/letterboxd.social/post/3mrzqhze6tw27","identifier":"at://did:plc:ebczxy5kirxbwzoippkbb2jf/app.bsky.feed.post/3mrzqhze6tw27","author":{"@type":"Person","name":"Letterboxd","alternateName":"@letterboxd.social","identifier":"did:plc:ebczxy5kirxbwzoippkbb2jf","url":"https://bsky.app/profile/letterboxd.social","reviewedBy":[{"@type":"Person","name":"Bluesky","alternateName":"@bsky.app","identifier":"did:plc:z72i7hdynmk6r22z27h6tvur","url":"https://bsky.app/profile/bsky.app"}]},"text":"The Consensus for Showdown № 240 is in 🗳️\n\nHere are the top twenty films set in hotels, as voted by the Letterboxd community 🏩\n\nView the list: https://boxd.it/W93We\n","image":["https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:ebczxy5kirxbwzoippkbb2jf/bafkreigmkhjh4gqy6z2yb5e5emp3svwh4mtc5w6hpqqlfeou4bvoxed7em"],"thumbnailUrl":"https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:ebczxy5kirxbwzoippkbb2jf/bafkreigmkhjh4gqy6z2yb5e5emp3svwh4mtc5w6hpqqlfeou4bvoxed7em","datePublished":"2026-08-01T15:03:36.376Z","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"https://schema.org/LikeAction","userInteractionCount":80},{"@type":"InteractionCounter","interactionType":"https://schema.org/CommentAction","userInteractionCount":7},{"@type":"InteractionCounter","interactionType":"https://schema.org/ShareAction","userInteractionCount":8}],"commentCount":7},{"@type":"DiscussionForumPosting","url":"https://bsky.app/profile/letterboxd.social/post/3mrzmzubkdf2x","identifier":"at://did:plc:ebczxy5kirxbwzoippkbb2jf/app.bsky.feed.post/3mrzmzubkdf2x","author":{"@type":"Person","name":"Letterboxd","alternateName":"@letterboxd.social","identifier":"did:plc:ebczxy5kirxbwzoippkbb2jf","url":"https://bsky.app/profile/letterboxd.social","reviewedBy":[{"@type":"Person","name":"Bluesky","alternateName":"@bsky.app","identifier":"did:plc:z72i7hdynmk6r22z27h6tvur","url":"https://bsky.app/profile/bsky.app"}]},"text":"My Own Private Idaho (1991) 💫","image":["https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:ebczxy5kirxbwzoippkbb2jf/bafkreigvmc4mieolry5v6y4qvgpx3geomhyqdjv47hzigk5nxnnwb3xfr4"],"thumbnailUrl":"https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:ebczxy5kirxbwzoippkbb2jf/bafkreigvmc4mieolry5v6y4qvgpx3geomhyqdjv47hzigk5nxnnwb3xfr4","datePublished":"2026-08-01T14:01:59.673Z","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"https://schema.org/LikeAction","userInteractionCount":166},{"@type":"InteractionCounter","interactionType":"https://schema.org/CommentAction","userInteractionCount":1},{"@type":"InteractionCounter","interactionType":"https://schema.org/ShareAction","userInteractionCount":34}],"commentCount":1},{"@type":"DiscussionForumPosting","url":"https://bsky.app/profile/letterboxd.social/post/3mrzi5n3v5o2u","identifier":"at://did:plc:ebczxy5kirxbwzoippkbb2jf/app.bsky.feed.post/3mrzi5n3v5o2u","author":{"@type":"Person","name":"Letterboxd","alternateName":"@letterboxd.social","identifier":"did:plc:ebczxy5kirxbwzoippkbb2jf","url":"https://bsky.app/profile/letterboxd.social","reviewedBy":[{"@type":"Person","name":"Bluesky","alternateName":"@bsky.app","identifier":"did:plc:z72i7hdynmk6r22z27h6tvur","url":"https://bsky.app/profile/bsky.app"}]},"text":"Katharine Isabelle and Emily Perkins read and react to your Letterboxd reviews of Ginger Snaps 🐺\n\nGinger Snaps premiered at Munich Fantasy FilmFest on this day in 2000. Watch the full video: https://boxd.it/ira","image":["https://video.bsky.app/watch/did%3Aplc%3Aebczxy5kirxbwzoippkbb2jf/bafkreibnoy2bj4wyiarhpy3hddedhn4ahe3mdv43ehdnqogudb3i7cjlqm/thumbnail.jpg"],"thumbnailUrl":"https://video.bsky.app/watch/did%3Aplc%3Aebczxy5kirxbwzoippkbb2jf/bafkreibnoy2bj4wyiarhpy3hddedhn4ahe3mdv43ehdnqogudb3i7cjlqm/thumbnail.jpg","video":{"@type":"VideoObject","name":"Video by @letterboxd.social","description":"Katharine Isabelle and Emily Perkins read and react to your Letterboxd reviews of Ginger Snaps 🐺\n\nGinger Snaps premiered at Munich Fantasy FilmFest on this day in 2000. Watch the full video: https://boxd.it/ira","thumbnailUrl":"https://video.bsky.app/watch/did%3Aplc%3Aebczxy5kirxbwzoippkbb2jf/bafkreibnoy2bj4wyiarhpy3hddedhn4ahe3mdv43ehdnqogudb3i7cjlqm/thumbnail.jpg","uploadDate":"2026-08-01T12:34:38.669Z","contentUrl":"https://video.bsky.app/watch/did%3Aplc%3Aebczxy5kirxbwzoippkbb2jf/bafkreibnoy2bj4wyiarhpy3hddedhn4ahe3mdv43ehdnqogudb3i7cjlqm/playlist.m3u8","embedUrl":"https://bsky.app/profile/letterboxd.social/post/3mrzi5n3v5o2u","width":1920,"height":1080},"datePublished":"2026-08-01T12:34:38.669Z","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"https://schema.org/LikeAction","userInteractionCount":170},{"@type":"InteractionCounter","interactionType":"https://schema.org/CommentAction","userInteractionCount":0},{"@type":"InteractionCounter","interactionType":"https://schema.org/ShareAction","userInteractionCount":48}],"commentCount":0},{"@type":"DiscussionForumPosting","url":"https://bsky.app/profile/letterboxd.social/post/3mrzdaqwomj2x","identifier":"at://did:plc:ebczxy5kirxbwzoippkbb2jf/app.bsky.feed.post/3mrzdaqwomj2x","author":{"@type":"Person","name":"Letterboxd","alternateName":"@letterboxd.social","identifier":"did:plc:ebczxy5kirxbwzoippkbb2jf","url":"https://bsky.app/profile/letterboxd.social","reviewedBy":[{"@type":"Person","name":"Bluesky","alternateName":"@bsky.app","identifier":"did:plc:z72i7hdynmk6r22z27h6tvur","url":"https://bsky.app/profile/bsky.app"}]},"text":"Post your favorite first-watches of July 🍿","datePublished":"2026-08-01T11:06:53.075Z","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"https://schema.org/LikeAction","userInteractionCount":100},{"@type":"InteractionCounter","interactionType":"https://schema.org/CommentAction","userInteractionCount":77},{"@type":"InteractionCounter","interactionType":"https://schema.org/ShareAction","userInteractionCount":185}],"commentCount":77},{"@type":"DiscussionForumPosting","url":"https://bsky.app/profile/letterboxd.social/post/3mrzxdywdlh2m","identifier":"at://did:plc:ebczxy5kirxbwzoippkbb2jf/app.bsky.feed.post/3mrzxdywdlh2m","author":{"@type":"Person","name":"Letterboxd","alternateName":"@letterboxd.social","identifier":"did:plc:ebczxy5kirxbwzoippkbb2jf","url":"https://bsky.app/profile/letterboxd.social","reviewedBy":[{"@type":"Person","name":"Bluesky","alternateName":"@bsky.app","identifier":"did:plc:z72i7hdynmk6r22z27h6tvur","url":"https://bsky.app/profile/bsky.app"}]},"text":"Spider-Man: Brand New Day has officially joined the Letterboxd One Million Watched Club 🕸️\n\nIt is now tied with The Odyssey as the fastest film to reach one million watches on Letterboxd. ","image":["https://video.bsky.app/watch/did%3Aplc%3Aebczxy5kirxbwzoippkbb2jf/bafkreifqkbl42kvojgfwdikc2byoyc3mrgpnyfbb3tnfm4w32yix6anvfm/thumbnail.jpg"],"thumbnailUrl":"https://video.bsky.app/watch/did%3Aplc%3Aebczxy5kirxbwzoippkbb2jf/bafkreifqkbl42kvojgfwdikc2byoyc3mrgpnyfbb3tnfm4w32yix6anvfm/thumbnail.jpg","video":{"@type":"VideoObject","name":"Video by @letterboxd.social","description":"Spider-Man: Brand New Day has officially joined the Letterboxd One Million Watched Club 🕸️\n\nIt is now tied with The Odyssey as the fastest film to reach one million watches on Letterboxd. ","thumbnailUrl":"https://video.bsky.app/watch/did%3Aplc%3Aebczxy5kirxbwzoippkbb2jf/bafkreifqkbl42kvojgfwdikc2byoyc3mrgpnyfbb3tnfm4w32yix6anvfm/thumbnail.jpg","uploadDate":"2026-08-01T17:06:37.870Z","contentUrl":"https://video.bsky.app/watch/did%3Aplc%3Aebczxy5kirxbwzoippkbb2jf/bafkreifqkbl42kvojgfwdikc2byoyc3mrgpnyfbb3tnfm4w32yix6anvfm/playlist.m3u8","embedUrl":"https://bsky.app/profile/letterboxd.social/post/3mrzxdywdlh2m","width":1080,"height":1080},"datePublished":"2026-08-01T17:06:37.870Z","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"https://schema.org/LikeAction","userInteractionCount":226},{"@type":"InteractionCounter","interactionType":"https://schema.org/CommentAction","userInteractionCount":2},{"@type":"InteractionCounter","interactionType":"https://schema.org/ShareAction","userInteractionCount":38}],"commentCount":2},{"@type":"DiscussionForumPosting","url":"https://bsky.app/profile/letterboxd.social/post/3mrzqhze6tw27","identifier":"at://did:plc:ebczxy5kirxbwzoippkbb2jf/app.bsky.feed.post/3mrzqhze6tw27","author":{"@type":"Person","name":"Letterboxd","alternateName":"@letterboxd.social","identifier":"did:plc:ebczxy5kirxbwzoippkbb2jf","url":"https://bsky.app/profile/letterboxd.social","reviewedBy":[{"@type":"Person","name":"Bluesky","alternateName":"@bsky.app","identifier":"did:plc:z72i7hdynmk6r22z27h6tvur","url":"https://bsky.app/profile/bsky.app"}]},"text":"The Consensus for Showdown № 240 is in 🗳️\n\nHere are the top twenty films set in hotels, as voted by the Letterboxd community 🏩\n\nView the list: https://boxd.it/W93We\n","image":["https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:ebczxy5kirxbwzoippkbb2jf/bafkreigmkhjh4gqy6z2yb5e5emp3svwh4mtc5w6hpqqlfeou4bvoxed7em"],"thumbnailUrl":"https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:ebczxy5kirxbwzoippkbb2jf/bafkreigmkhjh4gqy6z2yb5e5emp3svwh4mtc5w6hpqqlfeou4bvoxed7em","datePublished":"2026-08-01T15:03:36.376Z","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"https://schema.org/LikeAction","userInteractionCount":80},{"@type":"InteractionCounter","interactionType":"https://schema.org/CommentAction","userInteractionCount":7},{"@type":"InteractionCounter","interactionType":"https://schema.org/ShareAction","userInteractionCount":8}],"commentCount":7}]}</script>
+  
+</head>
+<body>
+  <div id="splash">
+    <!-- Bluesky SVG -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 57"><path fill="#006AFF" d="M13.873 3.805C21.21 9.332 29.103 20.537 32 26.55v15.882c0-.338-.13.044-.41.867-1.512 4.456-7.418 21.847-20.923 7.944-7.111-7.32-3.819-14.64 9.125-16.85-7.405 1.264-15.73-.825-18.014-9.015C1.12 23.022 0 8.51 0 6.55 0-3.268 8.579-.182 13.873 3.805ZM50.127 3.805C42.79 9.332 34.897 20.537 32 26.55v15.882c0-.338.13.044.41.867 1.512 4.456 7.418 21.847 20.923 7.944 7.111-7.32 3.819-14.64-9.125-16.85 7.405 1.264 15.73-.825 18.014-9.015C62.88 23.022 64 8.51 64 6.55c0-9.818-8.578-6.732-13.873-2.745Z"/></svg>
+  </div>
+  <div id="root">
+  </div>
+
+  <noscript>
+    <h1 lang="en">JavaScript Required</h1>
+    <p lang="en">This is a heavily interactive web application, and JavaScript is required. Simple HTML interfaces are possible, but that is not what this is.
+    <p lang="en">Learn more about Bluesky at <a href="https://bsky.social">bsky.social</a> and <a href="https://atproto.com">atproto.com</a>.
+    <div id="bsky_profile_summary">
+  <h3>Profile</h3>
+  <p id="bsky_display_name">Letterboxd</p>
+  <p id="bsky_handle">letterboxd.social</p>
+  <p id="bsky_did">did:plc:ebczxy5kirxbwzoippkbb2jf</p>
+  <p id="bsky_profile_description">🧡💚💙 A global community of film lovers. Share your taste in movies via our free apps for iOS, Android, Apple TV, and on the web. https://letterboxd.com</p>
+</div>
+
+  </noscript>
+</body>
+</html>
