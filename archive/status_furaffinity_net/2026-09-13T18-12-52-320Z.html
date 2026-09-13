@@ -1,0 +1,2199 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Status</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+        .uptime-bar-container { position: relative; }
+        .uptime-bar-container .tooltip {
+            display: none;
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1e293b;
+            border: 1px solid #334155;
+            color: #e2e8f0;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            white-space: nowrap;
+            z-index: 50;
+            pointer-events: none;
+        }
+        .uptime-bar-container:hover .tooltip { display: block; }
+
+        /* Form styling for Django widgets */
+        input[type="text"], input[type="url"], input[type="number"], input[type="email"],
+        input[type="password"], input[type="search"], input[type="tel"],
+        input[type="datetime-local"], input[type="date"], input[type="time"],
+        textarea, select {
+            background-color: #0f172a;
+            border: 1px solid #334155;
+            color: #e2e8f0;
+            border-radius: 0.5rem;
+            padding: 0.5rem 0.75rem;
+            width: 100%;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            transition: border-color 0.15s ease, box-shadow 0.15s ease;
+            outline: none;
+        }
+        input[type="text"]:focus, input[type="url"]:focus, input[type="number"]:focus,
+        input[type="email"]:focus, input[type="password"]:focus, input[type="search"]:focus,
+        input[type="tel"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus,
+        input[type="time"]:focus, textarea:focus, select:focus {
+            border-color: #10b981;
+            box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.15);
+        }
+        select { appearance: none; background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2394a3b8' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e"); background-position: right 0.5rem center; background-repeat: no-repeat; background-size: 1.5em 1.5em; padding-right: 2.5rem; }
+        input[type="checkbox"] { width: 1rem; height: 1rem; background-color: #1e293b; border-color: #475569; border-radius: 0.25rem; accent-color: #10b981; }
+        textarea { min-height: 5rem; resize: vertical; }
+        /* Checkbox list styling */
+        ul[id^="id_"] { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; max-height: 12rem; overflow-y: auto; background: #0f172a; border: 1px solid #334155; border-radius: 0.5rem; padding: 0.75rem; }
+        ul[id^="id_"] li { display: flex; align-items: center; gap: 0.5rem; }
+        ul[id^="id_"] li label { font-size: 0.875rem; color: #cbd5e1; cursor: pointer; }
+    </style>
+    
+</head>
+<body class="bg-dark-950 text-dark-200 min-h-screen">
+    
+<div class="min-h-screen">
+    <header class="border-b border-dark-800 bg-dark-950/80 backdrop-blur-sm sticky top-0 z-40">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-gradient-to-br from-emerald-500 to-cyan-500 rounded-lg flex items-center justify-center">
+                    <img alt="logo" src="https://www.furaffinity.net/fa_offline.webp" class="w-auto h-7">
+                </div>
+                <h1 class="text-xl font-bold text-white">Fur Affinity Status <small class="text-gray-400">(dot net)</small></h1>
+            </div>
+            <span class="text-sm text-dark-400 flex items-center gap-2">
+                <a href="/api/v1/" class="text-emerald-400 hover:text-emerald-300">API Docs</a>
+                
+                
+            </span>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 py-8">
+        <div class="mb-8">
+            
+            <div class="bg-emerald-500/10 border border-emerald-500/30 rounded-xl p-6 flex items-center gap-4">
+                <div class="w-4 h-4 bg-emerald-500 rounded-full animate-pulse shadow-lg shadow-emerald-500/50"></div>
+                <div>
+                    <h2 class="text-xl font-semibold text-emerald-400">All Systems Operational</h2>
+                    <p class="text-dark-400 text-sm mt-1">All monitored services are running normally</p>
+                </div>
+            </div>
+            
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <div class="mb-6 bg-dark-900/30 border border-dark-800/50 rounded-xl p-5 hover:border-dark-700/50 transition-colors">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-3 h-3 rounded-full shrink-0 bg-emerald-500 shadow-md shadow-emerald-500/50"></div>
+                    <div>
+                        <a href="/monitor/1/" class="font-semibold text-white hover:text-emerald-400 transition-colors">Main Site</a>
+                        <span class="text-dark-500 text-xs ml-2">Frontend</span>
+                        
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 text-sm">
+                    
+                    <span class="text-dark-400">288.4ms</span>
+                    
+                    <div class="flex items-center gap-3">
+                        <div class="text-center">
+                            <div class="text-xs text-dark-500">24h</div>
+                            <div class="font-mono text-sm text-emerald-400">
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-xs text-dark-500">72h</div>
+                            <div class="font-mono text-sm text-emerald-400">
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-xs text-dark-500">7d</div>
+                            <div class="font-mono text-sm text-emerald-400">
+                                100.0%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-2">
+                <div class="flex gap-px h-8" title="72-hour uptime history">
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 10 19:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 10 20:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 10 21:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 10 22:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 10 23:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 00:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 01:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 02:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 03:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 04:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 05:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 06:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 07:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 08:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 09:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 10:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 11:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 12:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 13:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 14:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 15:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 16:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 17:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 18:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 19:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 20:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 21:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 22:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 23:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 00:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 01:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 02:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 03:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 04:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 05:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 06:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 07:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 08:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 09:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 10:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 11:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 12:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 13:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 14:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 15:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 16:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 17:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 18:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 19:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 20:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 21:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 22:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 23:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 00:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 01:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 02:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 03:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 04:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 05:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 06:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 07:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 08:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 09:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 10:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 11:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 12:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 13:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 14:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 15:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 16:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 17:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 18:00<br>Operational</div>
+                    </div>
+                    
+                </div>
+                <div class="flex justify-between text-xs text-dark-600 mt-1">
+                    <span>72h ago</span>
+                    <span>48h</span>
+                    <span>24h</span>
+                    <span>Now</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mb-6 bg-dark-900/30 border border-dark-800/50 rounded-xl p-5 hover:border-dark-700/50 transition-colors">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-3 h-3 rounded-full shrink-0 bg-emerald-500 shadow-md shadow-emerald-500/50"></div>
+                    <div>
+                        <a href="/monitor/2/" class="font-semibold text-white hover:text-emerald-400 transition-colors">Sphinx Search</a>
+                        <span class="text-dark-500 text-xs ml-2">Frontend</span>
+                        
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 text-sm">
+                    
+                    <span class="text-dark-400">158.3ms</span>
+                    
+                    <div class="flex items-center gap-3">
+                        <div class="text-center">
+                            <div class="text-xs text-dark-500">24h</div>
+                            <div class="font-mono text-sm text-emerald-400">
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-xs text-dark-500">72h</div>
+                            <div class="font-mono text-sm text-emerald-400">
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-xs text-dark-500">7d</div>
+                            <div class="font-mono text-sm text-emerald-400">
+                                100.0%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-2">
+                <div class="flex gap-px h-8" title="72-hour uptime history">
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 10 19:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 10 20:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 10 21:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 10 22:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 10 23:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 00:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 01:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 02:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 03:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 04:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 05:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 06:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 07:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 08:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 09:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 10:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 11:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 12:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 13:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 14:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 15:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 16:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 17:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 18:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 19:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 20:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 21:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 22:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 23:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 00:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 01:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 02:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 03:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 04:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 05:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 06:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 07:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 08:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 09:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 10:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 11:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 12:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 13:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 14:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 15:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 16:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 17:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 18:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 19:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 20:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 21:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 22:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 23:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 00:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 01:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 02:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 03:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 04:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 05:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 06:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 07:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 08:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 09:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 10:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 11:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 12:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 13:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 14:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 15:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 16:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 17:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 18:00<br>Operational</div>
+                    </div>
+                    
+                </div>
+                <div class="flex justify-between text-xs text-dark-600 mt-1">
+                    <span>72h ago</span>
+                    <span>48h</span>
+                    <span>24h</span>
+                    <span>Now</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mb-6 bg-dark-900/30 border border-dark-800/50 rounded-xl p-5 hover:border-dark-700/50 transition-colors">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-3 h-3 rounded-full shrink-0 bg-emerald-500 shadow-md shadow-emerald-500/50"></div>
+                    <div>
+                        <a href="/monitor/3/" class="font-semibold text-white hover:text-emerald-400 transition-colors">FACDN</a>
+                        <span class="text-dark-500 text-xs ml-2">Frontend</span>
+                        
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 text-sm">
+                    
+                    <span class="text-dark-400">276.1ms</span>
+                    
+                    <div class="flex items-center gap-3">
+                        <div class="text-center">
+                            <div class="text-xs text-dark-500">24h</div>
+                            <div class="font-mono text-sm text-emerald-400">
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-xs text-dark-500">72h</div>
+                            <div class="font-mono text-sm text-emerald-400">
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-xs text-dark-500">7d</div>
+                            <div class="font-mono text-sm text-emerald-400">
+                                99.95%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-2">
+                <div class="flex gap-px h-8" title="72-hour uptime history">
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 10 19:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 10 20:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 10 21:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 10 22:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 10 23:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 00:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 01:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 02:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 03:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 04:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 05:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 06:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 07:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 08:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 09:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 10:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 11:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 12:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 13:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 14:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 15:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 16:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 17:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 18:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 19:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 20:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 21:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 22:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 23:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 00:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 01:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 02:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 03:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 04:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 05:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 06:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 07:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 08:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 09:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 10:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 11:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 12:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 13:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 14:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 15:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 16:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 17:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 18:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 19:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 20:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 21:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 22:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 23:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 00:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 01:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 02:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 03:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 04:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 05:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 06:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 07:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 08:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 09:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 10:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 11:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 12:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 13:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 14:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 15:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 16:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 17:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 18:00<br>Operational</div>
+                    </div>
+                    
+                </div>
+                <div class="flex justify-between text-xs text-dark-600 mt-1">
+                    <span>72h ago</span>
+                    <span>48h</span>
+                    <span>24h</span>
+                    <span>Now</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mb-6 bg-dark-900/30 border border-dark-800/50 rounded-xl p-5 hover:border-dark-700/50 transition-colors">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-3 h-3 rounded-full shrink-0 bg-emerald-500 shadow-md shadow-emerald-500/50"></div>
+                    <div>
+                        <a href="/monitor/4/" class="font-semibold text-white hover:text-emerald-400 transition-colors">Cloudflare Proxy Services</a>
+                        <span class="text-dark-500 text-xs ml-2">Frontend</span>
+                        
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 text-sm">
+                    
+                    <span class="text-dark-400">53.3ms</span>
+                    
+                    <div class="flex items-center gap-3">
+                        <div class="text-center">
+                            <div class="text-xs text-dark-500">24h</div>
+                            <div class="font-mono text-sm text-emerald-400">
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-xs text-dark-500">72h</div>
+                            <div class="font-mono text-sm text-emerald-400">
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-xs text-dark-500">7d</div>
+                            <div class="font-mono text-sm text-emerald-400">
+                                100.0%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-2">
+                <div class="flex gap-px h-8" title="72-hour uptime history">
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 10 19:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 10 20:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 10 21:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 10 22:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 10 23:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 00:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 01:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 02:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 03:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 04:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 05:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 06:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 07:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 08:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 09:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 10:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 11:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 12:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 13:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 14:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 15:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 16:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 17:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 18:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 19:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 20:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 21:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 22:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 23:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 00:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 01:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 02:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 03:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 04:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 05:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 06:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 07:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 08:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 09:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 10:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 11:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 12:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 13:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 14:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 15:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 16:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 17:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 18:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 19:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 20:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 21:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 22:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 23:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 00:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 01:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 02:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 03:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 04:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 05:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 06:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 07:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 08:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 09:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 10:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 11:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 12:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 13:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 14:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 15:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 16:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 17:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 18:00<br>Operational</div>
+                    </div>
+                    
+                </div>
+                <div class="flex justify-between text-xs text-dark-600 mt-1">
+                    <span>72h ago</span>
+                    <span>48h</span>
+                    <span>24h</span>
+                    <span>Now</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mb-6 bg-dark-900/30 border border-dark-800/50 rounded-xl p-5 hover:border-dark-700/50 transition-colors">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-3 h-3 rounded-full shrink-0 bg-emerald-500 shadow-md shadow-emerald-500/50"></div>
+                    <div>
+                        <a href="/monitor/5/" class="font-semibold text-white hover:text-emerald-400 transition-colors">API</a>
+                        
+                        
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 text-sm">
+                    
+                    <span class="text-dark-400">275.5ms</span>
+                    
+                    <div class="flex items-center gap-3">
+                        <div class="text-center">
+                            <div class="text-xs text-dark-500">24h</div>
+                            <div class="font-mono text-sm text-emerald-400">
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-xs text-dark-500">72h</div>
+                            <div class="font-mono text-sm text-emerald-400">
+                                100.0%
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-xs text-dark-500">7d</div>
+                            <div class="font-mono text-sm text-emerald-400">
+                                100.0%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-2">
+                <div class="flex gap-px h-8" title="72-hour uptime history">
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 10 19:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 10 20:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 10 21:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 10 22:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 10 23:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 00:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 01:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 02:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 03:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 04:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 05:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 06:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 07:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 08:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 09:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 10:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 11:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 12:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 13:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 14:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 15:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 16:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 17:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 18:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 19:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 20:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 21:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 22:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 11 23:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 00:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 01:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 02:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 03:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 04:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 05:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 06:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 07:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 08:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 09:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 10:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 11:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 12:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 13:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 14:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 15:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 16:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 17:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 18:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 19:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 20:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 21:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 22:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 12 23:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 00:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 01:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 02:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 03:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 04:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 05:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 06:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 07:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 08:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 09:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 10:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 11:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 12:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 13:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 14:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 15:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 16:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 17:00<br>Operational</div>
+                    </div>
+                    
+                    <div class="uptime-bar-container flex-1 group cursor-default">
+                        <div class="w-full h-full rounded-sm transition-all hover:opacity-80 bg-emerald-500"></div>
+                        <div class="tooltip">Sep 13 18:00<br>Operational</div>
+                    </div>
+                    
+                </div>
+                <div class="flex justify-between text-xs text-dark-600 mt-1">
+                    <span>72h ago</span>
+                    <span>48h</span>
+                    <span>24h</span>
+                    <span>Now</span>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+
+    <footer class="border-t border-dark-800 mt-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <a class="text-dark-500 text-sm">Powered by <span class="text-emerald-400 font-medium">Damocles v1.2.0-FA</span> Status Monitoring </p>
+            <p class="text-dark-600 text-xs">Auto-refreshes every 60 seconds</p>
+        </div>
+    </footer>
+</div>
+
+<script>
+    setTimeout(function() { location.reload(); }, 60000);
+</script>
+
+
+<script type="text/javascript">
+    console.log('\n%c                                                                                                    \n                                                                                                    \n                                                                                                    \n                                                %c::%c;;%c                                                \n                                              %c;;%c;;%c;;%c;;%c                                              \n                                            %cii%c;;%cii%c11%c;;%cii%c                                            \n                                          %c;;%c;;%cii%cLL%cLL%c11%c;;%c;;%c                                          \n                                        %c;;%c;;%cii%cLL%cLL%cLL%cLL%c11%c;;%c;;%c                                        \n                                        %c;;%c;;%cff%cLL%cLL%cLL%cLL%cff%c;;%c;;%cff%c                                      \n                                        %cii%c;;%c;;%c11%c11%c11%c11%c;;%c;;%c;;%c                                        \n                                          %cff%c;;%cii%cii%cii%cii%c;;%c;;%c                                          \n                                          %cff%c;;%ctt%cLL%cLL%cff%c;;%c::%c                                          \n                                          %ctt%c;;%ctt%cLL%cLL%cff%c;;%c::%c                                          \n                                          %cff%c;;%ctt%cLL%cLL%cff%c;;%c::%c                                          \n                                          %cff%c;;%ctt%cLL%cLL%cff%c;;%c::%c                                          \n                                          %ctt%c;;%ctt%cLL%cLL%cff%c;;%c::%c                                          \n                                          %ctt%c;;%ctt%cLL%cLL%cff%c;;%c::%c                                          \n                                          %ctt%c;;%ctt%cLL%cLL%cff%c;;%c::%c                                          \n                                %c::%c,,%c,,%c,,%c,,%ctt%c;;%ctt%cff%cff%ctt%c;;%c::%c,,%c,,%c::%c::%c::%c                                \n                                %c::%c;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;%c::%c                                \n                                %c::%c11%c0000%c00%c00%c00%cCC%cff%cff%cff%cff%cffff%cff%cff%c11%c::%c                                \n                                %c::%ctt%c@@@@@@@@@@%c@@%cGG%cLL%cLL%cLL%cLL%cLLLL%cLL%c11%c::%c                                \n                                %c::%c11%cCC%cCC%cCC%cCC%cCC%cCC%cCC%cff%ctt%ctt%ctt%ctt%ctt%ctt%cii%c::%c                                \n                                %c;;%c;;%c;;%c;;%c;;%c;;%c;;;;%c;;%c;;%c;;%c;;;;%c;;%c;;%c;;%c;;%c;;%c                                \n                                        %c::%cii%cff%cff%cff%cff%cii%cii%cii%c::%c                                        \n                                        %c::%c;;%ctt%cff%ctt%c;;%cii%c88%ctt%c::%c                                        \n                                        %c;;%c;;%cff%ctt%c;;%c11%c88%c@@%ctt%c::%c                                        \n                                        %c;;%c;;%c11%c;;%ctt%c@@%c@@@@%ctt%c::%c                                        \n                                        %c;;%c;;%c;;%cff%c@@%c@@@@@@%ctt%c::%c                                        \n                                        %c::%c;;%cLL%c@@@@@@@@@@%ctt%c::%c                                        \n                                        %c::%c11%c@@@@@@@@@@@@%ctt%c::%c                                        \n                                        %c::%c11%c@@@@@@@@@@@@%ctt%c::%c                                        \n                                        %c::%c11%c@@@@@@@@@@@@%ctt%c::%c                                        \n                                        %c;;%c11%c@@@@@@@@@@@@%ctt%c::%c                                        \n                                        %c;;%c11%c@@@@@@@@@@@@%ctt%c::%c                                        \n                                        %c;;%c11%c@@@@@@@@@@@@%ctt%c::%c                                        \n                                        %c::%c11%c@@@@@@@@@@@@%ctt%c::%c                                        \n                                        %c::%c11%c@@@@@@@@@@@@%ctt%c::%c                                        \n                                        %c::%c11%c@@@@@@@@@@@@%ctt%c;;%c                                        \n                                        %c::%c11%c@@@@@@@@@@@@%ctt%c::%c                                        \n                                        %c::%cii%c88%c@@@@@@@@%c@@%cii%c::%c                                        \n                                        %c;;%c;;%ctt%c@@@@@@@@%cff%c;;%cii%c                                        \n                                          %c;;%c;;%cGG%c@@@@%cGG%c;;%c;;%c                                          \n                                            %c::%c;;%c88%c88%cii%c::%cLL%c                                          \n                                            %c11%c;;%ctt%ctt%c;;%cii%c                                            \n                                              %c;;%c;;%c;;%c;;%c                                              \n                                                %c::%c::%cCC%c                                              \n                                                %c11%c;;%c                                                \n                                                                                                    \n                                                                                                    ', "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(69, 71, 69); background-color: rgb(69, 71, 69); ", "color: rgb(66, 66, 65); background-color: rgb(66, 66, 65); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(81, 84, 82); background-color: rgb(81, 84, 82); ", "color: rgb(11, 12, 11); background-color: rgb(11, 12, 11); ", "color: rgb(7, 7, 7); background-color: rgb(7, 7, 7); ", "color: rgb(81, 81, 82); background-color: rgb(81, 81, 82); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(108, 109, 109); background-color: rgb(108, 109, 109); ", "color: rgb(10, 10, 10); background-color: rgb(10, 10, 10); ", "color: rgb(2, 63, 61); background-color: rgb(2, 63, 61); ", "color: rgb(2, 83, 79); background-color: rgb(2, 83, 79); ", "color: rgb(5, 5, 5); background-color: rgb(5, 5, 5); ", "color: rgb(92, 92, 92); background-color: rgb(92, 92, 92); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(88, 90, 87); background-color: rgb(88, 90, 87); ", "color: rgb(8, 9, 8); background-color: rgb(8, 9, 8); ", "color: rgb(1, 54, 49); background-color: rgb(1, 54, 49); ", "color: rgb(1, 196, 186); background-color: rgb(1, 196, 186); ", "color: rgb(0, 209, 203); background-color: rgb(0, 209, 203); ", "color: rgb(1, 88, 83); background-color: rgb(1, 88, 83); ", "color: rgb(5, 5, 5); background-color: rgb(5, 5, 5); ", "color: rgb(70, 70, 70); background-color: rgb(70, 70, 70); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(82, 82, 81); background-color: rgb(82, 82, 81); ", "color: rgb(9, 9, 9); background-color: rgb(9, 9, 9); ", "color: rgb(2, 53, 50); background-color: rgb(2, 53, 50); ", "color: rgb(1, 195, 187); background-color: rgb(1, 195, 187); ", "color: rgb(0, 205, 194); background-color: rgb(0, 205, 194); ", "color: rgb(0, 208, 197); background-color: rgb(0, 208, 197); ", "color: rgb(0, 211, 202); background-color: rgb(0, 211, 202); ", "color: rgb(1, 95, 92); background-color: rgb(1, 95, 92); ", "color: rgb(5, 5, 5); background-color: rgb(5, 5, 5); ", "color: rgb(79, 78, 78); background-color: rgb(79, 78, 78); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(36, 37, 37); background-color: rgb(36, 37, 37); ", "color: rgb(1, 1, 1); background-color: rgb(1, 1, 1); ", "color: rgb(2, 151, 146); background-color: rgb(2, 151, 146); ", "color: rgb(0, 207, 203); background-color: rgb(0, 207, 203); ", "color: rgb(0, 205, 199); background-color: rgb(0, 205, 199); ", "color: rgb(0, 206, 199); background-color: rgb(0, 206, 199); ", "color: rgb(0, 210, 204); background-color: rgb(0, 210, 204); ", "color: rgb(2, 180, 175); background-color: rgb(2, 180, 175); ", "color: rgb(2, 9, 10); background-color: rgb(2, 9, 10); ", "color: rgb(32, 31, 31); background-color: rgb(32, 31, 31); ", "color: rgb(204, 204, 204); background-color: rgb(204, 204, 204); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(129, 129, 134); background-color: rgb(129, 129, 134); ", "color: rgb(42, 43, 45); background-color: rgb(42, 43, 45); ", "color: rgb(1, 9, 9); background-color: rgb(1, 9, 9); ", "color: rgb(1, 80, 79); background-color: rgb(1, 80, 79); ", "color: rgb(1, 79, 78); background-color: rgb(1, 79, 78); ", "color: rgb(0, 81, 78); background-color: rgb(0, 81, 78); ", "color: rgb(1, 84, 80); background-color: rgb(1, 84, 80); ", "color: rgb(1, 15, 14); background-color: rgb(1, 15, 14); ", "color: rgb(27, 26, 26); background-color: rgb(27, 26, 26); ", "color: rgb(91, 89, 89); background-color: rgb(91, 89, 89); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(199, 200, 201); background-color: rgb(199, 200, 201); ", "color: rgb(5, 4, 5); background-color: rgb(5, 4, 5); ", "color: rgb(1, 43, 40); background-color: rgb(1, 43, 40); ", "color: rgb(0, 67, 62); background-color: rgb(0, 67, 62); ", "color: rgb(0, 70, 67); background-color: rgb(0, 70, 67); ", "color: rgb(1, 53, 52); background-color: rgb(1, 53, 52); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(89, 89, 91); background-color: rgb(89, 89, 91); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(189, 190, 190); background-color: rgb(189, 190, 190); ", "color: rgb(4, 4, 4); background-color: rgb(4, 4, 4); ", "color: rgb(1, 131, 119); background-color: rgb(1, 131, 119); ", "color: rgb(0, 201, 189); background-color: rgb(0, 201, 189); ", "color: rgb(0, 211, 197); background-color: rgb(0, 211, 197); ", "color: rgb(0, 167, 156); background-color: rgb(0, 167, 156); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(60, 62, 64); background-color: rgb(60, 62, 64); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(180, 181, 181); background-color: rgb(180, 181, 181); ", "color: rgb(4, 4, 4); background-color: rgb(4, 4, 4); ", "color: rgb(0, 131, 119); background-color: rgb(0, 131, 119); ", "color: rgb(0, 204, 191); background-color: rgb(0, 204, 191); ", "color: rgb(0, 210, 196); background-color: rgb(0, 210, 196); ", "color: rgb(1, 168, 156); background-color: rgb(1, 168, 156); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(54, 55, 57); background-color: rgb(54, 55, 57); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(188, 187, 187); background-color: rgb(188, 187, 187); ", "color: rgb(4, 4, 4); background-color: rgb(4, 4, 4); ", "color: rgb(2, 135, 121); background-color: rgb(2, 135, 121); ", "color: rgb(1, 205, 192); background-color: rgb(1, 205, 192); ", "color: rgb(0, 209, 195); background-color: rgb(0, 209, 195); ", "color: rgb(1, 166, 154); background-color: rgb(1, 166, 154); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(52, 53, 55); background-color: rgb(52, 53, 55); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(188, 187, 187); background-color: rgb(188, 187, 187); ", "color: rgb(5, 4, 4); background-color: rgb(5, 4, 4); ", "color: rgb(4, 136, 123); background-color: rgb(4, 136, 123); ", "color: rgb(2, 207, 193); background-color: rgb(2, 207, 193); ", "color: rgb(1, 210, 197); background-color: rgb(1, 210, 197); ", "color: rgb(1, 168, 159); background-color: rgb(1, 168, 159); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(61, 62, 63); background-color: rgb(61, 62, 63); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(180, 178, 178); background-color: rgb(180, 178, 178); ", "color: rgb(4, 3, 3); background-color: rgb(4, 3, 3); ", "color: rgb(4, 138, 126); background-color: rgb(4, 138, 126); ", "color: rgb(2, 209, 195); background-color: rgb(2, 209, 195); ", "color: rgb(1, 211, 199); background-color: rgb(1, 211, 199); ", "color: rgb(1, 171, 162); background-color: rgb(1, 171, 162); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(58, 58, 59); background-color: rgb(58, 58, 59); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(168, 167, 167); background-color: rgb(168, 167, 167); ", "color: rgb(3, 3, 3); background-color: rgb(3, 3, 3); ", "color: rgb(6, 139, 127); background-color: rgb(6, 139, 127); ", "color: rgb(4, 210, 197); background-color: rgb(4, 210, 197); ", "color: rgb(1, 211, 197); background-color: rgb(1, 211, 197); ", "color: rgb(0, 168, 157); background-color: rgb(0, 168, 157); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(53, 52, 52); background-color: rgb(53, 52, 52); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(176, 176, 176); background-color: rgb(176, 176, 176); ", "color: rgb(3, 3, 3); background-color: rgb(3, 3, 3); ", "color: rgb(5, 140, 127); background-color: rgb(5, 140, 127); ", "color: rgb(7, 210, 196); background-color: rgb(7, 210, 196); ", "color: rgb(2, 212, 199); background-color: rgb(2, 212, 199); ", "color: rgb(1, 168, 159); background-color: rgb(1, 168, 159); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(54, 54, 54); background-color: rgb(54, 54, 54); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(54, 55, 53); background-color: rgb(54, 55, 53); ", "color: rgb(39, 40, 38); background-color: rgb(39, 40, 38); ", "color: rgb(45, 46, 44); background-color: rgb(45, 46, 44); ", "color: rgb(45, 47, 45); background-color: rgb(45, 47, 45); ", "color: rgb(43, 45, 45); background-color: rgb(43, 45, 45); ", "color: rgb(160, 160, 159); background-color: rgb(160, 160, 159); ", "color: rgb(3, 3, 3); background-color: rgb(3, 3, 3); ", "color: rgb(3, 123, 114); background-color: rgb(3, 123, 114); ", "color: rgb(7, 182, 173); background-color: rgb(7, 182, 173); ", "color: rgb(3, 182, 172); background-color: rgb(3, 182, 172); ", "color: rgb(3, 147, 139); background-color: rgb(3, 147, 139); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(54, 55, 53); background-color: rgb(54, 55, 53); ", "color: rgb(42, 44, 41); background-color: rgb(42, 44, 41); ", "color: rgb(47, 48, 45); background-color: rgb(47, 48, 45); ", "color: rgb(50, 51, 49); background-color: rgb(50, 51, 49); ", "color: rgb(47, 49, 47); background-color: rgb(47, 49, 47); ", "color: rgb(58, 60, 58); background-color: rgb(58, 60, 58); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(20, 20, 20); background-color: rgb(20, 20, 20); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(17, 16, 17); background-color: rgb(17, 16, 17); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(21, 21, 21); background-color: rgb(21, 21, 21); ", "color: rgb(71, 71, 71); background-color: rgb(71, 71, 71); ", "color: rgb(207, 208, 208); background-color: rgb(207, 208, 208); ", "color: rgb(209, 209, 209); background-color: rgb(209, 209, 209); ", "color: rgb(210, 211, 211); background-color: rgb(210, 211, 211); ", "color: rgb(211, 212, 213); background-color: rgb(211, 212, 213); ", "color: rgb(98, 187, 177); background-color: rgb(98, 187, 177); ", "color: rgb(0, 166, 155); background-color: rgb(0, 166, 155); ", "color: rgb(0, 168, 158); background-color: rgb(0, 168, 158); ", "color: rgb(0, 172, 162); background-color: rgb(0, 172, 162); ", "color: rgb(0, 173, 164); background-color: rgb(0, 173, 164); ", "color: rgb(0, 176, 165); background-color: rgb(0, 176, 165); ", "color: rgb(0, 175, 165); background-color: rgb(0, 175, 165); ", "color: rgb(0, 178, 170); background-color: rgb(0, 178, 170); ", "color: rgb(1, 78, 73); background-color: rgb(1, 78, 73); ", "color: rgb(19, 19, 19); background-color: rgb(19, 19, 19); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(23, 23, 23); background-color: rgb(23, 23, 23); ", "color: rgb(88, 88, 88); background-color: rgb(88, 88, 88); ", "color: rgb(255, 255, 255); background-color: rgb(255, 255, 255); ", "color: rgb(254, 255, 254); background-color: rgb(254, 255, 254); ", "color: rgb(115, 227, 218); background-color: rgb(115, 227, 218); ", "color: rgb(1, 207, 197); background-color: rgb(1, 207, 197); ", "color: rgb(0, 210, 200); background-color: rgb(0, 210, 200); ", "color: rgb(0, 211, 200); background-color: rgb(0, 211, 200); ", "color: rgb(0, 212, 199); background-color: rgb(0, 212, 199); ", "color: rgb(0, 211, 199); background-color: rgb(0, 211, 199); ", "color: rgb(0, 216, 208); background-color: rgb(0, 216, 208); ", "color: rgb(0, 98, 94); background-color: rgb(0, 98, 94); ", "color: rgb(19, 18, 18); background-color: rgb(19, 18, 18); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(23, 23, 23); background-color: rgb(23, 23, 23); ", "color: rgb(50, 50, 50); background-color: rgb(50, 50, 50); ", "color: rgb(146, 147, 146); background-color: rgb(146, 147, 146); ", "color: rgb(147, 148, 147); background-color: rgb(147, 148, 147); ", "color: rgb(148, 149, 148); background-color: rgb(148, 149, 148); ", "color: rgb(149, 150, 150); background-color: rgb(149, 150, 150); ", "color: rgb(151, 151, 151); background-color: rgb(151, 151, 151); ", "color: rgb(151, 152, 151); background-color: rgb(151, 152, 151); ", "color: rgb(150, 151, 151); background-color: rgb(150, 151, 151); ", "color: rgb(42, 131, 127); background-color: rgb(42, 131, 127); ", "color: rgb(0, 128, 123); background-color: rgb(0, 128, 123); ", "color: rgb(0, 128, 124); background-color: rgb(0, 128, 124); ", "color: rgb(0, 130, 123); background-color: rgb(0, 130, 123); ", "color: rgb(0, 130, 122); background-color: rgb(0, 130, 122); ", "color: rgb(1, 129, 121); background-color: rgb(1, 129, 121); ", "color: rgb(0, 133, 128); background-color: rgb(0, 133, 128); ", "color: rgb(1, 61, 58); background-color: rgb(1, 61, 58); ", "color: rgb(18, 18, 17); background-color: rgb(18, 18, 17); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(33, 34, 32); background-color: rgb(33, 34, 32); ", "color: rgb(16, 17, 16); background-color: rgb(16, 17, 16); ", "color: rgb(17, 18, 17); background-color: rgb(17, 18, 17); ", "color: rgb(15, 16, 16); background-color: rgb(15, 16, 16); ", "color: rgb(7, 7, 7); background-color: rgb(7, 7, 7); ", "color: rgb(0, 4, 4); background-color: rgb(0, 4, 4); ", "color: rgb(0, 16, 14); background-color: rgb(0, 16, 14); ", "color: rgb(0, 17, 16); background-color: rgb(0, 17, 16); ", "color: rgb(0, 18, 17); background-color: rgb(0, 18, 17); ", "color: rgb(0, 17, 17); background-color: rgb(0, 17, 17); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(5, 5, 5); background-color: rgb(5, 5, 5); ", "color: rgb(12, 13, 12); background-color: rgb(12, 13, 12); ", "color: rgb(14, 14, 14); background-color: rgb(14, 14, 14); ", "color: rgb(15, 15, 15); background-color: rgb(15, 15, 15); ", "color: rgb(32, 32, 32); background-color: rgb(32, 32, 32); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(29, 29, 29); background-color: rgb(29, 29, 29); ", "color: rgb(0, 41, 36); background-color: rgb(0, 41, 36); ", "color: rgb(0, 156, 140); background-color: rgb(0, 156, 140); ", "color: rgb(0, 157, 142); background-color: rgb(0, 157, 142); ", "color: rgb(0, 157, 143); background-color: rgb(0, 157, 143); ", "color: rgb(1, 152, 142); background-color: rgb(1, 152, 142); ", "color: rgb(1, 44, 41); background-color: rgb(1, 44, 41); ", "color: rgb(26, 27, 27); background-color: rgb(26, 27, 27); ", "color: rgb(48, 48, 48); background-color: rgb(48, 48, 48); ", "color: rgb(29, 29, 28); background-color: rgb(29, 29, 28); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(33, 33, 33); background-color: rgb(33, 33, 33); ", "color: rgb(0, 37, 34); background-color: rgb(0, 37, 34); ", "color: rgb(0, 152, 139); background-color: rgb(0, 152, 139); ", "color: rgb(0, 153, 141); background-color: rgb(0, 153, 141); ", "color: rgb(1, 138, 127); background-color: rgb(1, 138, 127); ", "color: rgb(1, 28, 26); background-color: rgb(1, 28, 26); ", "color: rgb(41, 41, 41); background-color: rgb(41, 41, 41); ", "color: rgb(223, 224, 224); background-color: rgb(223, 224, 224); ", "color: rgb(81, 81, 80); background-color: rgb(81, 81, 80); ", "color: rgb(28, 28, 27); background-color: rgb(28, 28, 27); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(37, 37, 36); background-color: rgb(37, 37, 36); ", "color: rgb(0, 35, 33); background-color: rgb(0, 35, 33); ", "color: rgb(0, 150, 142); background-color: rgb(0, 150, 142); ", "color: rgb(1, 127, 120); background-color: rgb(1, 127, 120); ", "color: rgb(1, 15, 14); background-color: rgb(1, 15, 14); ", "color: rgb(59, 59, 59); background-color: rgb(59, 59, 59); ", "color: rgb(236, 236, 236); background-color: rgb(236, 236, 236); ", "color: rgb(255, 255, 255); background-color: rgb(255, 255, 255); ", "color: rgb(79, 79, 79); background-color: rgb(79, 79, 79); ", "color: rgb(28, 27, 27); background-color: rgb(28, 27, 27); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(38, 38, 38); background-color: rgb(38, 38, 38); ", "color: rgb(0, 36, 35); background-color: rgb(0, 36, 35); ", "color: rgb(1, 108, 105); background-color: rgb(1, 108, 105); ", "color: rgb(0, 8, 7); background-color: rgb(0, 8, 7); ", "color: rgb(84, 84, 84); background-color: rgb(84, 84, 84); ", "color: rgb(247, 247, 247); background-color: rgb(247, 247, 247); ", "color: rgb(255, 255, 255); background-color: rgb(255, 255, 255); ", "color: rgb(80, 80, 80); background-color: rgb(80, 80, 80); ", "color: rgb(27, 26, 26); background-color: rgb(27, 26, 26); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(37, 38, 38); background-color: rgb(37, 38, 38); ", "color: rgb(0, 11, 11); background-color: rgb(0, 11, 11); ", "color: rgb(1, 3, 3); background-color: rgb(1, 3, 3); ", "color: rgb(114, 113, 113); background-color: rgb(114, 113, 113); ", "color: rgb(252, 252, 252); background-color: rgb(252, 252, 252); ", "color: rgb(255, 255, 255); background-color: rgb(255, 255, 255); ", "color: rgb(81, 81, 81); background-color: rgb(81, 81, 81); ", "color: rgb(24, 24, 24); background-color: rgb(24, 24, 24); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(25, 26, 26); background-color: rgb(25, 26, 26); ", "color: rgb(3, 3, 3); background-color: rgb(3, 3, 3); ", "color: rgb(145, 144, 143); background-color: rgb(145, 144, 143); ", "color: rgb(255, 255, 255); background-color: rgb(255, 255, 255); ", "color: rgb(82, 82, 82); background-color: rgb(82, 82, 82); ", "color: rgb(23, 22, 22); background-color: rgb(23, 22, 22); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(25, 25, 25); background-color: rgb(25, 25, 25); ", "color: rgb(65, 65, 66); background-color: rgb(65, 65, 66); ", "color: rgb(255, 255, 255); background-color: rgb(255, 255, 255); ", "color: rgb(83, 83, 83); background-color: rgb(83, 83, 83); ", "color: rgb(23, 23, 23); background-color: rgb(23, 23, 23); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(25, 26, 26); background-color: rgb(25, 26, 26); ", "color: rgb(64, 64, 64); background-color: rgb(64, 64, 64); ", "color: rgb(255, 255, 255); background-color: rgb(255, 255, 255); ", "color: rgb(83, 83, 83); background-color: rgb(83, 83, 83); ", "color: rgb(23, 23, 23); background-color: rgb(23, 23, 23); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(24, 25, 24); background-color: rgb(24, 25, 24); ", "color: rgb(63, 63, 63); background-color: rgb(63, 63, 63); ", "color: rgb(255, 255, 255); background-color: rgb(255, 255, 255); ", "color: rgb(83, 83, 83); background-color: rgb(83, 83, 83); ", "color: rgb(22, 22, 22); background-color: rgb(22, 22, 22); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(36, 37, 37); background-color: rgb(36, 37, 37); ", "color: rgb(63, 63, 63); background-color: rgb(63, 63, 63); ", "color: rgb(255, 255, 255); background-color: rgb(255, 255, 255); ", "color: rgb(82, 82, 81); background-color: rgb(82, 82, 81); ", "color: rgb(24, 24, 24); background-color: rgb(24, 24, 24); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(39, 39, 39); background-color: rgb(39, 39, 39); ", "color: rgb(63, 63, 63); background-color: rgb(63, 63, 63); ", "color: rgb(255, 255, 255); background-color: rgb(255, 255, 255); ", "color: rgb(81, 81, 81); background-color: rgb(81, 81, 81); ", "color: rgb(24, 24, 24); background-color: rgb(24, 24, 24); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(38, 38, 38); background-color: rgb(38, 38, 38); ", "color: rgb(64, 64, 64); background-color: rgb(64, 64, 64); ", "color: rgb(255, 255, 255); background-color: rgb(255, 255, 255); ", "color: rgb(82, 82, 81); background-color: rgb(82, 82, 81); ", "color: rgb(23, 23, 23); background-color: rgb(23, 23, 23); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(33, 33, 33); background-color: rgb(33, 33, 33); ", "color: rgb(64, 64, 64); background-color: rgb(64, 64, 64); ", "color: rgb(255, 255, 255); background-color: rgb(255, 255, 255); ", "color: rgb(82, 82, 82); background-color: rgb(82, 82, 82); ", "color: rgb(22, 22, 22); background-color: rgb(22, 22, 22); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(31, 32, 31); background-color: rgb(31, 32, 31); ", "color: rgb(63, 63, 63); background-color: rgb(63, 63, 63); ", "color: rgb(255, 255, 255); background-color: rgb(255, 255, 255); ", "color: rgb(81, 81, 81); background-color: rgb(81, 81, 81); ", "color: rgb(23, 23, 23); background-color: rgb(23, 23, 23); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(32, 32, 32); background-color: rgb(32, 32, 32); ", "color: rgb(64, 64, 64); background-color: rgb(64, 64, 64); ", "color: rgb(255, 255, 255); background-color: rgb(255, 255, 255); ", "color: rgb(81, 81, 81); background-color: rgb(81, 81, 81); ", "color: rgb(33, 33, 32); background-color: rgb(33, 33, 32); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(32, 33, 32); background-color: rgb(32, 33, 32); ", "color: rgb(65, 65, 65); background-color: rgb(65, 65, 65); ", "color: rgb(255, 255, 255); background-color: rgb(255, 255, 255); ", "color: rgb(84, 84, 84); background-color: rgb(84, 84, 84); ", "color: rgb(21, 21, 20); background-color: rgb(21, 21, 20); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(33, 33, 33); background-color: rgb(33, 33, 33); ", "color: rgb(28, 28, 28); background-color: rgb(28, 28, 28); ", "color: rgb(241, 241, 241); background-color: rgb(241, 241, 241); ", "color: rgb(255, 255, 255); background-color: rgb(255, 255, 255); ", "color: rgb(245, 245, 245); background-color: rgb(245, 245, 245); ", "color: rgb(38, 39, 38); background-color: rgb(38, 39, 38); ", "color: rgb(31, 31, 30); background-color: rgb(31, 31, 30); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(99, 99, 99); background-color: rgb(99, 99, 99); ", "color: rgb(12, 12, 12); background-color: rgb(12, 12, 12); ", "color: rgb(94, 93, 94); background-color: rgb(94, 93, 94); ", "color: rgb(255, 255, 255); background-color: rgb(255, 255, 255); ", "color: rgb(108, 108, 107); background-color: rgb(108, 108, 107); ", "color: rgb(11, 11, 11); background-color: rgb(11, 11, 11); ", "color: rgb(103, 103, 101); background-color: rgb(103, 103, 101); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(77, 77, 79); background-color: rgb(77, 77, 79); ", "color: rgb(1, 1, 1); background-color: rgb(1, 1, 1); ", "color: rgb(172, 172, 172); background-color: rgb(172, 172, 172); ", "color: rgb(255, 255, 255); background-color: rgb(255, 255, 255); ", "color: rgb(183, 183, 183); background-color: rgb(183, 183, 183); ", "color: rgb(2, 2, 2); background-color: rgb(2, 2, 2); ", "color: rgb(66, 68, 67); background-color: rgb(66, 68, 67); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(31, 31, 33); background-color: rgb(31, 31, 33); ", "color: rgb(23, 23, 23); background-color: rgb(23, 23, 23); ", "color: rgb(233, 233, 233); background-color: rgb(233, 233, 233); ", "color: rgb(236, 236, 235); background-color: rgb(236, 236, 235); ", "color: rgb(25, 25, 25); background-color: rgb(25, 25, 25); ", "color: rgb(30, 30, 29); background-color: rgb(30, 30, 29); ", "color: rgb(219, 223, 222); background-color: rgb(219, 223, 222); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(142, 142, 145); background-color: rgb(142, 142, 145); ", "color: rgb(14, 14, 14); background-color: rgb(14, 14, 14); ", "color: rgb(82, 82, 82); background-color: rgb(82, 82, 82); ", "color: rgb(85, 85, 85); background-color: rgb(85, 85, 85); ", "color: rgb(11, 11, 10); background-color: rgb(11, 11, 10); ", "color: rgb(128, 128, 126); background-color: rgb(128, 128, 126); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(87, 88, 89); background-color: rgb(87, 88, 89); ", "color: rgb(3, 3, 4); background-color: rgb(3, 3, 4); ", "color: rgb(1, 1, 1); background-color: rgb(1, 1, 1); ", "color: rgb(81, 81, 79); background-color: rgb(81, 81, 79); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(37, 38, 38); background-color: rgb(37, 38, 38); ", "color: rgb(30, 30, 30); background-color: rgb(30, 30, 30); ", "color: rgb(249, 249, 245); background-color: rgb(249, 249, 245); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ", "color: rgb(144, 148, 146); background-color: rgb(144, 148, 146); ", "color: rgb(92, 93, 92); background-color: rgb(92, 93, 92); ", "color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); ");
+    console.log("Hi! Thanks for being inquisitive! Software is meant for everyone. Don't let big companies tell you what you can and can't have. <3")
+</script>
+</body>
+</html>
